@@ -90,4 +90,5 @@ public class Product {
     public void setItemSales(Collection<ItemSale> itemSale) {
         this.itemSales = itemSale;
     }
+
 }
