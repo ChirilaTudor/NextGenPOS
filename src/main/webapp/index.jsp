@@ -2,5 +2,5 @@
     <%@taglib prefix="t" tagdir="/WEB-INF/tags" %>
 
     <t:pageTemplate pageTitle="NextGenPos">
-        <h1>Welcome</h1>
+
     </t:pageTemplate>
