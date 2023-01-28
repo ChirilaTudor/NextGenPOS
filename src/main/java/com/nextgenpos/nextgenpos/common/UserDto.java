@@ -45,4 +45,5 @@ public class UserDto {
     public boolean isActive() {
         return isActive;
     }
+
 }
