@@ -6,7 +6,6 @@ import java.util.Collection;
 
 @Entity
 public class User {
-    //idUser,username, password, idPerson, typeEmployee, isActive
     private Long idUser;
     private String username;
     private String password;
@@ -78,6 +77,10 @@ public class User {
 
     public void setSales(Collection<Sale> sales) {
         this.sales = sales;
+    }
+
+    public void addSale(Sale sale) {
+        this.getSales().add(sale);
     }
 
     @OneToOne

@@ -29,7 +29,7 @@ public class AddProduct extends HttpServlet {
     protected void doPost (HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String productName = request.getParameter("product_name");
         Integer quantity = Integer.parseInt(request.getParameter("product_quantity"));
-        Float price = Float.parseFloat(request.getParameter("product_price"));
+        Double price = Double.parseDouble(request.getParameter("product_price"));
         String description = request.getParameter("product_description");
         String provider = request.getParameter("product_provider");
 

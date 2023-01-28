@@ -4,11 +4,11 @@ public class ProductDto {
     private Long idProduct;
     private String productName;
     private Integer quantity;
-    private Float price;
+    private Double price;
     private String description;
     private String provider;
 
-    public ProductDto(Long idProduct, String productName, Integer quantity, Float price, String description, String provider) {
+    public ProductDto(Long idProduct, String productName, Integer quantity, Double price, String description, String provider) {
         this.idProduct = idProduct;
         this.productName = productName;
         this.quantity = quantity;
@@ -29,7 +29,7 @@ public class ProductDto {
         return quantity;
     }
 
-    public Float getPrice() {
+    public Double getPrice() {
         return price;
     }
 

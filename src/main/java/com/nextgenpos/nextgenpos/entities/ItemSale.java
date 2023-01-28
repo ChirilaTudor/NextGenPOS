@@ -11,9 +11,9 @@ public class ItemSale {
 
     private Sale sale;
     private Integer quantity;
-    private Float pricePerUnit;
+    private Double pricePerUnit;
 
-    public ItemSale(Long idItemSale, Integer quantity, Float pricePerUnit) {
+    public ItemSale(Long idItemSale, Integer quantity, Double pricePerUnit) {
         this.idItemSale = idItemSale;
         this.quantity = quantity;
         this.pricePerUnit = pricePerUnit;
@@ -51,11 +51,11 @@ public class ItemSale {
         this.quantity = quantity;
     }
 
-    public Float getPricePerUnit() {
+    public Double getPricePerUnit() {
         return pricePerUnit;
     }
 
-    public void setPricePerUnit(Float pricePerUnit) {
+    public void setPricePerUnit(Double pricePerUnit) {
         this.pricePerUnit = pricePerUnit;
     }
 

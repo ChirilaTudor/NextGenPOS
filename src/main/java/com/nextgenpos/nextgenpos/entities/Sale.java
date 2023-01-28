@@ -3,19 +3,18 @@ package com.nextgenpos.nextgenpos.entities;
 import jakarta.persistence.*;
 
 import java.util.Collection;
+import java.util.Date;
 
 @Entity
 public class Sale {
     private Long idSale;
-    private String saleDate;
+    private Date saleDate;
     private User user;
-    private Float total;
-
+    private Double total;
 
     private Collection<ItemSale> itemSales;
 
-
-    public Sale(Long idSale, String saleDate, Float total) {
+    public Sale(Long idSale, Date saleDate, Double total) {
         this.idSale = idSale;
         this.saleDate = saleDate;
         this.total = total;
@@ -35,11 +34,11 @@ public class Sale {
         this.idSale = idSale;
     }
 
-    public String getSaleDate() {
+    public Date getSaleDate() {
         return saleDate;
     }
 
-    public void setSaleDate(String saleDate) {
+    public void setSaleDate(Date saleDate) {
         this.saleDate = saleDate;
     }
 
@@ -52,11 +51,11 @@ public class Sale {
         this.user = user;
     }
 
-    public Float getTotal() {
+    public Double getTotal() {
         return total;
     }
 
-    public void setTotal(Float total) {
+    public void setTotal(Double total) {
         this.total = total;
     }
 
@@ -68,5 +67,9 @@ public class Sale {
 
     public void setItemSales(Collection<ItemSale> itemSales) {
         this.itemSales = itemSales;
+    }
+
+    public void addItemSale(ItemSale itemSale) {
+        this.getItemSales().add(itemSale);
     }
 }

@@ -42,7 +42,7 @@ public class ProductsBean {
         return productDto;
     }
 
-    public void createProduct(String productName, Integer quantity, Float price, String description, String provider) {
+    public void createProduct(String productName, Integer quantity, Double price, String description, String provider) {
         LOG.info("createProduct");
 
         Product product = new Product();
@@ -55,7 +55,7 @@ public class ProductsBean {
         entityManager.persist(product);
     }
 
-    public void updateProduct(String productId, String productName, Integer quantity, Float price, String description, String provider) {
+    public void updateProduct(String productId, String productName, Integer quantity, Double price, String description, String provider) {
         LOG.info("updateProduct");
 
         Product product = entityManager.find(Product.class, productId);
