@@ -11,10 +11,10 @@
 </head>
 <body>
 <jsp:include page="/WEB-INF/pages/menu.jsp" />
-<main class="container-fluid mt-5">
+<main class="container-fluid">
     <jsp:doBody/>
 </main>
 <jsp:include page="/WEB-INF/pages/footer.jsp" />
-    <script><%@include file="/WEB-INF/scripts/functions.js"%></script>
+    <script><%@include file="/scripts/functions.js"%></script>
 </body>
 </html>
