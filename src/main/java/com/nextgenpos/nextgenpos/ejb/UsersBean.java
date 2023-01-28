@@ -48,16 +48,17 @@ public class UsersBean {
     public void createUser(String username, String password, Long personId , String typeEmployee, Boolean isActive,Collection<String> groups) {
         LOG.info("createUser");
 
-        User newUser = new User();
-        newUser.setUsername(username);
-        newUser.setPassword(passwordBean.convertToSha256(password));
+        User user = new User();
+        user.setUsername(username);
+        user.setPassword(passwordBean.convertToSha256(password));
 
         Person person = entityManager.find(Person.class, personId);
-        newUser.setPerson(person);
+        person.setUser(user);
+        user.setPerson(person);
 
-        newUser.setTypeEmployee(typeEmployee);
-        newUser.setActive(isActive);
-        entityManager.persist(newUser);
+        user.setTypeEmployee(typeEmployee);
+        user.setActive(isActive);
+        entityManager.persist(user);
 
         assignGroupsToUser(username, groups);
     }

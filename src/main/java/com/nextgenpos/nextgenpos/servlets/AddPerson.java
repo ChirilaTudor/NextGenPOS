@@ -16,7 +16,7 @@ import java.text.SimpleDateFormat;
 import java.util.Arrays;
 import java.sql.Date;
 
-@ServletSecurity(value = @HttpConstraint(rolesAllowed = {"WRITE_PERSONS"}))
+//@ServletSecurity(value = @HttpConstraint(rolesAllowed = {"WRITE_PERSONS"}))
 @WebServlet(name = "AddPerson", value = "/AddPerson")
 public class AddPerson extends HttpServlet {
     @Inject
@@ -29,7 +29,6 @@ public class AddPerson extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        Long personId = Long.parseLong(request.getParameter("personId"));
         String firstName = request.getParameter("firstName");
         String lastName = request.getParameter("lastName");
         String cnp = request.getParameter("cnp");
@@ -50,7 +49,7 @@ public class AddPerson extends HttpServlet {
         Integer phoneNumber = Integer.parseInt(request.getParameter("phoneNumber"));
 
 
-        personsBean.createPerson(personId, firstName, lastName, address, cnp, date, phoneNumber);
-        response.sendRedirect(request.getContextPath() + "/Users");
+        personsBean.createPerson(firstName, lastName,cnp, address, date, phoneNumber);
+        response.sendRedirect(request.getContextPath() + "/Persons");
     }
 }

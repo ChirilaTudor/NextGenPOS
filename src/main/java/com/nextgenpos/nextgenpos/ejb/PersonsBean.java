@@ -35,6 +35,13 @@ public class PersonsBean {
             throw new EJBException(ex);
         }
     }
+    public Collection<String> findPersonsByPersonIds(Collection<Long> personIds){
+        List<String> persons =
+                entityManager.createQuery("SELECT p.firstName, p.lastName FROM Person p WHERE p.idPerson IN :personIds", String.class)
+                        .setParameter("personIds", personIds)
+                        .getResultList();
+        return persons;
+    }
     private List<PersonDto> copyPersonsToDto(List<Person> persons) {
 
         List<PersonDto> personDto;
@@ -52,18 +59,18 @@ public class PersonsBean {
         }
     }
 
-    public void createPerson(Long personId, String firstName, String lastName, String address, String cnp, Date date, Integer phoneNumber) {
+    public void createPerson(String firstName, String lastName, String cnp, String address, Date date, Integer phoneNumber) {
         LOG.info("createPerson");
 
-        Person person = entityManager.find(Person.class, personId);
-        person.setFirstName(firstName);
-        person.setLastName(lastName);
-        person.setAddress(address);
-        person.setCNP(cnp);
-        person.setBirthDate(date);
-        person.setPhoneNumber(phoneNumber);
+        Person newPerson = new Person();
+        newPerson.setFirstName(firstName);
+        newPerson.setLastName(lastName);
+        newPerson.setCNP(cnp);
+        newPerson.setAddress(address);
+        newPerson.setBirthDate(date);
+        newPerson.setPhoneNumber(phoneNumber);
 
-        entityManager.persist(person);
+        entityManager.persist(newPerson);
 
     }
 }
