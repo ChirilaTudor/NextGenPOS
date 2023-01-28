@@ -2,6 +2,7 @@ package com.nextgenpos.nextgenpos.entities;
 
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
 
@@ -21,7 +22,7 @@ public class Sale {
     }
 
     public Sale() {
-
+        this.itemSales = new ArrayList<>();
     }
 
     @Id
