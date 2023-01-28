@@ -2,15 +2,17 @@ package com.nextgenpos.nextgenpos.entities;
 import jakarta.mail.FetchProfile;
 import jakarta.persistence.*;
 
+import java.util.Date;
+
 @Entity
 public class ItemReturn {
     private Long idReturn;
     private Integer quantity;
-    private String returnDate;
+    private Date returnDate;
 
     private ItemSale itemSale;
 
-    public ItemReturn(Long idReturn, Integer quantity, String returnDate) {
+    public ItemReturn(Long idReturn, Integer quantity, Date returnDate) {
         this.idReturn = idReturn;
         this.quantity = quantity;
         this.returnDate = returnDate;
@@ -39,11 +41,11 @@ public class ItemReturn {
         this.quantity = quantity;
     }
 
-    public String getReturnDate() {
+    public Date getReturnDate() {
         return returnDate;
     }
 
-    public void setReturnDate(String returnDate) {
+    public void setReturnDate(Date returnDate) {
         this.returnDate = returnDate;
     }
 

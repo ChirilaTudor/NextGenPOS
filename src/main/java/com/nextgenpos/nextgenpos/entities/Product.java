@@ -12,13 +12,13 @@ public class Product {
     private Long idProduct;
     private String productName;
     private Integer quantity;
-    private Float price;
+    private Double price;
     private String description;
     private String provider;
 
     private Collection<ItemSale> itemSales;
 
-    public Product(Long idProduct, String productName, Integer quantity, Float price, String description, String provider) {
+    public Product(Long idProduct, String productName, Integer quantity, Double price, String description, String provider) {
         this.idProduct = idProduct;
         this.productName = productName;
         this.quantity = quantity;
@@ -57,11 +57,11 @@ public class Product {
         this.quantity = quantity;
     }
 
-    public Float getPrice() {
+    public Double getPrice() {
         return price;
     }
 
-    public void setPrice(Float price) {
+    public void setPrice(Double price) {
         this.price = price;
     }
 
