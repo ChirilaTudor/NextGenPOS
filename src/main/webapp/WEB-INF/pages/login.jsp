@@ -10,18 +10,18 @@
         </div>
     </c:if>
 
-<%--    <form class="form-signin" method="POST" action="j_security_check">
-        <h1 class="h3 mb-3 font-weight-normal p-2">Sign in</h1>
+    <%--    <form class="form-signin" method="POST" action="j_security_check">
+            <h1 class="h3 mb-3 font-weight-normal p-2">Sign in</h1>
 
-        <label for="username" class="sr-only">Username</label>
-        <input type="text" id="username" name="j_username" class="form-control" placeholder="Username" required autofocus/>
+            <label for="username" class="sr-only">Username</label>
+            <input type="text" id="username" name="j_username" class="form-control" placeholder="Username" required autofocus/>
 
-        <label for="password" class="sr-only">Password</label>
-        <input type="password" id="password" name="j_password" class="form-control" placeholder="Password" required/>
+            <label for="password" class="sr-only">Password</label>
+            <input type="password" id="password" name="j_password" class="form-control" placeholder="Password" required/>
 
-        <button class="btn btn-lg btn-primary btn-block m-2" type="submit">Sign in</button>
+            <button class="btn btn-lg btn-primary btn-block m-2" type="submit">Sign in</button>
 
-    </form>--%>
+        </form>--%>
     <section class="vh-50 gradient-custom">
         <div class="container py-5 h-100">
             <div class="row d-flex justify-content-center align-items-center h-100">
@@ -33,15 +33,17 @@
                                 <h2 class="fw-bold mb-2 text-uppercase">Login</h2>
                                 <p class="text-white-50 mb-5">Please enter your username and password!</p>
 
-                                <form  class="form-signin " method="POST" action="j_security_check">
+                                <form class="form-signin " method="POST" action="j_security_check">
                                     <div class="form-outline form-white mb-4">
                                         <label for="username" class="sr-only ">Username</label>
-                                        <input type="text" id="username" name="j_username" class="form-control" placeholder="Username" required autofocus/>
+                                        <input type="text" id="username" name="j_username" class="form-control"
+                                               placeholder="Username" required autofocus/>
                                     </div>
 
                                     <div class="form-outline form-white mb-4">
                                         <label for="password" class="sr-only ">Password</label>
-                                        <input type="password" id="password" name="j_password" class="form-control" placeholder="Password" required/>
+                                        <input type="password" id="password" name="j_password" class="form-control"
+                                               placeholder="Password" required/>
                                     </div>
 
                                 </form>
@@ -55,7 +57,6 @@
             </div>
         </div>
     </section>
-
 
 
 </t:pageTemplate>

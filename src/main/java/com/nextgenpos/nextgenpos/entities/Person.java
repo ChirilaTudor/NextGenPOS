@@ -2,6 +2,7 @@ package com.nextgenpos.nextgenpos.entities;
 import jakarta.persistence.*;
 
 import java.sql.Date;
+import java.util.Collection;
 
 @Entity
 public class Person {
@@ -29,7 +30,6 @@ public class Person {
     public Person() {
 
     }
-
 
     public String getFirstName() {
         return firstName;
@@ -97,4 +97,6 @@ public class Person {
     public void setUser(User user) {
         this.user = user;
     }
+
+
 }

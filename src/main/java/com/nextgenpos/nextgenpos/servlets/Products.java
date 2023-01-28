@@ -12,6 +12,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+
 public class Products extends HttpServlet {
     @Inject
     ProductsBean productsBean;
