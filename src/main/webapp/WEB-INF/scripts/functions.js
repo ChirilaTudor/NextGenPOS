@@ -10,5 +10,8 @@ function closeNav() {
     document.getElementById("main").style.marginLeft = "5rem";
 }
 
+function unhideButton(){
+     document.getElementById("addProduct").style.visibility = "visible";
 
+}
 

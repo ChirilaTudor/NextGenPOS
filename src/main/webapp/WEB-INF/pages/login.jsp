@@ -21,7 +21,7 @@
                                 <h2 class="fw-bold mb-2 text-uppercase">Login</h2>
                                 <p class="text-white-50 mb-5">Please enter your username and password!</p>
 
-                                <form  class="form-signin " method="POST" action="j_security_check">
+                                <form  class="form-signin" method="POST" action="j_security_check">
                                     <div class="form-outline form-white mb-4">
                                         <label for="username" class="sr-only ">Username</label>
                                         <input type="text" id="username" name="j_username" class="form-control" placeholder="Username" required autofocus/>
@@ -31,10 +31,11 @@
                                         <label for="password" class="sr-only ">Password</label>
                                         <input type="password" id="password" name="j_password" class="form-control" placeholder="Password" required/>
                                     </div>
+                                    <button class="btn btn-outline-light btn-lg px-5" type="submit">Login</button>
 
                                 </form>
 
-                                <button class="btn btn-outline-light btn-lg px-5" type="submit">Login</button>
+
                             </div>
 
                         </div>

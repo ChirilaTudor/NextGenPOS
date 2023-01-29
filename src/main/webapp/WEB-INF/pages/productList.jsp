@@ -3,15 +3,15 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <t:pageTemplate pageTitle="ProductList">
-<div class="row row-cols-3 g-3" id="main">
-  <c:forEach var="product_list" items="${products_list}">
+<div class="row row-cols-3 g-2" id="main">
+  <c:forEach var="inventory" items="${products_list}">
   <div class="<d-flex align-items-center col" style="width: 20rem;" >
     <div class="card p-4">
       <div class="d-flex justify-content-between align-items-center ">
         <div class="mt-3">
-          <h5>${product_list.provider}</h5>
-          <div class="mt-3">
-            <h5 class="main-heading mt-0 text-uppercase">${product_list.productName}</h5>
+          <h6>Furnizor: ${inventory.provider}</h6>
+          <div class="mt-1">
+            <h6 class="main-heading">Nume: ${inventory.productName}</h6>
           </div>
         </div>
         <div class="image">
@@ -19,7 +19,7 @@
         </div>
       </div>
       <div class="pt-1">
-        <h5>${product_list.quantity}</h5>
+        <h6>Stoc: ${inventory.quantity} bucati</h6>
       </div>
       </div>
   </div>

@@ -3,15 +3,15 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <t:pageTemplate pageTitle="NextGenPOS">
-<div class="row row-cols-3 g-3" id="main">
+<div class="row row-cols-3 g-2 " id="main">
   <c:forEach var="product" items="${products}">
-      <div class="<d-flex align-items-center col" style="width: 20rem;" >
+      <div class="<d-flex align-items-center col " style="width: 20rem;" >
         <div class="card p-3">
           <div class="d-flex justify-content-between align-items-center ">
             <div class="mt-3">
-              <h4>${product.provider}</h4>
-              <div class="mt-3">
-                <h5 class="main-heading mt-0">${product.productName}</h5>
+              <h5>Furnizor: ${product.provider}</h5>
+              <div class="mt-1">
+                <h6 class="main-heading mt-0">Nume: ${product.productName}</h6>
               </div>
             </div>
             <div class="image">
@@ -19,8 +19,8 @@
             </div>
           </div>
           <div>
-            <p>${product.description}</p>
-            <p>${product.price}</p>
+            <p>Descriere: ${product.description}</p>
+            <h6>Pret: ${product.price} lei</h6>
           </div>
 
         </div>
