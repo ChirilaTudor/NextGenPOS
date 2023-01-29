@@ -47,13 +47,11 @@
                 <a href="#" id="admin2">Security</a>
             </c:when>
         </c:choose>--%>
-        <a href="#" id="viewer1">Drinks</a>
         <a href="#" id="viewer2">Fruits & Vegetables</a>
         <a href="#" id="viewer3">Meat</a>
         <a href="#" id="viewer4">Bakery</a>
         <a href="#" id="viewer5">Home</a>
-            <a href="${pageContext.request.contextPath}/Users">Users</a>
-
+            <a href="${pageContext.request.contextPath}/ProductList" >Product list</a>
             <ul class="navbar-nav">
                 <li class="nav-item">
                     <c:choose>
