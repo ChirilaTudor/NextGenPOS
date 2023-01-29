@@ -4,6 +4,7 @@ import com.nextgenpos.nextgenpos.common.ProductDto;
 import com.nextgenpos.nextgenpos.ejb.ProductsBean;
 import jakarta.inject.Inject;
 import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -12,7 +13,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-
+@WebServlet(name = "Products", value = "/Products")
 public class Products extends HttpServlet {
     @Inject
     ProductsBean productsBean;
