@@ -26,6 +26,25 @@ public class UsersBean {
     @PersistenceContext
     EntityManager entityManager;
 
+    public  void disableUser(Long userId) {
+        try{
+            LOG.info("disableUser " + userId);
+            User user = entityManager.find(User.class, userId);
+            user.setActive(false);
+        }
+        catch (Exception ex)
+        {throw new EJBException(ex);}
+    }
+    public  void enableUser(Long userId) {
+        try{
+            LOG.info("enableUser " + userId);
+            User user = entityManager.find(User.class, userId);
+            user.setActive(true);
+        }
+        catch (Exception ex)
+        {throw new EJBException(ex);}
+    }
+
     public List<UserDto> findAllUsers() {
         try {
             LOG.info("findAllUsers");
@@ -45,10 +64,11 @@ public class UsersBean {
         return userDto;
     }
 
-    public void createUser(String username, String password, Long personId , String typeEmployee, Boolean isActive,Collection<String> groups) {
+    public void createUser(Long idUser,String username, String password, Long personId , String typeEmployee, Boolean isActive,Collection<String> groups) {
         LOG.info("createUser");
 
         User newUser = new User();
+        newUser.setIdUser(idUser);
         newUser.setUsername(username);
         newUser.setPassword(passwordBean.convertToSha256(password));
 
@@ -59,7 +79,7 @@ public class UsersBean {
         newUser.setActive(isActive);
         entityManager.persist(newUser);
 
-        assignGroupsToUser(username, groups);
+//        assignGroupsToUser(username, groups);
     }
 
     private void assignGroupsToUser(String username, Collection<String> groups) {
@@ -87,4 +107,6 @@ public class UsersBean {
             entityManager.remove(user);
         }
     }
+
+
 }

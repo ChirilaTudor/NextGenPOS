@@ -11,9 +11,9 @@ public class UserDto {
     private String password;
     private Person person;
     private String typeEmployee;
-    private boolean isActive;
+    private Boolean isActive;
 
-    public UserDto(Long idUser, String username, String password, Person person, String typeEmployee, boolean isActive) {
+    public UserDto(Long idUser, String username, String password, Person person, String typeEmployee, Boolean isActive) {
         this.idUser = idUser;
         this.username = username;
         this.password = password;
@@ -42,7 +42,7 @@ public class UserDto {
         return typeEmployee;
     }
 
-    public boolean isActive() {
+    public Boolean getActive() {
         return isActive;
     }
 
