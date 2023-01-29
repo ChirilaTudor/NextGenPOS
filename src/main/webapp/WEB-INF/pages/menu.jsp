@@ -9,6 +9,8 @@
                 </div>
 
             <a class="navbar-brand margin" href="${pageContext.request.contextPath}">NextGenPos</a>
+        <a class="navbar-brand margin nav-link ${pageContext.request.requestURI.substring(pageContext.request.requestURI.lastIndexOf("/")) eq '/cashier.jsp' ? ' active' : ''}"
+           aria-current="page" href="${pageContext.request.contextPath}/Cashier">Cashier</a>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
