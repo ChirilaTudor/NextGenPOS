@@ -2,5 +2,5 @@
     <%@taglib prefix="t" tagdir="/WEB-INF/tags" %>
 
     <t:pageTemplate pageTitle="NextGenPos">
-
+        <jsp:include page="/WEB-INF/pages/viewer.jsp" />
     </t:pageTemplate>

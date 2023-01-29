@@ -10,20 +10,8 @@
         </div>
     </c:if>
 
-<%--    <form class="form-signin" method="POST" action="j_security_check">
-        <h1 class="h3 mb-3 font-weight-normal p-2">Sign in</h1>
-
-        <label for="username" class="sr-only">Username</label>
-        <input type="text" id="username" name="j_username" class="form-control" placeholder="Username" required autofocus/>
-
-        <label for="password" class="sr-only">Password</label>
-        <input type="password" id="password" name="j_password" class="form-control" placeholder="Password" required/>
-
-        <button class="btn btn-lg btn-primary btn-block m-2" type="submit">Sign in</button>
-
-    </form>--%>
-    <section class="vh-50 gradient-custom">
-        <div class="container py-5 h-100">
+    <div class=" min-vw-100 min-vh-100 container-fluid gradient-custom login-overflow ">
+        <div class="container-fluid py-5 h-100 ">
             <div class="row d-flex justify-content-center align-items-center h-100">
                 <div class="col-12 col-md-8 col-lg-6 col-xl-5">
                     <div class="card bg-dark text-white" style="border-radius: 1rem;">
@@ -54,8 +42,5 @@
                 </div>
             </div>
         </div>
-    </section>
-
-
-
+    </div>
 </t:pageTemplate>

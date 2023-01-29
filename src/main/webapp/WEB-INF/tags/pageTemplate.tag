@@ -1,4 +1,4 @@
-<%@ tag description="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@tag description="base page template" pageEncoding="UTF-8"%>
 <%@attribute name="pageTitle"%>
 <!DOCTYPE html>
 <html>
@@ -11,10 +11,10 @@
 </head>
 <body>
 <jsp:include page="/WEB-INF/pages/menu.jsp" />
-<main class="container-fluid mt-5">
+<main class="container-fluid gx-0" >
     <jsp:doBody/>
 </main>
-<jsp:include page="/WEB-INF/pages/footer.jsp" />
     <script><%@include file="/WEB-INF/scripts/functions.js"%></script>
+<jsp:include page="/WEB-INF/pages/footer.jsp" />
 </body>
 </html>
