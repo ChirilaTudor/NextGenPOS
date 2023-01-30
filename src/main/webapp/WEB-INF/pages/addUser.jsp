@@ -3,84 +3,158 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 
-<t:pageTemplate pageTitle="Login">
-
-  <div class=" min-vw-100 min-vh-100 container-fluid gradient-custom login-overflow ">
-    <div class="container-fluid py-5 h-100 ">
+<t:pageTemplate pageTitle="AddUser">
+  <section class="h-100 h-custom gradient-custom-2">
+    <div class="container py-5 h-100">
       <div class="row d-flex justify-content-center align-items-center h-100">
-        <div class="col-12 col-md-8 col-lg-6 col-xl-5">
-          <div class="card bg-dark text-white" style="border-radius: 1rem;">
-            <div class="card-body p-5 text-center">
+        <div class="col-12">
+          <div class="card card-registration card-registration-2" style="border-radius: 15px;">
+            <form class="needs-validation" novalidate method="POST"
+                  action="${pageContext.request.contextPath}/AddUser">
 
-              <div class="mb-md-5 mt-md-4 pb-5">
-                <h2 class="fw-bold mb-5 ">Add User</h2>
+              <div class="card-body p-0">
+                <div class="row g-0">
+                  <div class="col-lg-6">
+                    <div class="p-5">
+                      <h3 class="fw-normal mb-5" style="color: #4835d4;">Person Information</h3>
+                      <div class="row">
+                        <div class="col-md-6 mb-4 pb-2">
 
-                <form  class="form-signin " method="POST" action="j_security_check">
+                          <div class="form-outline">
+                            <input type="text" id="firstName"
+                                   class="form-control form-control-lg"/>
+                            <label class="form-label" for="firstName">First name</label>
+                            <div class="invalid-feedback">
+                              First name is required.
+                            </div>
+                          </div>
 
-                  <div class="form-outline form-white mb-4">
-                    <label for="firstname" class="sr-only ">First name</label>
-                    <input type="text" id="firstname" name="j_firstname" class="form-control" placeholder="First name" required autofocus/>
+                        </div>
+
+                        <div class="col-md-6 mb-4 pb-2">
+                          <div class="form-outline">
+                            <input type="text" id="lastName"
+                                   class="form-control form-control-lg"/>
+                            <label class="form-label" for="lastName">Last name</label>
+                            <div class="invalid-feedback">
+                              Last name is required.
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="mb-4 pb-2">
+                        <div class="form-outline">
+                          <input type="number" id="cnp" class="form-control form-control-lg"/>
+                          <label class="form-label" for="cnp">CNP</label>
+                          <div class="invalid-feedback">
+                            CNP is required.
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="form-outline">
+                        <input type="text" id="address" class="form-control form-control-lg"/>
+                        <label class="form-label" for="address">Address</label>
+                        <div class="invalid-feedback">
+                          Address is required.
+                        </div>
+                      </div>
+
+                      <div class="col-md-6 mb-4 pb-2">
+                        <div class="form-outline">
+                          <input type="date" id="birthDate"
+                                 class="form-control form-control-lg"/>
+                          <label class="form-label" for="birthDate">Birth Date</label>
+                          <div class="invalid-feedback">
+                            Birth Date is required.
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="row">
+                        <div class="col-md-6 mb-4 pb-2 mb-md-0 pb-md-0">
+
+                          <div class="form-outline">
+                            <input type="number" id="phoneNumber"
+                                   class="form-control form-control-lg"/>
+                            <label class="form-label" for="phoneNumber">Phone Number</label>
+                            <div class="invalid-feedback">
+                              Phone Number is required.
+                            </div>
+                          </div>
+
+                        </div>
+                        <div class="col-md-6">
+
+                        </div>
+                      </div>
+
+                    </div>
                   </div>
 
-                  <div class="form-outline form-white mb-4">
-                    <label for="lastname" class="sr-only ">Last name</label>
-                    <input type="text" id="lastname" name="j_lastname" class="form-control" placeholder="Last name" required />
+                  <div class="col-lg-6 bg-indigo text-white">
+                    <div class="p-5">
+                      <h3 class="fw-normal mb-5">User Information</h3>
+                      <div class="mb-4 pb-2">
+                        <div class="form-outline form-white">
+                          <input type="text" id="username"
+                                 class="form-control form-control-lg"/>
+                          <label class="form-label" for="username">Username</label>
+                          <div class="invalid-feedback">
+                            Username is required.
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="mb-4 pb-2">
+                        <div class="form-outline form-white">
+                          <input type="password" id="password"
+                                 class="form-control form-control-lg"/>
+                          <label class="form-label" for="password">Password</label>
+                          <div class="invalid-feedback">
+                            Password is required.
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="row">
+                        <div class="col-md-5 mb-4 pb-2">
+
+                          <div class="form-outline form-white">
+                            <input type="text" id="typeEmployee"
+                                   class="form-control form-control-lg"/>
+                            <label class="form-label" for="typeEmployee">Employee
+                              Type</label>
+                            <div class="invalid-feedback">
+                              Employee Type is required.
+                            </div>
+                          </div>
+
+                        </div>
+                        <div class="col-md-7 mb-4 pb-2">
+
+                          <div class="form-outline form-white">
+                            <input type="number" id="isActive"
+                                   class="form-control form-control-lg"/>
+                            <label class="form-label" for="isActive">Active</label>
+                            <div class="invalid-feedback">
+                              Active type is required.
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <button type="submit" class="btn btn-light btn-lg"
+                              data-mdb-ripple-color="dark">Submit
+                      </button>
+                    </div>
                   </div>
-
-                  <div class="form-outline form-white mb-4">
-                    <label for="cnp" class="sr-only ">CNP</label>
-                    <input type="text" id="cnp" name="j_cnp" class="form-control" placeholder="CNP" required />
-                  </div>
-
-                  <div class="form-outline form-white mb-4">
-                    <label for="address" class="sr-only ">Address</label>
-                    <input type="text" id="address" name="j_address" class="form-control" placeholder="Address" required />
-                  </div>
-
-                  <div class="form-outline form-white mb-4">
-                    <label for="date" class="sr-only ">Date</label>
-                    <input type="date" id="date" name="j_date" class="form-control" placeholder="Date" required />
-                  </div>
-
-                  <div class="form-outline form-white mb-4">
-                    <label for="phone" class="sr-only ">Phone number</label>
-                    <input type="date" id="phone" name="j_phone" class="form-control" placeholder="Phone number" required />
-                  </div>
-
-                  <div class="form-outline form-white mb-4">
-                    <label for="username" class="sr-only ">Username</label>
-                    <input type="text" id="username" name="j_username" class="form-control" placeholder="Username" required />
-                  </div>
-
-                  <div class="form-outline form-white mb-4">
-                    <label for="password" class="sr-only ">Password</label>
-                    <input type="password" id="password" name="j_password" class="form-control" placeholder="Password" required/>
-                  </div>
-
-                  <div class="form-outline form-white mb-4">
-                    <label for="person" class="sr-only ">Person</label>
-                    <input type="datalist" id="person" name="j_person" class="form-control" placeholder="Person" required/>
-                  </div>
-
-                  <div class="form-outline form-white mb-4">
-                    <label for="type-employee" class="sr-only ">Type employee</label>
-                    <input type="text" id="type-employee" name="j_person" class="form-control" placeholder="Type employee" required/>
-                  </div>
-
-                  <div class="form-outline form-white mb-4">
-                    <label for="active" class="sr-only ">Is active</label>
-                    <input type="text" id="active" name="j_person" class="form-control" placeholder="Is active" required/>
-                  </div>
-
-                </form>
-
-                <button class="btn btn-outline-light btn-lg px-5" type="submit">Login</button>
+                </div>
               </div>
-
-            </div>
+            </form>
           </div>
         </div>
       </div>
     </div>
-  </div>
+  </section>
 </t:pageTemplate>
