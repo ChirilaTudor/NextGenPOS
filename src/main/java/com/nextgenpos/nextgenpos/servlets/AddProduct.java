@@ -22,7 +22,7 @@ public class AddProduct extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         List<ProductDto> products = productsBean.findAllProducts();
         request.setAttribute("products", products);
-        request.getRequestDispatcher("/WEB-INF/pages/addProducts.jsp").forward(request,response);
+        request.getRequestDispatcher("/WEB-INF/pages/addProduct.jsp").forward(request,response);
     }
 
     @Override
