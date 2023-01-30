@@ -17,6 +17,8 @@ public class Product {
 
     private Collection<ItemSale> itemSales;
 
+    private Category category;
+
     public Product(Long idProduct, String productName, Integer quantity, Double price, String description, String provider) {
         this.idProduct = idProduct;
         this.productName = productName;
@@ -98,4 +100,12 @@ public class Product {
         this.itemSales = itemSale;
     }
 
+    @ManyToOne
+    public Category getCategory() {
+        return category;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
+    }
 }
