@@ -3,7 +3,15 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <t:pageTemplate pageTitle="ProductList">
-    <div class="row row-cols-3 g-2" id="main">
+    <div class="input-group d-flex justify-content-end mt-2">
+        <div class="form-outline">
+            <input type="search" id="search-input" class="form-control" placeholder="Search"/>
+        </div>
+        <button id="search-button" type="button" class="btn bg-dark text-white button-margin" onclick="search()">
+            <i class="fas fa-search"></i>
+        </button>
+    </div>
+    <div class="row row-cols-3 g-2" id="products">
         <c:forEach var="inventory" items="${inventory}">
             <div class="<d-flex align-items-center col" style="width: 20rem;" >
                 <form  class="form-signin" method="POST" action="">
@@ -22,9 +30,10 @@
                         <div class="pt-1">
                             <h6>Stoc: ${inventory.quantity} bucati</h6>
                             <div>
-                                <input type="number" id="stock"  class="form-control"  required />
-                                <div class="text-center">
-                                    <button type="submit" class="btn btn-primary text-center mt-3">Modifica Stoc</button>
+                                <input type="number" id="stock"  class="form-control"/>
+                                <div class="text-center d-flex justify-content-between">
+                                    <a type="submit" class="btn btn-primary text-center mt-3 fw-light">Modifica Stoc</a>
+                                    <a  class="btn btn-primary text-center mt-3 fw-light" href="${pageContext.request.contextPath}/AddProductPhoto">Adauga Imagine</a>
                                 </div>
 
                             </div>

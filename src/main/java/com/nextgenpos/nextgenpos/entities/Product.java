@@ -1,9 +1,6 @@
 package com.nextgenpos.nextgenpos.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.*;
 
 import java.util.Collection;
 
@@ -15,6 +12,7 @@ public class Product {
     private Float price;
     private String description;
     private String provider;
+    private ProductPhoto productPhoto;
 
     private Collection<ItemSale> itemSales;
 
@@ -91,4 +89,12 @@ public class Product {
         this.itemSales = itemSale;
     }
 
+    @OneToOne(mappedBy = "product", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    public ProductPhoto getProductPhoto() {
+        return productPhoto;
+    }
+
+    public void setProductPhoto(ProductPhoto productPhoto) {
+        this.productPhoto = productPhoto;
+    }
 }
