@@ -64,11 +64,11 @@ public class UsersBean {
         List<UserDto> userDto;
         userDto = users
                 .stream()
-                .map(x -> new UserDto(x.getIdUser(), x.getUsername(), x.getPassword(), x.getPerson(), x.getTypeEmployee(), x.isActive())).collect(Collectors.toList());
+                .map(x -> new UserDto(x.getIdUser(), x.getUsername(), x.getPassword(), x.getPerson(), x.isActive())).collect(Collectors.toList());
         return userDto;
     }
 
-    public boolean createUser(String username, String password, String typeEmployee, String cnp, String address, Date birthDate, String firstName, String lastName, String phoneNumber) {
+    public boolean createUser(String username, String password, String cnp, String address, Date birthDate, String firstName, String lastName, String phoneNumber, Collection<String> groups) {
         LOG.info("createUser");
 
         Boolean isUsername = usernameExist(username);
@@ -89,11 +89,12 @@ public class UsersBean {
         user.setUsername(username);
         user.setPassword(passwordBean.convertToSha256(password));
         user.setActive(false);
-        user.setTypeEmployee(typeEmployee);
         user.setPerson(person);
 
         entityManager.persist(user);
         person.setUser(user);
+
+        assignGroupsToUser(username, groups);
 
         return true;
     }

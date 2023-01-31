@@ -11,14 +11,12 @@ public class User {
     private String password;
     private Person person;
     private Collection<Sale> sales;
-    private String typeEmployee;
-    private boolean isActive;
+    private Boolean isActive;
 
-    public User(Long idUser, String username, String password, String typeEmployee, boolean isActive) {
+    public User(Long idUser, String username, String password, Boolean isActive) {
         this.idUser = idUser;
         this.username = username;
         this.password = password;
-        this.typeEmployee = typeEmployee;
         this.isActive = isActive;
     }
 
@@ -50,14 +48,6 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
-    }
-
-    public String getTypeEmployee() {
-        return typeEmployee;
-    }
-
-    public void setTypeEmployee(String typeEmployee) {
-        this.typeEmployee = typeEmployee;
     }
 
     public boolean isActive() {

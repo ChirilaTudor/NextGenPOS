@@ -10,15 +10,13 @@ public class UserDto {
     private String username;
     private String password;
     private Person person;
-    private String typeEmployee;
     private Boolean isActive;
 
-    public UserDto(Long idUser, String username, String password, Person person, String typeEmployee, Boolean isActive) {
+    public UserDto(Long idUser, String username, String password, Person person, Boolean isActive) {
         this.idUser = idUser;
         this.username = username;
         this.password = password;
         this.person = person;
-        this.typeEmployee = typeEmployee;
         this.isActive = isActive;
     }
 
@@ -36,10 +34,6 @@ public class UserDto {
 
     public Person getPerson() {
         return person;
-    }
-
-    public String getTypeEmployee() {
-        return typeEmployee;
     }
 
     public Boolean getActive() {
