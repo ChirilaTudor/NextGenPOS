@@ -95,7 +95,6 @@ body{
 /*Textarea*/
 .textarea-resizing {
     resize: none;
-
 }
 
 
@@ -106,7 +105,7 @@ body{
 
 .cashier-item-box{
     width: 98%;
-    height: 50px;
+    height: 55px;
     margin-left: 0px;
 }
 
@@ -127,6 +126,10 @@ body{
 .scrollable{
     overflow: auto;
     height: 620px;
+}
+
+.bg-gray-100{
+    background-color: rgb(243 244 246);
 }
 
 .gradient-custom-user {

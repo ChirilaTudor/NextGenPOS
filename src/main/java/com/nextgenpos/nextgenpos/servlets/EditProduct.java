@@ -22,9 +22,9 @@ public class EditProduct extends HttpServlet {
 //        List<ProductDto> products = productsBean.findAllProducts();
 //        request.setAttribute("products", products);
 
-        Long productId = Long.parseLong(request.getParameter("id"));
-        ProductDto product = productsBean.findById(productId);
-        request.setAttribute("products", product);
+//        Long productId = Long.parseLong(request.getParameter("id"));
+//        ProductDto product = productsBean.findById(productId);
+//        request.setAttribute("products", product);
 
         request.getRequestDispatcher("/WEB-INF/pages/editProduct.jsp").forward(request, response);
     }
