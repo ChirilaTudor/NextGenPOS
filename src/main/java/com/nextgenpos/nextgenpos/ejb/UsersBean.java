@@ -10,9 +10,9 @@ import jakarta.inject.Inject;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import jakarta.persistence.TypedQuery;
-import org.eclipse.tags.shaded.org.apache.xpath.operations.Bool;
 
 import java.util.Collection;
+import java.util.Date;
 import java.util.List;
 import java.util.logging.Logger;
 import java.util.stream.Collectors;
@@ -20,11 +20,33 @@ import java.util.stream.Collectors;
 @Stateless
 public class UsersBean {
     @Inject
+    NotificationsBean notificationsBean;
+
+    @Inject
     PasswordBean passwordBean;
     private static final Logger LOG = Logger.getLogger(UsersBean.class.getName());
 
     @PersistenceContext
     EntityManager entityManager;
+
+    public  void disableUser(Long userId) {
+        try{
+            LOG.info("disableUser " + userId);
+            User user = entityManager.find(User.class, userId);
+            user.setActive(false);
+        }
+        catch (Exception ex)
+        {throw new EJBException(ex);}
+    }
+    public  void enableUser(Long userId) {
+        try{
+            LOG.info("enableUser " + userId);
+            User user = entityManager.find(User.class, userId);
+            user.setActive(true);
+        }
+        catch (Exception ex)
+        {throw new EJBException(ex);}
+    }
 
     public List<UserDto> findAllUsers() {
         try {
@@ -41,26 +63,46 @@ public class UsersBean {
         List<UserDto> userDto;
         userDto = users
                 .stream()
-                .map(x -> new UserDto(x.getIdUser(), x.getUsername(), x.getPassword(), x.getPerson(), x.getTypeEmployee(), x.isActive())).collect(Collectors.toList());
+                .map(x -> new UserDto(x.getIdUser(), x.getUsername(), x.getPassword(), x.getPerson(), x.isActive())).collect(Collectors.toList());
         return userDto;
     }
 
-    public void createUser(String username, String password, Long personId , String typeEmployee, Boolean isActive,Collection<String> groups) {
+    public boolean createUser(String username, String password, String cnp, String address, Date birthDate, String firstName, String lastName, String phoneNumber, Long adminId, Collection<String> groups) {
         LOG.info("createUser");
+
+        Boolean isUsername = usernameExist(username);
+
+        if(isUsername == true){
+            return false;
+        }
+
+        Person person = new Person();
+        person.setCNP(cnp);
+        person.setAddress(address);
+        person.setBirthDate(birthDate);
+        person.setFirstName(firstName);
+        person.setLastName(lastName);
+        person.setPhoneNumber(phoneNumber);
+
 
         User user = new User();
         user.setUsername(username);
         user.setPassword(passwordBean.convertToSha256(password));
-
-        Person person = entityManager.find(Person.class, personId);
-        person.setUser(user);
+        user.setActive(false);
         user.setPerson(person);
 
-        user.setTypeEmployee(typeEmployee);
-        user.setActive(isActive);
         entityManager.persist(user);
+        person.setUser(user);
+        entityManager.persist(person);
 
+        User admin = entityManager.find(User.class, adminId);
+        UserDto userDto = copyUserToDTO(user);
+        UserDto adminDto = copyUserToDTO(admin);
+        notificationsBean.createNotification(userDto,adminDto);
         assignGroupsToUser(username, groups);
+
+
+        return true;
     }
 
     private void assignGroupsToUser(String username, Collection<String> groups) {
@@ -88,4 +130,47 @@ public class UsersBean {
             entityManager.remove(user);
         }
     }
+
+
+    public Long getIdByUsername(String username) {
+        try {
+            LOG.info("getIdByUsername");
+            List<User> users = entityManager
+                    .createQuery("SELECT u FROM User u WHERE u.username = :username", User.class)
+                    .setParameter("username", username)
+                    .getResultList();
+
+            if (users.isEmpty()) {
+                return null;
+            }
+            User user = users.get(0);
+            return user.getIdUser();
+
+        } catch (Exception ex) {
+            throw new EJBException(ex);
+        }
+    }
+
+    private Boolean usernameExist(String username){
+        try {
+            LOG.info("usernameExist");
+            List<User> users = entityManager
+                    .createQuery("SELECT u FROM User u WHERE u.username = :username", User.class)
+                    .setParameter("username", username)
+                    .getResultList();
+
+            if (users.isEmpty()) {
+                return false;
+            }
+            return true;
+
+        } catch (Exception ex) {
+            throw new EJBException(ex);
+        }
+    }
+
+    private UserDto copyUserToDTO(User user){
+        return new UserDto(user.getIdUser(),user.getUsername(),user.getPassword(),user.getPerson(),user.isActive());
+    }
+
 }

@@ -1,13 +1,17 @@
 package com.nextgenpos.nextgenpos.ejb;
 
 import com.nextgenpos.nextgenpos.common.ProductDto;
+import com.nextgenpos.nextgenpos.common.ProductPhotoDto;
+import com.nextgenpos.nextgenpos.entities.Category;
 import com.nextgenpos.nextgenpos.entities.Product;
+import com.nextgenpos.nextgenpos.entities.ProductPhoto;
 import jakarta.ejb.EJBException;
 import jakarta.ejb.Stateless;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import jakarta.persistence.TypedQuery;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Logger;
 import java.util.stream.Collectors;
@@ -42,7 +46,7 @@ public class ProductsBean {
         return productDto;
     }
 
-    public void createProduct(String productName, Integer quantity, Float price, String description, String provider) {
+    public void createProduct(String productName, Integer quantity, Double price, String description, String provider) {
         LOG.info("createProduct");
 
         Product product = new Product();
@@ -55,7 +59,28 @@ public class ProductsBean {
         entityManager.persist(product);
     }
 
-    public void updateProduct(String productId, String productName, Integer quantity, Float price, String description, String provider) {
+    public void createProductInCategory(String productName, Integer quantity, Double price, String description, String provider, Long categoryId) {
+        LOG.info("createProductInCategory");
+
+        try {
+            Category category = entityManager.find(Category.class, categoryId);
+            Product product = new Product();
+            product.setProductName(productName);
+            product.setQuantity(quantity);
+            product.setPrice(price);
+            product.setDescription(description);
+            product.setProvider(provider);
+            product.setCategory(category);
+
+            entityManager.persist(product);
+            category.addProduct(product);
+
+        } catch (Exception ex) {
+            throw new EJBException(ex);
+        }
+    }
+
+    public void updateProduct(String productId, String productName, Integer quantity, Double price, String description, String provider) {
         LOG.info("updateProduct");
 
         Product product = entityManager.find(Product.class, productId);
@@ -90,5 +115,45 @@ public class ProductsBean {
             Product product = entityManager.find(Product.class, productId);
             entityManager.remove(product);
         }
+    }
+
+    public void addPhotoToProduct(Long productId, String filename, String fileType, byte[] fileContent) {
+        LOG.info("addPhotoToProduct");
+        ProductPhoto photo = new ProductPhoto();
+        photo.setFilename(filename);
+        photo.setFileType(fileType);
+        photo.setFileContent(fileContent);
+
+        Product product = entityManager.find(Product.class, productId);
+        if (product.getProductPhoto() != null) {
+            entityManager.remove(product.getProductPhoto());
+        }
+        product.setProductPhoto(photo);
+        photo.setProduct(product);
+        entityManager.persist(photo);
+    }
+
+    public ProductPhotoDto findPhotoByProductId(Integer productId) {
+        List<ProductPhoto> photos = entityManager
+                .createQuery("SELECT p FROM ProductPhoto p where p.product.idProduct = :id", ProductPhoto.class)
+                .setParameter("id", productId)
+                .getResultList();
+        if (photos.isEmpty()) {
+            return null;
+        }
+        ProductPhoto photo = photos.get(0); // the first element
+        return new ProductPhotoDto(photo.getId(), photo.getFilename(), photo.getFileType(), photo.getFileContent());
+    }
+
+    public List<ProductDto> findProductsByCategory(Integer categoryId) {
+        List<Product> products = entityManager
+                .createQuery("SELECT p FROM Product p where p.category.idCategory = :id", Product.class)
+                .setParameter("id", categoryId)
+                .getResultList();
+        if (products.isEmpty()) {
+            return null;
+        }
+
+        return copyProductsToDto(products);
     }
 }

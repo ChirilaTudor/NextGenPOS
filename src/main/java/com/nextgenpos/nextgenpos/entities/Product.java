@@ -1,9 +1,6 @@
 package com.nextgenpos.nextgenpos.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.*;
 
 import java.util.Collection;
 
@@ -12,13 +9,17 @@ public class Product {
     private Long idProduct;
     private String productName;
     private Integer quantity;
-    private Float price;
+    private Double price;
     private String description;
     private String provider;
 
+    private ProductPhoto productPhoto;
+
     private Collection<ItemSale> itemSales;
 
-    public Product(Long idProduct, String productName, Integer quantity, Float price, String description, String provider) {
+    private Category category;
+
+    public Product(Long idProduct, String productName, Integer quantity, Double price, String description, String provider) {
         this.idProduct = idProduct;
         this.productName = productName;
         this.quantity = quantity;
@@ -57,11 +58,11 @@ public class Product {
         this.quantity = quantity;
     }
 
-    public Float getPrice() {
+    public Double getPrice() {
         return price;
     }
 
-    public void setPrice(Float price) {
+    public void setPrice(Double price) {
         this.price = price;
     }
 
@@ -81,6 +82,14 @@ public class Product {
         this.provider = provider;
     }
 
+    @OneToOne(mappedBy = "product", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    public ProductPhoto getProductPhoto() {
+        return productPhoto;
+    }
+
+    public void setProductPhoto(ProductPhoto productPhoto) {
+        this.productPhoto = productPhoto;
+    }
 
     @OneToMany(mappedBy = "product")
     public Collection<ItemSale> getItemSales() {
@@ -91,4 +100,12 @@ public class Product {
         this.itemSales = itemSale;
     }
 
+    @ManyToOne
+    public Category getCategory() {
+        return category;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
+    }
 }
