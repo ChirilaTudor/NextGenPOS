@@ -38,10 +38,7 @@ function changeName(){
             break;
     }
 }
-/*function deleteButton(){
-    document.getElementById("deleteButton").classList.remove("d-none");
-    document.getElementById("deleteSubmit").classList.remove("d-none");
-}*/
+
 function validate(){
     const checkBoxes = document.getElementById("checkbox_delete");
     if (!checkBoxes) {
@@ -63,5 +60,25 @@ function validate(){
         const delete_submit = getElementById("deleteSubmit");
         button.classList.add("d-none");
         delete_submit.classList.add('d-none');
+    }
+
+function myFunction() {
+    const popup = document.getElementById("myPopup");
+    const submit = document.getElementById("submit");
+    const done = document.getElementById("done");
+
+        popup.classList.toggle("show")
+        submit.classList.add("d-none");
+        done.classList.remove("d-none");
+
+}
+
+function myFunction1() {
+    const submit = document.getElementById("submit");
+    const done = document.getElementById("done");
+
+    if (confirm("Transaction complete!")) {
+        submit.classList.add("d-none");
+        done.classList.remove("d-none");
     }
 }

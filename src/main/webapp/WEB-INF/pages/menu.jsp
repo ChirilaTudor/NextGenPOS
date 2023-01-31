@@ -62,6 +62,7 @@
             </c:choose>--%>
                 <a href="${pageContext.request.contextPath}/ProductList" >Product list</a>
                 <a href="${pageContext.request.contextPath}/Inventory" id="inventory">Inventory</a>
+                <a href="${pageContext.request.contextPath}/Users" id="inventory">Users</a>
                 <a class="nav-link " href="${pageContext.request.contextPath}/Sale">Sale</a>
                 <a class="nav-link " href="${pageContext.request.contextPath}/Return">Return</a>
                 <a class="nav-link " href="${pageContext.request.contextPath}/AddCategory">Add Category</a>

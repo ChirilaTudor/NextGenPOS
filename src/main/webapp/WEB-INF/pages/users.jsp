@@ -7,8 +7,6 @@
   <thead>
   <tr>
     <th scope="col">Username</th>
-    <th scope="col">Employee Type</th>
-    <th scope="col">Active</th>
     <th scope="col">First name</th>
     <th scope="col">Last name</th>
     <th scope="col">CNP</th>
@@ -19,20 +17,17 @@
   </thead>
 
   <tbody>
+  <c:forEach var="user" items="${users}">
   <tr>
-    <c:forEach var="user" items="${user}">
       <td>${user.username}</td>
-      <td>${user.typeEmployee}</td>
-      <td>${user.isActive}</td>
       <td>${user.getPerson().getFirstName()}</td>
       <td>${user.getPerson().getLastName()}</td>
       <td>${user.getPerson().getCNP()}</td>
       <td>${user.getPerson().getAddress()}</td>
       <td>${user.getPerson().getBirthDate()}</td>
       <td>${user.getPerson().getPhoneNumber()}</td>
-    </c:forEach>
-
   </tr>
+  </c:forEach>
   </tbody>
 </table>
 

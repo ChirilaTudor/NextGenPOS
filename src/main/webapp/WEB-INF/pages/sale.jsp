@@ -56,7 +56,7 @@
                 <a class="btn btn-outline-primary btn-lg bg-dark">CASH</a>
             </div>
             <div>
-                <a class="btn btn-outline-primary btn-lg mt-4 bg-dark">CARD</a>
+                <a class="btn btn-outline-primary btn-lg mt-4 bg-dark" href="${pageContext.request.contextPath}/Card">CARD</a>
             </div>
         </div>
 
