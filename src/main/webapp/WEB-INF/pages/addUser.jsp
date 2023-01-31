@@ -4,7 +4,7 @@
 
 
 <t:pageTemplate pageTitle="AddUser">
-  <section class="h-100 h-custom gradient-custom-2">
+  <section class="h-100 h-custom <%--gradient-custom-2--%>">
     <div class="container py-5 h-100">
       <div class="row d-flex justify-content-center align-items-center h-100">
         <div class="col-12">
@@ -93,7 +93,7 @@
                     </div>
                   </div>
 
-                  <div class="col-lg-6 bg-indigo text-white">
+                  <div class="col-lg-6 bg-indigo bg-gradient text-white">
                     <div class="p-5">
                       <h3 class="fw-normal mb-5">User Information</h3>
                       <div class="mb-4 pb-2">

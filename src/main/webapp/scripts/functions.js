@@ -59,23 +59,9 @@ function validate() {
     }
 }
 
-
-
 function paymentChange() {
     document.getElementById('payment_change').classList.remove("d-none")
     document.getElementById('complete').classList.add("d-none")
-}
-
-
-function myFunction() {
-    const popup = document.getElementById("myPopup");
-    const submit = document.getElementById("submit");
-    const done = document.getElementById("done");
-
-        popup.classList.toggle("show")
-        submit.classList.add("d-none");
-        done.classList.remove("d-none");
-        
 }
 
 function myFunction1() {
@@ -86,4 +72,5 @@ function myFunction1() {
         submit.classList.add("d-none");
         done.classList.remove("d-none");
     }
+
 }

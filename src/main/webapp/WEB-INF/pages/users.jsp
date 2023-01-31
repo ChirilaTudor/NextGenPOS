@@ -3,7 +3,7 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <t:pageTemplate pageTitle="Users">
-<table class="table table-striped">
+<table class="table table-striped mt-4" onload="isActive()">
   <thead>
   <tr>
       <th scope="col">Username</th>
@@ -14,6 +14,7 @@
       <th scope="col">Address</th>
       <th scope="col">Birth date</th>
       <th scope="col">Phone number</th>
+      <th scope="col"></th>
   </tr>
   </thead>
 
@@ -28,6 +29,15 @@
       <td>${user.getPerson().getAddress()}</td>
       <td>${user.getPerson().getBirthDate()}</td>
       <td>${user.getPerson().getPhoneNumber()}</td>
+      <c:choose>
+          <c:when test="${user.getActive()}" >
+              <td><a class="btn btn-secondary"  href="${pageContext.request.contextPath}/DisableUser?id=${user.idUser}">Disable</a></td>
+          </c:when>
+          <c:otherwise>
+              <td><a class="btn btn-secondary"  href="${pageContext.request.contextPath}/EnableUser?id=${user.idUser}">Enable</a></td>
+          </c:otherwise>
+      </c:choose>
+
   </tr>
   </c:forEach>
   </tbody>
