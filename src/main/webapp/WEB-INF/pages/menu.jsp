@@ -14,7 +14,18 @@
 
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             </ul>
-
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <c:choose>
+                        <c:when test="${pageContext.request.getRemoteUser() == null}">
+                            <a class="nav-link" href="${pageContext.request.contextPath}/Login"><i class="fa fa-star"></i></a>
+                        </c:when>
+                        <c:otherwise>
+                            <a class="nav-link" href="${pageContext.request.contextPath}/Logout">Logout</a>
+                        </c:otherwise>
+                    </c:choose>
+                </li>
+            </ul>
         </div>
     </div>
 </nav>
@@ -60,18 +71,7 @@
                 <a class="nav-link " href="${pageContext.request.contextPath}/AddCategory">Add Category</a>
                 <a class="nav-link " href="${pageContext.request.contextPath}/AddProduct">Add Product</a>
                 <a class="nav-link " href="${pageContext.request.contextPath}/EditProduct">Edit Product</a>
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <c:choose>
-                            <c:when test="${pageContext.request.getRemoteUser() == null}">
-                                <a class="nav-link" href="${pageContext.request.contextPath}/Login">Login</a>
-                            </c:when>
-                            <c:otherwise>
-                                <a class="nav-link" href="${pageContext.request.contextPath}/Logout">Logout</a>
-                            </c:otherwise>
-                        </c:choose>
-                    </li>
-                </ul>
+
         </div>
 </div>
 
