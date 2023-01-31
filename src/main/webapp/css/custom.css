@@ -109,6 +109,11 @@ body{
     margin-left: 0px;
 }
 
+.big-photo{
+    width: 1500px;
+    margin-left: 200px;
+}
+
 .end-align{
     align-self: flex-end;
 }
