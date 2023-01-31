@@ -66,7 +66,7 @@
                 <a class="nav-link " href="${pageContext.request.contextPath}/Return">Return</a>
                 <a class="nav-link " href="${pageContext.request.contextPath}/AddCategory">Add Category</a>
                 <a class="nav-link " href="${pageContext.request.contextPath}/AddProduct">Add Product</a>
-                <a class="nav-link " href="${pageContext.request.contextPath}/EditProduct">Edit Product</a>
+                <a class="nav-link " href="${pageContext.request.contextPath}/EditableProducts">Edit Product</a>
 
         </div>
 </div>
