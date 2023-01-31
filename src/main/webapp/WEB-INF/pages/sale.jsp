@@ -38,126 +38,13 @@
                         <a class="btn btn-outline-danger">X</a>
                     </div>
                 </div>
-
-
-                        <div class="row border rounded cashier-item-box mt-2 fs-5 pt-1">
-                            <div class="col-6">
-                                Product Name
-                            </div>
-                            <div class="col-1">
-                                -
-                            </div>
-                            <div class="col-1">
-                                Nr
-                            </div>
-                            <div class="col-1">
-                                +
-                            </div>
-                            <div class="col-2">
-                                Price:
-                            </div>
-                            <div class="col-1">
-                                <a class="btn btn-outline-danger">X</a>
-                            </div>
-                        </div>
-
-
-                    <div class="row border rounded cashier-item-box mt-2 fs-5 pt-1">
-                        <div class="col-6">
-                            Product Name
-                        </div>
-                        <div class="col-1">
-                            -
-                        </div>
-                        <div class="col-1">
-                            Nr
-                        </div>
-                        <div class="col-1">
-                            +
-                        </div>
-                        <div class="col-2">
-                            Price:
-                        </div>
-                        <div class="col-1">
-                            <a class="btn btn-outline-danger">X</a>
-                        </div>
-                    </div>
-
-
-                    <div class="row border rounded cashier-item-box mt-2 fs-5 pt-1">
-                        <div class="col-6">
-                            Product Name
-                        </div>
-                        <div class="col-1">
-                            -
-                        </div>
-                        <div class="col-1">
-                            Nr
-                        </div>
-                        <div class="col-1">
-                            +
-                        </div>
-                        <div class="col-2">
-                            Price:
-                        </div>
-                        <div class="col-1">
-                            <a class="btn btn-outline-danger">X</a>
-                        </div>
-                    </div>
-
-
-                    <div class="row border rounded cashier-item-box mt-2 fs-5 pt-1">
-                        <div class="col-6">
-                            Product Name
-                        </div>
-                        <div class="col-1">
-                            -
-                        </div>
-                        <div class="col-1">
-                            Nr
-                        </div>
-                        <div class="col-1">
-                            +
-                        </div>
-                        <div class="col-2">
-                            Price:
-                        </div>
-                        <div class="col-1">
-                            <a class="btn btn-outline-danger">X</a>
-                        </div>
-                    </div>
-
-
-                    <div class="row border rounded cashier-item-box mt-2 fs-5 pt-1">
-                        <div class="col-6">
-                            Product Name
-                        </div>
-                        <div class="col-1">
-                            -
-                        </div>
-                        <div class="col-1">
-                            Nr
-                        </div>
-                        <div class="col-1">
-                            +
-                        </div>
-                        <div class="col-2">
-                            Price:
-                        </div>
-                        <div class="col-1">
-                            <a class="btn btn-outline-danger">X</a>
-                        </div>
-                    </div>
-
-
-
                 </div>
-                <div class="end-align mb-3">
-                    <h3 class="ps-3">
-                        Total:
-                    </h3>
 
-                </div>
+            </div>
+            <div class="end-align mb-3">
+                <h3 class="ps-3">
+                    Total:
+                </h3>
             </div>
         </div>
         </div>
