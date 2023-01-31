@@ -40,6 +40,7 @@
         </c:forEach>
     </div>
 
+
     <div class="col">
         <label>Total Price:</label>
         <c:choose>

@@ -10,24 +10,24 @@
         <div class="container-fluid py-5 h-100 ">
             <div class="row d-flex justify-content-center align-items-center h-100">
                 <div class="col-12 col-md-8 col-lg-6 col-xl-5">
-                    <div class="card bg-dark text-white" style="border-radius: 1rem;">
-                        <div class="card-body p-5 text-center">
+                    <div>
+                        <div class="text-center">
 
-                            <div class="mb-md-5 mt-md-4 pb-5">
-                                <h2 class="fw-bold mb-2 text-uppercase">Item return</h2>
-                                <p class="text-white-50 mb-5">Please enter the ID of the item sale and the quantity</p>
+                            <div class="pb-5">
+                                <p class="lead fw-normal mb-1 fs-1">Item return</p>
+                                <p class="mb-5">Please enter the ID of the item sale and the quantity</p>
 
                                 <form  class="form-signin" method="POST" action="${pageContext.request.contextPath}/Return">
                                     <div class="form-outline form-white mb-4">
-                                        <label for="id_item_sale" class="sr-only">ID of item sale</label>
-                                        <input type="text" id="id_item_sale" class="form-control" placeholder="ID of item sale" required/>
+                                        <label for="itemSale_id" class="sr-only">ID of item sale</label>
+                                        <input type="text" id="itemSale_id" class="form-control form-control-lg cashier-item-box" placeholder="ID of item sale" required/>
                                     </div>
 
                                     <div class="form-outline form-white mb-4">
                                         <label for="quantity" class="sr-only ">Quantity</label>
-                                        <input type="text" id="quantity" class="form-control" placeholder="Quantity" required/>
+                                        <input type="text" id="quantity" class="form-control form-control-lg cashier-item-box" placeholder="Quantity" required/>
                                     </div>
-                                    <button class="btn btn-outline-light btn-lg px-5 mt-4" type="submit">Done</button>
+                                    <button class="btn btn-outline-primary btn-lg px-5 mt-4" type="submit">Submit</button>
 
                                 </form>
 

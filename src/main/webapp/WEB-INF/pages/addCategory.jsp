@@ -33,14 +33,15 @@
             </div>
           </div>
         </div>
-        <div class="big-photo">
-          <img src="https://i.postimg.cc/cCrYBwJ8/set-of-three-online-shopping-step-illustration-free-vector-removebg-preview.png"
-               class="img-fluid" alt="Hello there">
-        </div>
       </div>
     </div>
   </div>
 </t:pageTemplate>
+
+<%--link poza cashout--%>
+<%--https://static.vecteezy.com/system/resources/previews/002/448/571/non_2x/online-grocery-shopping-concept-free-vector.jpg--%>
+
+
 
 
 <%--<%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8" %>--%>

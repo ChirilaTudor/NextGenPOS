@@ -16,7 +16,7 @@
           <form class="needs-validation" novalidate method="POST"
                 action="${pageContext.request.contextPath}/AddProduct">
             <div class="d-flex flex-row align-items-center justify-content-center justify-content-lg-start">
-              <p class="lead fw-normal mb-5 fs-1">Product Addition</p>
+              <p class="lead fw-normal mb-mt-5 fs-1">Product Addition</p>
             </div>
 
             <div class="form-outline mb-4">

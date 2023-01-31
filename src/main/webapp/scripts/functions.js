@@ -15,7 +15,7 @@ function search(){
         alert(inputValue);
     });
 }
-function changeName(){
+function changeName() {
     var name = document.getElementById('product_name');
 
     var vw1 = document.getElementById('viewer1');
@@ -23,25 +23,22 @@ function changeName(){
     var vw3 = document.getElementById("viewer3");
     var vw4 = document.getElementById("viewer4");
 
-    switch (name){
+    switch (name) {
         case vw1:
-            name.textContent="Drinks";
+            name.textContent = "Drinks";
             break;
         case vw2:
-            name.textContent="Fruits";
+            name.textContent = "Fruits";
             break;
         case vw3:
-            name.textContent="Meat";
+            name.textContent = "Meat";
             break;
         case vw4:
-            name.textContent="Bakery";
+            name.textContent = "Bakery";
             break;
     }
 }
-/*function deleteButton(){
-    document.getElementById("deleteButton").classList.remove("d-none");
-    document.getElementById("deleteSubmit").classList.remove("d-none");
-}*/
+
 function validate(){
     const checkBoxes = document.getElementById("checkbox_delete");
     if (!checkBoxes) {
@@ -64,4 +61,10 @@ function validate(){
         button.classList.add("d-none");
         delete_submit.classList.add('d-none');
     }
+
+}
+
+function paymentChange(){
+    document.getElementById('payment_change').classList.remove("d-none")
+    document.getElementById('complete').classList.add("d-none")
 }
