@@ -39,13 +39,13 @@ function changeName() {
     }
 }
 
-function validate(){
+function validate() {
     const checkBoxes = document.getElementById("checkbox_delete");
     if (!checkBoxes) {
         return;
     }
     let checked = false;
-    Array.from(checkBoxes).forEach(checkBox =>{
+    Array.from(checkBoxes).forEach(checkBox => {
         if (checkBox.checked) {
             checked = true;
             const button = document.getElementById("deleteButton");
@@ -61,10 +61,31 @@ function validate(){
         button.classList.add("d-none");
         delete_submit.classList.add('d-none');
     }
-
 }
 
-function paymentChange(){
+
+function paymentChange() {
     document.getElementById('payment_change').classList.remove("d-none")
     document.getElementById('complete').classList.add("d-none")
+}
+
+function myFunction() {
+    const popup = document.getElementById("myPopup");
+    const submit = document.getElementById("submit");
+    const done = document.getElementById("done");
+
+        popup.classList.toggle("show")
+        submit.classList.add("d-none");
+        done.classList.remove("d-none");
+        
+}
+
+function myFunction1() {
+    const submit = document.getElementById("submit");
+    const done = document.getElementById("done");
+
+    if (confirm("Transaction complete!")) {
+        submit.classList.add("d-none");
+        done.classList.remove("d-none");
+    }
 }
