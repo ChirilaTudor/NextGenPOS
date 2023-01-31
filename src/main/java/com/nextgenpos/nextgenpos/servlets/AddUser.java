@@ -18,7 +18,6 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Arrays;
 
-//@ServletSecurity(value = @HttpConstraint(rolesAllowed = {"WRITE_USERS"}))
 @WebServlet(name = "AddUser", value = "/AddUser")
 public class AddUser extends HttpServlet {
     @Inject
@@ -26,7 +25,6 @@ public class AddUser extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        //request.setAttribute("userGroups", new String[] {"WRITE_PRODUCTS", "READ_USERS", "WRITE_USERS","WRITE_PERSONS"});
         request.getRequestDispatcher("/WEB-INF/pages/addUser.jsp").forward(request, response);
     }
     @Override

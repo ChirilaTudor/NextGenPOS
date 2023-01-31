@@ -1,12 +1,15 @@
 package com.nextgenpos.nextgenpos.ejb;
 
+import com.nextgenpos.nextgenpos.common.ProductPhotoDto;
 import com.nextgenpos.nextgenpos.common.UserDto;
 import com.nextgenpos.nextgenpos.entities.Person;
+import com.nextgenpos.nextgenpos.entities.ProductPhoto;
 import com.nextgenpos.nextgenpos.entities.User;
 import com.nextgenpos.nextgenpos.entities.UserGroup;
 import jakarta.ejb.EJBException;
 import jakarta.ejb.Stateless;
 import jakarta.inject.Inject;
+import jakarta.jws.soap.SOAPBinding;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import jakarta.persistence.TypedQuery;
@@ -65,8 +68,14 @@ public class UsersBean {
         return userDto;
     }
 
-    public void createUser(String username, String password, String typeEmployee, String cnp, String address, Date birthDate, String firstName, String lastName, String phoneNumber) {
+    public boolean createUser(String username, String password, String typeEmployee, String cnp, String address, Date birthDate, String firstName, String lastName, String phoneNumber) {
         LOG.info("createUser");
+
+        Boolean isUsername = usernameExist(username);
+
+        if(isUsername == true){
+            return false;
+        }
 
         Person person = new Person();
         person.setCNP(cnp);
@@ -79,12 +88,14 @@ public class UsersBean {
         User user = new User();
         user.setUsername(username);
         user.setPassword(passwordBean.convertToSha256(password));
-        user.setActive(true);
+        user.setActive(false);
         user.setTypeEmployee(typeEmployee);
         user.setPerson(person);
 
         entityManager.persist(user);
         person.setUser(user);
+
+        return true;
     }
 
     private void assignGroupsToUser(String username, Collection<String> groups) {
@@ -113,5 +124,41 @@ public class UsersBean {
         }
     }
 
+    public Long getIdByUsername(String username) {
+        try {
+            LOG.info("getIdByUsername");
+            List<User> users = entityManager
+                    .createQuery("SELECT u FROM User u WHERE u.username = :username", User.class)
+                    .setParameter("username", username)
+                    .getResultList();
+
+            if (users.isEmpty()) {
+                return null;
+            }
+            User user = users.get(0);
+            return user.getIdUser();
+
+        } catch (Exception ex) {
+            throw new EJBException(ex);
+        }
+    }
+
+    private Boolean usernameExist(String username){
+        try {
+            LOG.info("usernameExist");
+            List<User> users = entityManager
+                    .createQuery("SELECT u FROM User u WHERE u.username = :username", User.class)
+                    .setParameter("username", username)
+                    .getResultList();
+
+            if (users.isEmpty()) {
+                return false;
+            }
+            return true;
+
+        } catch (Exception ex) {
+            throw new EJBException(ex);
+        }
+    }
 
 }

@@ -14,10 +14,12 @@ import java.util.logging.Logger;
 
 @WebServlet(name = "Users", value = "/Users")
 public class Users extends HttpServlet {
-//TODO: Verify servlets for diasble/enable + error on isActive DTO
+
+    private static final Logger LOG = Logger.getLogger(Users.class.getName());
+
     @Inject
     UsersBean usersBean;
-    private static final Logger LOG = Logger.getLogger(Users.class.getName());
+
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         List<UserDto> users= usersBean.findAllUsers();

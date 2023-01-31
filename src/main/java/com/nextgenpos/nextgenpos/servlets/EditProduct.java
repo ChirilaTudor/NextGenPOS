@@ -13,8 +13,6 @@ import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
 import java.util.List;
-
-@ServletSecurity(value = @HttpConstraint(rolesAllowed = {"WRITE_PRODUCTS"}))
 @WebServlet(name = "EditProduct", value = "/EditProduct")
 public class EditProduct extends HttpServlet {
 
@@ -22,9 +20,6 @@ public class EditProduct extends HttpServlet {
     ProductsBean productsBean;
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-//        List<ProductDto> products = productsBean.findAllProducts();
-//        request.setAttribute("products", products);
-
         Long productId = Long.parseLong(request.getParameter("id"));
         ProductDto product = productsBean.findById(productId);
         request.setAttribute("products", product);

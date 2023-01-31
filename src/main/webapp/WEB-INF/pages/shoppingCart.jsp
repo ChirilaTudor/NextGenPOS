@@ -9,7 +9,6 @@
         <button class="btn btn-lg btn-primary btn-block" type="submit">Add Product</button>
     </form>
     <form method="POST" action="${pageContext.request.contextPath}/ShoppingCart">
-        <input type="text" id="user_id" name="user_id" class="form-control" placeholder="User" required autofocus />
         <button class="btn btn-lg btn-primary btn-block" type="submit">Make Sale</button>
     </form>
     <form method="POST" action="${pageContext.request.contextPath}/EditShoppingCartQuantity">

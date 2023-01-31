@@ -17,7 +17,6 @@ public class EnableUser extends HttpServlet {
         Long idUser = Long.parseLong(request.getParameter("id"));
         usersBean.enableUser(idUser);
         response.sendRedirect(request.getContextPath() + "/Users");
-
     }
 
     @Override
