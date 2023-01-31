@@ -80,7 +80,7 @@ public class ProductsBean {
         }
     }
 
-    public void updateProduct(String productId, String productName, Integer quantity, Double price, String description, String provider) {
+    public void updateProduct(Long productId, String productName, Integer quantity, Double price, String description, String provider) {
         LOG.info("updateProduct");
 
         Product product = entityManager.find(Product.class, productId);

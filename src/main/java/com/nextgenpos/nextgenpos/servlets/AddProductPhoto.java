@@ -18,17 +18,16 @@ public class AddProductPhoto extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        //Long productId = Long.parseLong(request.getParameter("id"));
-        Long productId = Long.parseLong("51");
+        Long productId = Long.parseLong(request.getParameter("id"));
         ProductDto product = productsBean.findById(productId);
         request.setAttribute("product", product);
 
-        request.getRequestDispatcher("/WEB-INF/pages/addProductPhoto.jsp").forward(request,response);
+        request.getRequestDispatcher("/WEB-INF/pages/addImages.jsp").forward(request,response);
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        Long productId = Long.parseLong(request.getParameter("product_id"));
+        Long productId = Long.parseLong(request.getParameter("idProduct"));
 
         Part filePart = request.getPart("file");
         String fileName = filePart.getSubmittedFileName();

@@ -18,27 +18,27 @@
 
             <div class="form-outline mb-4">
               <label class="form-label" for="product_id">Product ID</label>
-              <input type="text" id="product_id" class="form-control form-control-lg"/>
+              <input type="text" id="product_id" value="${product.idProduct}" class="form-control form-control-lg"/>
             </div>
 
             <div class="form-outline mb-4">
               <label class="form-label" for="product_name">Product name</label>
-              <input type="text" id="product_name" class="form-control form-control-lg"/>
+              <input type="text" id="product_name" value="${product.productName}" class="form-control form-control-lg"/>
             </div>
 
             <div class="form-outline mb-4">
               <label class="form-label" for="product_quantity">Quantity</label>
-              <input type="number" id="product_quantity" class="form-control form-control-lg"/>
+              <input type="number" id="product_quantity" value="${product.quantity}" class="form-control form-control-lg"/>
             </div>
 
             <div class="form-outline mb-4">
               <label class="form-label" for="product_price">Price</label>
-              <input type="number" id="product_price" class="form-control form-control-lg"/>
+              <input type="number" id="product_price" value="${product.price}" class="form-control form-control-lg"/>
             </div>
 
             <div class="form-outline mb-4">
               <label class="form-label" for="product_provider">Provider</label>
-              <input type="text" id="product_provider" class="form-control form-control-lg"/>
+              <input type="text" id="product_provider" value="${product.provider}" class="form-control form-control-lg"/>
               <div class="invalid-feedback">
                 Provider is required.
               </div>
@@ -46,7 +46,7 @@
 
             <div class="form-outline form-white mb-4">
               <label for="product_description" class="d-flex p-2">Product description</label>
-              <textarea class="form-control" id="product_description" rows="3" required></textarea>
+              <textarea class="form-control" id="product_description" value="${product.description}" rows="3" required></textarea>
             </div>
 
             <div class="text-center text-lg-start mt-4 pt-2">

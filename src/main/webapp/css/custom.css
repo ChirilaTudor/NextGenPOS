@@ -273,3 +273,16 @@ body{
         border-bottom-right-radius: 15px;
     }
 }
+
+.border {
+    background-color: gray;
+}
+.grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(auto, auto));
+    grid-gap: 1px;
+}
+.grid > div {
+    background-color: white;
+    padding: 10px;
+}

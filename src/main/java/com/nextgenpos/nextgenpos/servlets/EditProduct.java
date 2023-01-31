@@ -23,20 +23,20 @@ public class EditProduct extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         Long productId = Long.parseLong(request.getParameter("id"));
         ProductDto product = productsBean.findById(productId);
-        request.setAttribute("products", product);
+        request.setAttribute("product", product);
 
 
         request.getRequestDispatcher("/WEB-INF/pages/editProduct.jsp").forward(request, response);
     }
     protected void doPost (HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String productId = request.getParameter("product_id");
+        Long productId = Long.parseLong(request.getParameter("product_id"));
         String productName = request.getParameter("product_name");
         Integer quantity = Integer.parseInt(request.getParameter("product_quantity"));
         Double price = Double.parseDouble(request.getParameter("product_price"));
         String description = request.getParameter("product_description");
         String provider = request.getParameter("product_provider");
 
-        productsBean.updateProduct(productId,productName, quantity, price, description, provider);
+        productsBean.updateProduct(productId, productName,quantity, price, description, provider);
 
         response.sendRedirect(request.getContextPath() + "/Products");
     }

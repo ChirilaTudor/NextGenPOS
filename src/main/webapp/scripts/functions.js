@@ -37,6 +37,31 @@ function changeName(){
             name.textContent="Bakery";
             break;
     }
-
-
+}
+/*function deleteButton(){
+    document.getElementById("deleteButton").classList.remove("d-none");
+    document.getElementById("deleteSubmit").classList.remove("d-none");
+}*/
+function validate(){
+    const checkBoxes = document.getElementById("checkbox_delete");
+    if (!checkBoxes) {
+        return;
+    }
+    let checked = false;
+    Array.from(checkBoxes).forEach(checkBox =>{
+        if (checkBox.checked) {
+            checked = true;
+            const button = document.getElementById("deleteButton");
+            const delete_submit = getElementById("deleteSubmit");
+            button.classList.remove("d-none");
+            delete_submit.classList.remove('d-none');
+            return 0;
+        }
+    })
+    if (!checked) {
+        const button = document.getElementById("deleteButton");
+        const delete_submit = getElementById("deleteSubmit");
+        button.classList.add("d-none");
+        delete_submit.classList.add('d-none');
+    }
 }
