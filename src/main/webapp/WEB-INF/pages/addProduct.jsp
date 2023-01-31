@@ -55,6 +55,19 @@
             </div>
         </div>
 
+        <div class="col-md-6 mb-3">
+            <label for="category_id" class="form-label">Category</label>
+            <select class="form-select" id="category_id" name="category_id" required="">
+                <option value="">Choose...</option>
+                <c:forEach var="category" items="${categories}" varStatus="status">
+                    <option value="${category.idCategory}">${category.categoryName}</option>
+                </c:forEach>
+            </select>
+            <div class="invalid-feedback">
+                Please select a category.
+            </div>
+        </div>
+
         <button class="btn btn-primary btn-lg" type="submit">Save</button>
     </form>
 </t:pageTemplate>

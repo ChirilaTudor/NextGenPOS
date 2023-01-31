@@ -2,6 +2,7 @@ package com.nextgenpos.nextgenpos.ejb;
 
 import com.nextgenpos.nextgenpos.common.ProductDto;
 import com.nextgenpos.nextgenpos.common.ProductPhotoDto;
+import com.nextgenpos.nextgenpos.entities.Category;
 import com.nextgenpos.nextgenpos.entities.Product;
 import com.nextgenpos.nextgenpos.entities.ProductPhoto;
 import jakarta.ejb.EJBException;
@@ -10,6 +11,7 @@ import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import jakarta.persistence.TypedQuery;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Logger;
 import java.util.stream.Collectors;
@@ -55,6 +57,27 @@ public class ProductsBean {
         product.setProvider(provider);
 
         entityManager.persist(product);
+    }
+
+    public void createProductInCategory(String productName, Integer quantity, Double price, String description, String provider, Long categoryId) {
+        LOG.info("createProductInCategory");
+
+        try {
+            Category category = entityManager.find(Category.class, categoryId);
+            Product product = new Product();
+            product.setProductName(productName);
+            product.setQuantity(quantity);
+            product.setPrice(price);
+            product.setDescription(description);
+            product.setProvider(provider);
+            product.setCategory(category);
+
+            entityManager.persist(product);
+            category.addProduct(product);
+
+        } catch (Exception ex) {
+            throw new EJBException(ex);
+        }
     }
 
     public void updateProduct(String productId, String productName, Integer quantity, Double price, String description, String provider) {
@@ -120,5 +143,17 @@ public class ProductsBean {
         }
         ProductPhoto photo = photos.get(0); // the first element
         return new ProductPhotoDto(photo.getId(), photo.getFilename(), photo.getFileType(), photo.getFileContent());
+    }
+
+    public List<ProductDto> findProductsByCategory(Integer categoryId) {
+        List<Product> products = entityManager
+                .createQuery("SELECT p FROM Product p where p.category.idCategory = :id", Product.class)
+                .setParameter("id", categoryId)
+                .getResultList();
+        if (products.isEmpty()) {
+            return null;
+        }
+
+        return copyProductsToDto(products);
     }
 }

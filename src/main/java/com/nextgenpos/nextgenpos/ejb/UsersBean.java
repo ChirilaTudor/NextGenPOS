@@ -13,6 +13,7 @@ import jakarta.persistence.TypedQuery;
 import org.eclipse.tags.shaded.org.apache.xpath.operations.Bool;
 
 import java.util.Collection;
+import java.util.Date;
 import java.util.List;
 import java.util.logging.Logger;
 import java.util.stream.Collectors;
@@ -64,22 +65,26 @@ public class UsersBean {
         return userDto;
     }
 
-    public void createUser(Long idUser,String username, String password, Long personId , String typeEmployee, Boolean isActive,Collection<String> groups) {
+    public void createUser(String username, String password, String typeEmployee, String cnp, String address, Date birthDate, String firstName, String lastName, String phoneNumber) {
         LOG.info("createUser");
 
-        User newUser = new User();
-        newUser.setIdUser(idUser);
-        newUser.setUsername(username);
-        newUser.setPassword(passwordBean.convertToSha256(password));
+        Person person = new Person();
+        person.setCNP(cnp);
+        person.setAddress(address);
+        person.setBirthDate(birthDate);
+        person.setFirstName(firstName);
+        person.setLastName(lastName);
+        person.setPhoneNumber(phoneNumber);
 
-        Person person = entityManager.find(Person.class, personId);
-        newUser.setPerson(person);
+        User user = new User();
+        user.setUsername(username);
+        user.setPassword(passwordBean.convertToSha256(password));
+        user.setActive(true);
+        user.setTypeEmployee(typeEmployee);
+        user.setPerson(person);
 
-        newUser.setTypeEmployee(typeEmployee);
-        newUser.setActive(isActive);
-        entityManager.persist(newUser);
-
-//        assignGroupsToUser(username, groups);
+        entityManager.persist(user);
+        person.setUser(user);
     }
 
     private void assignGroupsToUser(String username, Collection<String> groups) {
