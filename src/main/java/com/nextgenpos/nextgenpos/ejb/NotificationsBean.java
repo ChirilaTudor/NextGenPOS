@@ -26,28 +26,36 @@ public class NotificationsBean {
     EntityManager entityManager;
 
     public void createNotification(UserDto user, UserDto admin){
-        LOG.info("createNotification");
-        Notification notification = new Notification();
-        Date today = new Date();
-        String notificationText = "A new user("+user.getPerson().getFirstName() +" "+ user.getPerson().getLastName() + ") with the username: "+
-                user.getUsername() + "  has been added into the database. In order to enable it's access, please click this link:";
-       String notificationLink="/EnableUser=" + user.getIdUser().toString();
-        User adminUser = entityManager.find(User.class, admin.getIdUser());
-        notification.setAdmin(adminUser);
-        notification.setDate(today);
-        notification.setContent(notificationText);
-        notification.setLink(notificationLink);
-        notification.setRead(false);
+        try{
+            LOG.info("createNotification");
+            Notification notification = new Notification();
+            Date today = new Date();
+            String notificationText = "A new user("+user.getPerson().getFirstName() +" "+ user.getPerson().getLastName() + ") with the username: "+  user.getUsername() + "  has been added into the database. In order to enable it's access, please click this link:";
+            String notificationLink="/EnableUser=" + user.getIdUser().toString();
+            User adminUser = entityManager.find(User.class, admin.getIdUser());
+            notification.setAdmin(adminUser);
+            notification.setDate(today);
+            notification.setContent(notificationText);
+            notification.setLink(notificationLink);
+            notification.setRead(false);
 
-        entityManager.persist(notification);
+            entityManager.persist(notification);
+            adminUser.addNotification(notification);
+        }   catch (Exception ex) {
+            throw new EJBException(ex);
+        }
     }
 
     public List<NotificationDto> findALlNotifications(){
-    try{    LOG.info("findALlNotifications");
-        TypedQuery<Notification> typedQuery = entityManager.createQuery("SELECT n from Notification n",Notification.class);
-        List<Notification> notifications = typedQuery.getResultList();
-   return  notifications.stream().map(n->new NotificationDto(n.getIdNotification(),n.getDate(),n.getRead(),n.getContent(),n.getLink(),n.getAdmin())).collect(Collectors.toList());
-    }catch (Exception ex){ throw new EJBException(ex);}}
+        try{
+            LOG.info("findALlNotifications");
+            TypedQuery<Notification> typedQuery = entityManager.createQuery("SELECT n from Notification n",Notification.class);
+            List<Notification> notifications = typedQuery.getResultList();
+            return  notifications.stream().map(n->new NotificationDto(n.getIdNotification(),n.getDate(),n.getRead(),n.getContent(),n.getLink(),n.getAdmin())).collect(Collectors.toList());
+        }   catch (Exception ex) {
+            throw new EJBException(ex);
+        }
+    }
 
 
 }

@@ -12,7 +12,6 @@ public class User {
     private Person person;
     private Collection<Sale> sales;
     private Boolean isActive;
-    private String typeEmployee;
     private Collection<Notification> notifications;
 
 
@@ -25,7 +24,7 @@ public class User {
     }
 
     public User() {
-
+        this.isActive=false;
     }
 
     @Id
@@ -91,4 +90,9 @@ public class User {
     public void setNotifications(Collection<Notification> notifications) {
         this.notifications = notifications;
     }
+
+    public void addNotification(Notification notification) {
+        this.notifications.add(notification);
+    }
+
 }
