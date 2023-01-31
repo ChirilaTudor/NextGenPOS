@@ -31,35 +31,77 @@ public class ShoppingCartBean {
     public void addProductIntoShoppingCart(long productId) {
 
         try {
-        ProductDto productDto = productsBean.findById(productId);
-        ShoppingCartProductDto shoppingCartProductDto = new ShoppingCartProductDto(
+            List<ShoppingCartProductDto> shoppingCart = this.shoppingCart;
+
+            for(ShoppingCartProductDto product : shoppingCart) {
+                if(product.getIdProduct() == productId) {
+                    return;
+                }
+            }
+
+            ProductDto productDto = productsBean.findById(productId);
+            ShoppingCartProductDto shoppingCartProductDto = new ShoppingCartProductDto(
                 productDto.getIdProduct(),
                 productDto.getProductName(),
                 1,
                 productDto.getPrice());
 
-        this.shoppingCart.add(shoppingCartProductDto);
+            this.shoppingCart.add(shoppingCartProductDto);
 
         } catch (Exception ex) {
             throw new EJBException(ex);
         }
     }
 
-    public void editProductQuantityInShoppingCart(Integer indexProduct, String upDown){
+    public void editProductQuantityInShoppingCart(Long productId, String upDown){
         List<ShoppingCartProductDto> shoppingCart = this.shoppingCart;
 
-        int newQuantity;
+        int newQuantity = 0, indexCurrentProduct = 0;
+        double newPrice;
+
+        ProductDto productDto = productsBean.findById(productId);
+
+        int indexAux = 0;
+        for(ShoppingCartProductDto product : shoppingCart) {
+            if(product.getIdProduct() == productId) {
+                indexCurrentProduct = indexAux;
+            }
+            indexAux++;
+        }
 
         switch (upDown){
             case "up":
-                newQuantity = shoppingCart.get(indexProduct).getQuantity() + 1;
-                shoppingCart.get(indexProduct).setQuantity(newQuantity);
+                newQuantity = shoppingCart.get(indexCurrentProduct).getQuantity() + 1;
+                shoppingCart.get(indexCurrentProduct).setQuantity(newQuantity);
+                newPrice = productDto.getPrice() * newQuantity;
+                shoppingCart.get(indexCurrentProduct).setPrice(newPrice);
                 break;
             case "down":
-                newQuantity = shoppingCart.get(indexProduct).getQuantity() - 1;
-                shoppingCart.get(indexProduct).setQuantity(newQuantity);
+                newQuantity = shoppingCart.get(indexCurrentProduct).getQuantity() - 1;
+                if(newQuantity == 0){
+                    break;
+                }
+                shoppingCart.get(indexCurrentProduct).setQuantity(newQuantity);
+                newPrice = productDto.getPrice() * newQuantity;
+                shoppingCart.get(indexCurrentProduct).setPrice(newPrice);
                 break;
             default: break;
         }
+    }
+
+    public void removeProductFromShoppingCart(Long productId) {
+        List<ShoppingCartProductDto> shoppingCart = this.shoppingCart;
+
+        int indexCurrentProduct = 0;
+
+        int indexAux = 0;
+        for(ShoppingCartProductDto product : shoppingCart) {
+            if(product.getIdProduct() == productId) {
+                indexCurrentProduct = indexAux;
+            }
+            indexAux++;
+        }
+
+        shoppingCart.remove(indexCurrentProduct);
     }
 }
