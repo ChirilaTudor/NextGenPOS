@@ -1,6 +1,7 @@
 package com.nextgenpos.nextgenpos.ejb;
 
 import com.nextgenpos.nextgenpos.common.ProductDto;
+import com.nextgenpos.nextgenpos.common.ReportDto;
 import com.nextgenpos.nextgenpos.entities.ItemSale;
 import com.nextgenpos.nextgenpos.entities.Product;
 import com.nextgenpos.nextgenpos.entities.Reports;
@@ -20,6 +21,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.logging.Logger;
+import java.util.stream.Collectors;
 
 @Stateless
 public class ReportsBean {
@@ -122,14 +124,19 @@ public class ReportsBean {
             throw new EJBException(ex);
         }}
 
-    public List<String> findAllStockReports(){
+    public List<ReportDto> findAllStockReports(){
         try {
             LOG.info("findAllStockReports");
             TypedQuery<Reports> typedQuery = entityManager.createQuery("SELECT r FROM Reports r", Reports.class);
             List<Reports> reports = typedQuery.getResultList();
-            List<String> textReports = new ArrayList<>();
-            reports.forEach(r->{String data= new String(r.getFileContent(), StandardCharsets.UTF_8); textReports.add(data);});
-            return textReports;
+            List<ReportDto> reportDtos = new ArrayList<>();
+            for (Reports r :
+                    reports) {
+                String data= new String(r.getFileContent(), StandardCharsets.UTF_8);
+                String[] reportTextLines = data.split("\n");
+                reportDtos.add( new ReportDto(r.getIdReport(),r.getReportName(),r.getReportFileType(),reportTextLines,r.getDate()));
+            }
+            return reportDtos;
         } catch (Exception ex){
             throw new EJBException(ex);
         }
