@@ -31,16 +31,14 @@
 
   </div>
   <div class="input-group d-flex justify-content-end mt-2">
-    <div class="form-outline">
-      <input type="search" id="search-input" class="form-control" placeholder="Search"/>
-    </div>
-    <button id="search-button" type="button" class="btn bg-dark text-white button-margin" onclick="search()">
-      <i class="fas fa-search"></i>
-    </button>
+      <div class="searchbar">
+        <input class="search_input" type="text" name="" placeholder="Search...">
+        <a href="#" class="search_icon"><i class="fas fa-search"></i></a>
+      </div>
   </div>
-    <div class="row row-cols-3 g-2" id="products">
+    <div class="row row-cols-3 g-2 mt-3" id="products">
       <c:forEach var="product" items="${products}">
-        <div class="<d-flex align-items-center col " style="width: 20rem;" >
+        <div class="<d-flex align-items-center col " style=" width: 20rem;" >
           <div class="card p-3">
             <div class="d-flex justify-content-between align-items-center ">
               <div class="mt-3">

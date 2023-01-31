@@ -2,16 +2,14 @@
 <%@taglib prefix="t" tagdir="/WEB-INF/tags" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-<t:pageTemplate pageTitle="ProductList">
+<t:pageTemplate pageTitle="Inventory">
     <div class="input-group d-flex justify-content-end mt-2">
-        <div class="form-outline">
-            <input type="search" id="search-input" class="form-control" placeholder="Search"/>
+        <div class="searchbar">
+            <input class="search_input" type="text" name="" placeholder="Search...">
+            <a href="#" class="search_icon"><i class="fas fa-search"></i></a>
         </div>
-        <button id="search-button" type="button" class="btn bg-dark text-white button-margin" onclick="search()">
-            <i class="fas fa-search"></i>
-        </button>
     </div>
-    <div class="row row-cols-3 g-2" id="products">
+    <div class="row row-cols-3 g-2 mt-3" id="products">
         <c:forEach var="inventory" items="${inventory}">
             <div class="<d-flex align-items-center col" style="width: 20rem;" >
                 <form  class="form-signin" method="POST" action="">
