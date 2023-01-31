@@ -12,11 +12,8 @@ public class Product {
     private Double price;
     private String description;
     private String provider;
-
     private ProductPhoto productPhoto;
-
     private Collection<ItemSale> itemSales;
-
     private Category category;
 
     public Product(Long idProduct, String productName, Integer quantity, Double price, String description, String provider) {

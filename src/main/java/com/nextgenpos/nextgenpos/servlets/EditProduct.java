@@ -25,6 +25,7 @@ public class EditProduct extends HttpServlet {
         ProductDto product = productsBean.findById(productId);
         request.setAttribute("products", product);
 
+
         request.getRequestDispatcher("/WEB-INF/pages/editProduct.jsp").forward(request, response);
     }
     protected void doPost (HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

@@ -1,9 +1,11 @@
 package com.nextgenpos.nextgenpos.servlets;
 
+
 import com.nextgenpos.nextgenpos.common.UserDto;
 import com.nextgenpos.nextgenpos.ejb.ProductsBean;
 import com.nextgenpos.nextgenpos.ejb.UsersBean;
 import jakarta.inject.Inject;
+
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
@@ -25,6 +27,7 @@ public class Users extends HttpServlet {
         List<UserDto> users= usersBean.findAllUsers();
         request.setAttribute("users",users);
         request.getRequestDispatcher("/WEB-INF/pages/users.jsp").forward(request,response);
+
     }
 
     @Override

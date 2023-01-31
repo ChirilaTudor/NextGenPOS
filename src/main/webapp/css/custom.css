@@ -2,9 +2,7 @@
     margin-left: 15px;
 }
 
-.container-fluid{
-    --bs-gutter-x: 0;
-}
+/*NAVBAR*/
 
 .overlay {
     /* Height & width depends on how you want to reveal the overlay (see JS below) */
@@ -26,7 +24,7 @@
     top: 10%; /* 25% from the top */
     width: 100%; /* 100% width */
     text-align: center; /* Centered text/links */
-    margin-top: 20px; /* 30px top margin to avoid conflict with the close button on smaller screens */
+    margin-top: 30px; /* 30px top margin to avoid conflict with the close button on smaller screens */
 }
 
 /* The navigation links inside the overlay */
@@ -63,25 +61,215 @@
 }
 
 
-.navbar1 .container-fluid1 .navbar-expand-lg1 .navbar-collapse1 .navbar-nav1{
-    flex-direction: column;
-}
-.navbar1{
-    width: 50%;
-    height: 100vh;
-}
-
-
 /*LOGIN*/
 .gradient-custom {
-    /* fallback for old browsers */
-    background: #6a11cb;
     width: 100%;
     height: 100%;
+    background: rgb(145,35,204);
+    background: -moz-linear-gradient(90deg, rgba(145,35,204,1) 0%, rgba(58,155,227,1) 50%, rgba(145,35,204,1) 100%);
+    background: -webkit-linear-gradient(90deg, rgba(145,35,204,1) 0%, rgba(58,155,227,1) 50%, rgba(145,35,204,1) 100%);
+    background: linear-gradient(90deg, rgba(145,35,204,1) 0%, rgba(58,155,227,1) 50%, rgba(145,35,204,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#9123cc",endColorstr="#9123cc",GradientType=1);
+}
+.login-overflow{
+    overflow-y: hidden;
+    overflow-x: hidden;
+}
+/*products*/
+#products {
+    padding: 16px;
+    margin-left: 5rem;
+    transition: margin-left 0.5s;
+}
+body{
+    overflow-x: hidden;
+}
+.button-margin{
+    margin-right: 10px;
+}
+/*INVENTORY*/
+.stock{
+    display: flex;
+    flex-wrap: wrap;
+    padding-left: 0;
+}
 
-/*     Chrome 10-25, Safari 5.1-6 */
-    background: -webkit-linear-gradient(to right, rgba(106, 17, 203, 1), rgba(37, 117, 252, 1));
+/*Textarea*/
+.textarea-resizing {
+    resize: none;
+}
+.bg-grey-100{
+    background-color: rgb(243,244,246);
+}
+.w-80{
+    width: 90%;
+    overflow-y: hidden ;
+}
+/*SEARCHBAR*/
+.searchbar{
+    margin-bottom: auto;
+    margin-top: auto;
+    margin-right: 50px;
+    height: 60px;
+    background-color: #353b48;
+    border-radius: 30px;
+    padding: 10px;
+}
+
+.search_input{
+    color: white;
+    border: 0;
+    outline: 0;
+    background: none;
+    width: 0;
+    caret-color:transparent;
+    text-decoration-color: white;
+    line-height: 40px;
+    transition: width 0.4s linear;
+}
+
+.searchbar:hover > .search_input{
+    padding: 0 10px;
+    width: 450px;
+    caret-color:black;
+    transition: width 0.4s linear;
+}
+
+.searchbar:hover > .search_icon{
+    background: white;
+    color: black;
+}
+
+.search_icon{
+    height: 40px;
+    width: 40px;
+    float: right;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    color:white;
+    text-decoration:none;
+}
+
+
+.cashier-container-box{
+    width: 100%;
+    height: 700px;
+}
+
+.cashier-item-box{
+    width: 98%;
+    height: 55px;
+    margin-left: 0px;
+}
+
+.big-photo{
+    width: 1500px;
+    margin-left: 200px;
+}
+
+.end-align{
+    align-self: flex-end;
+}
+
+#container-button{
+    display: flex;
+}
+
+/*Clear empty div space*/
+.clear-space{
+    display: block;
+}
+
+/*Scrollable*/
+.scrollable{
+    overflow: auto;
+    height: 620px;
+}
+
+.bg-gray-100{
+    background-color: rgb(243 244 246);
+}
+
+.gradient-custom-user {
+
+    width: 100%;
+    height: 100%;
+    background: rgb(5, 119, 74);
+    background: -moz-linear-gradient(90deg, rgba(5, 119, 74, 1) 0%, rgba(58, 227, 152, 1) 50%, rgba(5, 119, 74, 1) 100%);
+    background: -webkit-linear-gradient(90deg, rgba(5, 119, 74, 1) 0%, rgba(58, 227, 152, 1) 50%, rgba(5, 119, 74, 1) 100%);
+    background: linear-gradient(90deg, rgba(5, 119, 74, 1) 0%, rgba(58, 227, 152, 1) 50%, rgba(5, 119, 74, 1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#05774a", endColorstr="#05774a", GradientType=1);
+
+}
+
+.gradient-custom-product {
+
+    width: 100%;
+    height: 100%;
+    background: rgb(191, 17, 108);
+    background: -moz-linear-gradient(90deg, rgba(191, 17, 108, 1) 0%, rgba(246, 115, 186, 1) 50%, rgba(191, 17, 108, 1) 100%);
+    background: -webkit-linear-gradient(90deg, rgba(191, 17, 108, 1) 0%, rgba(246, 115, 186, 1) 50%, rgba(191, 17, 108, 1) 100%);
+    background: linear-gradient(90deg, rgba(191, 17, 108, 1) 0%, rgba(246, 115, 186, 1) 50%, rgba(191, 17, 108, 1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#bf116c", endColorstr="#bf116c", GradientType=1);
+
+}
+
+.divider:after,
+.divider:before {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: #eee;
+}
+.h-custom {
+    height: calc(100% - 73px);
+}
+@media (max-width: 450px) {
+    .h-custom {
+        height: 100%;
+    }
+}
+
+@media (min-width: 1025px) {
+    .h-custom {
+        height: 100vh !important;
+    }
+}
+.card-registration .select-input.form-control[readonly]:not([disabled]) {
+    font-size: 1rem;
+    line-height: 2.15;
+    padding-left: .75em;
+    padding-right: .75em;
+}
+.card-registration .select-arrow {
+    top: 13px;
+}
+
+.gradient-custom-2 {
+    /* fallback for old browsers */
+    background: #a1c4fd;
+
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: -webkit-linear-gradient(to right, rgba(161, 196, 253, 1), rgba(194, 233, 251, 1));
 
     /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-    background: linear-gradient(to right, rgba(106, 17, 203, 1), rgba(37, 117, 252, 1))
+    background: linear-gradient(to right, rgba(161, 196, 253, 1), rgba(194, 233, 251, 1))
+}
+
+.bg-indigo {
+    background-color: #4835d4;
+}
+@media (min-width: 992px) {
+    .card-registration-2 .bg-indigo {
+        border-top-right-radius: 15px;
+        border-bottom-right-radius: 15px;
+    }
+}
+@media (max-width: 991px) {
+    .card-registration-2 .bg-indigo {
+        border-bottom-left-radius: 15px;
+        border-bottom-right-radius: 15px;
+    }
 }

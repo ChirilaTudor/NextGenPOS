@@ -30,6 +30,7 @@ public class AddProduct extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         List<CategoryDto> categories = categoryBean.findAllCategories();
         request.setAttribute("categories", categories);
+
         request.getRequestDispatcher("/WEB-INF/pages/addProduct.jsp").forward(request,response);
     }
 

@@ -2,100 +2,159 @@
 <%@taglib prefix="t" tagdir="/WEB-INF/tags" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-<t:pageTemplate pageTitle="Add Product">
-    <h1>Add User</h1>
-    <form class="needs-validation p-4" novalidate="" method="POST" action="${pageContext.request.contextPath}/AddUser">
-        <div class="row">
-            <div class="col-md-6 mb-3">
-                <label for="username" class="form-label">Username</label>
-                <input type="text" class="form-control" id="username" name="username" placeholder="" value="" required="">
-                <div class="invalid-feedback">
-                    Username is required.
+
+<t:pageTemplate pageTitle="AddUser">
+  <section class="h-100 h-custom gradient-custom-2">
+    <div class="container py-5 h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-12">
+          <div class="card card-registration card-registration-2" style="border-radius: 15px;">
+            <form class="needs-validation" novalidate method="POST"
+                  action="${pageContext.request.contextPath}/AddUser">
+
+              <div class="card-body p-0">
+                <div class="row g-0">
+                  <div class="col-lg-6">
+                    <div class="p-5">
+                      <h3 class="fw-normal mb-5" style="color: #4835d4;">Person Information</h3>
+                      <div class="row">
+                        <div class="col-md-6 mb-4 pb-2">
+
+                          <div class="form-outline">
+                            <input type="text" id="firstName"
+                                   class="form-control form-control-lg"/>
+                            <label class="form-label" for="firstName">First name</label>
+                            <div class="invalid-feedback">
+                              First name is required.
+                            </div>
+                          </div>
+
+                        </div>
+
+                        <div class="col-md-6 mb-4 pb-2">
+                          <div class="form-outline">
+                            <input type="text" id="lastName"
+                                   class="form-control form-control-lg"/>
+                            <label class="form-label" for="lastName">Last name</label>
+                            <div class="invalid-feedback">
+                              Last name is required.
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="mb-4 pb-2">
+                        <div class="form-outline">
+                          <input type="number" id="cnp" class="form-control form-control-lg"/>
+                          <label class="form-label" for="cnp">CNP</label>
+                          <div class="invalid-feedback">
+                            CNP is required.
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="form-outline">
+                        <input type="text" id="address" class="form-control form-control-lg"/>
+                        <label class="form-label" for="address">Address</label>
+                        <div class="invalid-feedback">
+                          Address is required.
+                        </div>
+                      </div>
+
+                      <div class="col-md-6 mb-4 pb-2">
+                        <div class="form-outline">
+                          <input type="date" id="birthDate"
+                                 class="form-control form-control-lg"/>
+                          <label class="form-label" for="birthDate">Birth Date</label>
+                          <div class="invalid-feedback">
+                            Birth Date is required.
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="row">
+                        <div class="col-md-6 mb-4 pb-2 mb-md-0 pb-md-0">
+
+                          <div class="form-outline">
+                            <input type="number" id="phoneNumber"
+                                   class="form-control form-control-lg"/>
+                            <label class="form-label" for="phoneNumber">Phone Number</label>
+                            <div class="invalid-feedback">
+                              Phone Number is required.
+                            </div>
+                          </div>
+
+                        </div>
+                        <div class="col-md-6">
+
+                        </div>
+                      </div>
+
+                    </div>
+                  </div>
+
+                  <div class="col-lg-6 bg-indigo text-white">
+                    <div class="p-5">
+                      <h3 class="fw-normal mb-5">User Information</h3>
+                      <div class="mb-4 pb-2">
+                        <div class="form-outline form-white">
+                          <input type="text" id="username"
+                                 class="form-control form-control-lg"/>
+                          <label class="form-label" for="username">Username</label>
+                          <div class="invalid-feedback">
+                            Username is required.
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="mb-4 pb-2">
+                        <div class="form-outline form-white">
+                          <input type="password" id="password"
+                                 class="form-control form-control-lg"/>
+                          <label class="form-label" for="password">Password</label>
+                          <div class="invalid-feedback">
+                            Password is required.
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="row">
+                        <div class="col-md-5 mb-4 pb-2">
+
+                          <div class="form-outline form-white">
+                            <input type="text" id="typeEmployee"
+                                   class="form-control form-control-lg"/>
+                            <label class="form-label" for="typeEmployee">Employee
+                              Type</label>
+                            <div class="invalid-feedback">
+                              Employee Type is required.
+                            </div>
+                          </div>
+
+                        </div>
+                        <div class="col-md-7 mb-4 pb-2">
+
+                          <div class="form-outline form-white">
+                            <input type="number" id="isActive"
+                                   class="form-control form-control-lg"/>
+                            <label class="form-label" for="isActive">Active</label>
+                            <div class="invalid-feedback">
+                              Active type is required.
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <button type="submit" class="btn btn-light btn-lg"
+                              data-mdb-ripple-color="dark">Submit
+                      </button>
+                    </div>
+                  </div>
                 </div>
-            </div>
+              </div>
+            </form>
+          </div>
         </div>
-
-        <div class="row">
-            <div class="col-md-6 mb-3">
-                <label for="password" class="form-label">Password</label>
-                <input type="password" class="form-control" id="password" name="password" placeholder="" value="" required="">
-                <div class="invalid-feedback">
-                    Password is required.
-                </div>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-md-6 mb-3">
-                <label for="cnp" class="form-label">Cnp</label>
-                <input type="text" class="form-control" id="cnp" name="cnp" placeholder="" value="" required="">
-                <div class="invalid-feedback">
-                    Cnp is required.
-                </div>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-md-6 mb-3">
-                <label for="birth_date" class="form-label">Birth Date</label>
-                <input type="date" class="form-control" id="birth_date" name="birth_date" placeholder="" value="" required="">
-                <div class="invalid-feedback">
-                    Birth Date is required.
-                </div>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-md-6 mb-3">
-                <label for="address" class="form-label">Address</label>
-                <input type="text" class="form-control" id="address" name="address" placeholder="" value="" required="">
-                <div class="invalid-feedback">
-                    Address is required.
-                </div>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-md-6 mb-3">
-                <label for="first_name" class="form-label">First Name</label>
-                <input type="text" class="form-control" id="first_name" name="first_name" placeholder="" value="" required="">
-                <div class="invalid-feedback">
-                    First Name is required.
-                </div>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-md-6 mb-3">
-                <label for="last_name" class="form-label">Last Name</label>
-                <input type="text" class="form-control" id="last_name" name="last_name" placeholder="" value="" required="">
-                <div class="invalid-feedback">
-                    Last Name is required.
-                </div>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-md-6 mb-3">
-                <label for="phone_number" class="form-label">Phone number</label>
-                <input type="text" class="form-control" id="phone_number" name="phone_number" placeholder="" value="" required="">
-                <div class="invalid-feedback">
-                    Phone Number is required.
-                </div>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-md-6 mb-3">
-                <label for="user_groups">Type</label>
-                <select class="custom-select d-block w-100" id="user_groups" name="user_groups" multiple>
-                    <c:forEach var="user_group" items="${userGroups}" varStatus="status">
-                        <option value="${user_group}">${user_group}</option>
-                    </c:forEach>
-                </select>
-            </div>
-        </div>
-
-        <button class="btn btn-primary btn-lg" type="submit">Save</button>
-    </form>
+      </div>
+    </div>
+  </section>
 </t:pageTemplate>

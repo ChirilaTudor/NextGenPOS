@@ -3,31 +3,29 @@ package com.nextgenpos.nextgenpos.servlets;
 import com.nextgenpos.nextgenpos.common.ProductDto;
 import com.nextgenpos.nextgenpos.ejb.ProductsBean;
 import jakarta.inject.Inject;
-import jakarta.servlet.ServletException;
-import jakarta.servlet.annotation.WebServlet;
-import jakarta.servlet.http.HttpServlet;
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.*;
+import jakarta.servlet.http.*;
+import jakarta.servlet.annotation.*;
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-@WebServlet(name = "Products", value = "/Products")
-public class Products extends HttpServlet {
+@WebServlet(name = "Inventory", value = "/Inventory")
+public class Inventory extends HttpServlet {
     @Inject
     ProductsBean productsBean;
+
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        List<ProductDto> products = productsBean.findAllProducts();
-        request.setAttribute("products", products);
-        request.getRequestDispatcher("/WEB-INF/pages/viewer.jsp").forward(request,response);
-
+        List<ProductDto> inventory = productsBean.findAllProducts();
+        request.setAttribute("inventory", inventory);
+        request.getRequestDispatcher("/WEB-INF/pages/inventory.jsp").forward(request,response);
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String[] productIdsAsString = request.getParameterValues("product_ids");
+        String[] productIdsAsString = request.getParameterValues("inventory_ids");
         if(productIdsAsString != null){
             List<Long> productsIds = new ArrayList<>();
             for(String productIdAsString : productIdsAsString){
@@ -35,6 +33,6 @@ public class Products extends HttpServlet {
             }
             productsBean.deleteProductsByIds(productsIds);
         }
-        response.sendRedirect(request.getContextPath() + "/Products");
+        response.sendRedirect(request.getContextPath() + "/Inventory");
     }
 }

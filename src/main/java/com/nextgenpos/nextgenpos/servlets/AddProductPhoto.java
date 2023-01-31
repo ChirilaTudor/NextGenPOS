@@ -41,3 +41,4 @@ public class AddProductPhoto extends HttpServlet {
         response.sendRedirect(request.getContextPath() + "/AddProductPhoto");
     }
 }
+

@@ -60,3 +60,4 @@ public class ProductPhoto {
         this.product = product;
     }
 }
+

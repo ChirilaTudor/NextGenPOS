@@ -1,39 +1,39 @@
-<%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@taglib prefix="t" tagdir="/WEB-INF/tags" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <t:pageTemplate pageTitle="Users">
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th scope="col">Username</th>
+    <th scope="col">Employee Type</th>
+    <th scope="col">Active</th>
+    <th scope="col">First name</th>
+    <th scope="col">Last name</th>
+    <th scope="col">CNP</th>
+    <th scope="col">Address</th>
+    <th scope="col">Birth date</th>
+    <th scope="col">Phone number</th>
+  </tr>
+  </thead>
 
-<div class="container">
-  <div class="row">
-    <div class="col">Username</div>
-    <div class="col">First Name</div>
-    <div class="col">Last Name</div>
-    <div class="col">Phone Number</div>
-    <div class="col">Type Employee</div>
-    <div class="col"> Status </div>
-  </div>
-  <c:forEach var="user" items="${users}">
-  <div class="row">
-  <div class="col">${user.username}</div>
-  <div class="col">${user.person.firstName}</div>
-  <div class="col">${user.person.lastName}</div>
-  <div class="col">${user.person.getPhonenumber}</div>
-  <div class="col">${user.typeEmployee}</div>
-  <div class="col">${user.getActive() ? "Active" : " Inactive" } </div>
-         <div class="col">
-      <a class="btn btn-secondary"
-         href="${pageContext.request.contextPath}/EnableUser?id=${user.getIdUser()}" role="button">Enable
-        User</a>
-    </div>
-    <div class="col">
-      <a class="btn btn-secondary"
-         href="${pageContext.request.contextPath}/DisableUser?id=${user.getIdUser()}" role="button">
-        Disable User</a>
-    </div>
-
-  </div>
+  <tbody>
+  <tr>
+    <c:forEach var="user" items="${user}">
+      <td>${user.username}</td>
+      <td>${user.typeEmployee}</td>
+      <td>${user.isActive}</td>
+      <td>${user.getPerson().getFirstName()}</td>
+      <td>${user.getPerson().getLastName()}</td>
+      <td>${user.getPerson().getCNP()}</td>
+      <td>${user.getPerson().getAddress()}</td>
+      <td>${user.getPerson().getBirthDate()}</td>
+      <td>${user.getPerson().getPhoneNumber()}</td>
     </c:forEach>
-    </div>
-    
+
+  </tr>
+  </tbody>
+</table>
+
 </t:pageTemplate>
