@@ -1,20 +1,15 @@
 package com.nextgenpos.nextgenpos.ejb;
 
-import com.nextgenpos.nextgenpos.common.NotificationDto;
-import com.nextgenpos.nextgenpos.common.ProductPhotoDto;
 import com.nextgenpos.nextgenpos.common.UserDto;
 import com.nextgenpos.nextgenpos.entities.Person;
-import com.nextgenpos.nextgenpos.entities.ProductPhoto;
 import com.nextgenpos.nextgenpos.entities.User;
 import com.nextgenpos.nextgenpos.entities.UserGroup;
 import jakarta.ejb.EJBException;
 import jakarta.ejb.Stateless;
 import jakarta.inject.Inject;
-import jakarta.jws.soap.SOAPBinding;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import jakarta.persistence.TypedQuery;
-import org.eclipse.tags.shaded.org.apache.xpath.operations.Bool;
 
 import java.util.Collection;
 import java.util.Date;
@@ -97,6 +92,7 @@ public class UsersBean {
 
         entityManager.persist(user);
         person.setUser(user);
+        entityManager.persist(person);
 
         User admin = entityManager.find(User.class, adminId);
         UserDto userDto = copyUserToDTO(user);
