@@ -32,11 +32,11 @@ public class ShoppingCart extends HttpServlet {
             double totalPrice = 0.0;
 
             for(ShoppingCartProductDto product : shoppingCart){
-                totalPrice += (product.getPrice() * product.getQuantity());
+                totalPrice += product.getPrice();
             }
             request.setAttribute("totalPrice", totalPrice);
         }
-        request.getRequestDispatcher("/WEB-INF/pages/shoppingCart.jsp").forward(request,response);
+        request.getRequestDispatcher("/WEB-INF/pages/sale.jsp").forward(request,response);
     }
 
     @Override
