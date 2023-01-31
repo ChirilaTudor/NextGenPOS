@@ -6,7 +6,10 @@
 <t:pageTemplate pageTitle="EditableProducts">
     <h1 class="bd-title">Products</h1>
     <form method="POST" action="${pageContext.request.contextPath}/EditableProducts">
-        <%--<button class="btn btn-danger" type="submit">Delete Products</button>--%>
+        <div class="d-flex justify-content-end mx-3">
+            <button class="btn btn-danger d-none" type="submit" id="deleteSubmit">Delete Products</button>
+        </div>
+
         <div class="container text-center">
             <table class="table table-striped">
                 <thead>
@@ -20,7 +23,6 @@
                     <th scope="col">Image</th>
                     <th scope="col">Add Image</th>
                     <th scope="col">Edit Product</th>
-                    <th scope="col" class="" id="deleteButton">Delete Product</th>
                 </tr>
                 </thead>
 
@@ -29,12 +31,12 @@
 
                     <tr>
 
-                        <td><input type="checkbox" name="product_ids" id="checkbox_delete" onclick="validate()" value="${product.idProduct}"/></td>
+                        <td><input type="checkbox" name="product_ids" class="checkbox_class" onclick="validate()" value="${product.idProduct}"/></td>
                         <td>${product.productName}</td>
                         <td>${product.quantity}</td>
                         <td>${product.price}</td>
                         <td>${product.provider}</td>
-                        <td>${product.description}</td>
+                        <td class="text-break">${product.description}</td>
                         <td><img src="${pageContext.request.contextPath}/ProductPhotos?id=${product.idProduct}"
                                  width="48"/></td>
                         <td><a class="btn btn-secondary"
@@ -44,8 +46,6 @@
                         <td><a class="btn btn-secondary"
                                href="${pageContext.request.contextPath}/EditProduct?id=${product.idProduct}">Edit
                             Product</a></td>
-                        <td><button class="btn btn-danger " id="deleteSubmit" type="submit">Delete</button></td>
-
                     </tr>
                 </c:forEach>
                 </tbody>

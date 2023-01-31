@@ -16,9 +16,9 @@
                     <div class="card p-4">
                         <div class="d-flex justify-content-between align-items-center ">
                             <div class="mt-3">
-                                <h6>Furnizor: ${inventory.provider}</h6>
+                                <h5>Nume: ${inventory.productName}</h5>
                                 <div class="mt-1">
-                                    <h6 class="main-heading">Nume: ${inventory.productName}</h6>
+                                    <p>Furnizor: ${inventory.provider}</p>
                                 </div>
                             </div>
                             <div class="image">

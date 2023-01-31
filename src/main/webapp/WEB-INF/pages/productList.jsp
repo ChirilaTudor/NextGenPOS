@@ -15,9 +15,10 @@
     <div class="card p-4">
       <div class="d-flex justify-content-between align-items-center ">
         <div class="mt-3">
-          <h6>Furnizor: ${inventory.provider}</h6>
+          <p class="fs-5 fw-bold">Nume: ${inventory.productName}</p>
+
           <div class="mt-1">
-            <h6 class="main-heading">Nume: ${inventory.productName}</h6>
+            <h6>Stoc: ${inventory.quantity} bucati</h6>
           </div>
         </div>
         <div class="image">
@@ -25,7 +26,7 @@
         </div>
       </div>
       <div class="pt-1">
-        <h6>Stoc: ${inventory.quantity} bucati</h6>
+        <p>Furnizor: ${inventory.provider}</p>
       </div>
       </div>
   </div>

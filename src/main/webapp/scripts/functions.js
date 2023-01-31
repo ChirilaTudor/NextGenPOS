@@ -40,7 +40,7 @@ function changeName() {
 }
 
 function validate() {
-    const checkBoxes = document.getElementById("checkbox_delete");
+    const checkBoxes = document.getElementsByClassName("checkbox_class")
     if (!checkBoxes) {
         return;
     }
@@ -48,26 +48,24 @@ function validate() {
     Array.from(checkBoxes).forEach(checkBox => {
         if (checkBox.checked) {
             checked = true;
-            const button = document.getElementById("deleteButton");
-            const delete_submit = getElementById("deleteSubmit");
-            button.classList.remove("d-none");
+            const delete_submit = document.getElementById("deleteSubmit");
             delete_submit.classList.remove('d-none');
             return 0;
         }
     })
     if (!checked) {
-        const button = document.getElementById("deleteButton");
-        const delete_submit = getElementById("deleteSubmit");
-        button.classList.add("d-none");
+        const delete_submit = document.getElementById("deleteSubmit");
         delete_submit.classList.add('d-none');
     }
 }
+
 
 
 function paymentChange() {
     document.getElementById('payment_change').classList.remove("d-none")
     document.getElementById('complete').classList.add("d-none")
 }
+
 
 function myFunction() {
     const popup = document.getElementById("myPopup");
