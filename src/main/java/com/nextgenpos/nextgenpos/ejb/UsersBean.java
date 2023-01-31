@@ -1,5 +1,6 @@
 package com.nextgenpos.nextgenpos.ejb;
 
+import com.nextgenpos.nextgenpos.common.NotificationDto;
 import com.nextgenpos.nextgenpos.common.ProductPhotoDto;
 import com.nextgenpos.nextgenpos.common.UserDto;
 import com.nextgenpos.nextgenpos.entities.Person;
@@ -23,6 +24,9 @@ import java.util.stream.Collectors;
 
 @Stateless
 public class UsersBean {
+    @Inject
+    NotificationsBean notificationsBean;
+
     @Inject
     PasswordBean passwordBean;
     private static final Logger LOG = Logger.getLogger(UsersBean.class.getName());
@@ -68,7 +72,7 @@ public class UsersBean {
         return userDto;
     }
 
-    public boolean createUser(String username, String password, String cnp, String address, Date birthDate, String firstName, String lastName, String phoneNumber, Collection<String> groups) {
+    public boolean createUser(String username, String password, String cnp, String address, Date birthDate, String firstName, String lastName, String phoneNumber, Long adminId, Collection<String> groups) {
         LOG.info("createUser");
 
         Boolean isUsername = usernameExist(username);
@@ -94,7 +98,12 @@ public class UsersBean {
         entityManager.persist(user);
         person.setUser(user);
 
+        User admin = entityManager.find(User.class, adminId);
+        UserDto userDto = copyUserToDTO(user);
+        UserDto adminDto = copyUserToDTO(admin);
+        notificationsBean.createNotification(userDto,adminDto);
         assignGroupsToUser(username, groups);
+
 
         return true;
     }
@@ -124,6 +133,7 @@ public class UsersBean {
             entityManager.remove(user);
         }
     }
+
 
     public Long getIdByUsername(String username) {
         try {
@@ -160,6 +170,10 @@ public class UsersBean {
         } catch (Exception ex) {
             throw new EJBException(ex);
         }
+    }
+
+    private UserDto copyUserToDTO(User user){
+        return new UserDto(user.getIdUser(),user.getUsername(),user.getPassword(),user.getPerson(),user.isActive());
     }
 
 }

@@ -30,6 +30,9 @@ public class AddUser extends HttpServlet {
     }
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+        String adminName = request.getUserPrincipal().getName();
+        Long adminId = usersBean.getIdByUsername(adminName);
+
         String username = request.getParameter("username");
         String password = request.getParameter("password");
         String cnp = request.getParameter("cnp");
@@ -52,7 +55,7 @@ public class AddUser extends HttpServlet {
             userGroup = new String[0];
         }
 
-        usersBean.createUser(username, password, cnp, address, birthDate, firstName, lastName, phoneNumber, Arrays.asList(userGroup));
+        usersBean.createUser(username, password, cnp, address, birthDate, firstName, lastName, phoneNumber, adminId, Arrays.asList(userGroup));
         response.sendRedirect(request.getContextPath() + "/AddUser");
     }
 }

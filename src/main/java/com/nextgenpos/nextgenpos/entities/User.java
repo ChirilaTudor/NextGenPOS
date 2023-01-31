@@ -12,6 +12,10 @@ public class User {
     private Person person;
     private Collection<Sale> sales;
     private Boolean isActive;
+    private String typeEmployee;
+    private Collection<Notification> notifications;
+
+
 
     public User(Long idUser, String username, String password, Boolean isActive) {
         this.idUser = idUser;
@@ -79,5 +83,12 @@ public class User {
     public void setPerson(Person person) {
         this.person = person;
     }
+    @OneToMany(mappedBy = "admin")
+    public Collection<Notification> getNotifications() {
+        return notifications;
+    }
 
+    public void setNotifications(Collection<Notification> notifications) {
+        this.notifications = notifications;
+    }
 }

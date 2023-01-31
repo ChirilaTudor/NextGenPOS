@@ -11,7 +11,6 @@ public class UserDto {
     private String password;
     private Person person;
     private Boolean isActive;
-
     public UserDto(Long idUser, String username, String password, Person person, Boolean isActive) {
         this.idUser = idUser;
         this.username = username;
