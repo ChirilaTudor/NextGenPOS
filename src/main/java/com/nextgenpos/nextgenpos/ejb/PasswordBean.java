@@ -16,15 +16,8 @@ public class PasswordBean {
             MessageDigest messageDigest = MessageDigest.getInstance("SHA-256");
             messageDigest.update(password.getBytes());
             byte[] digest = messageDigest.digest();
-            final StringBuilder hexString = new StringBuilder();
-            for(int i=0; i<digest.length; i++){
-                final String hex = Integer.toHexString(0xff & digest[i]);
-                if(hex.length() == 1){
-                    hexString.append('0');
-                }
-                hexString.append(hex);
-            }
-            return hexString.toString();
+            String result = new BigInteger(1, digest).toString(16);
+            return result;
         } catch (NoSuchAlgorithmException ex) {
             LOG.log(Level.SEVERE, "Could not convert password", ex);
         }

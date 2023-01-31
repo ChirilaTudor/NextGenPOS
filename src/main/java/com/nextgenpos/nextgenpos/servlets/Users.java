@@ -20,9 +20,11 @@ public class Users extends HttpServlet {
     private static final Logger LOG = Logger.getLogger(Users.class.getName());
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        List<UserDto> users= usersBean.findAllUsers();
+
+
+    List<UserDto> users= usersBean.findAllUsers();
         request.setAttribute("users",users);
-        request.getRequestDispatcher("/WEB-INF/pages/users.jsp").forward(request,response);
+    request.getRequestDispatcher("/WEB-INF/pages/users.jsp").forward(request,response);
     }
 
     @Override

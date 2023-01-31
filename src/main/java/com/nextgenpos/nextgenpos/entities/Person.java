@@ -1,7 +1,8 @@
 package com.nextgenpos.nextgenpos.entities;
 import jakarta.persistence.*;
 
-import java.util.Date;
+import java.sql.Date;
+import java.util.Collection;
 
 @Entity
 public class Person {
@@ -11,11 +12,12 @@ public class Person {
     private String address;
     private String CNP;
     private Date birthDate;
-    private String phoneNumber;
+    private Integer phoneNumber;
+
     private User user;
 
 
-    public Person(Long idPerson, String firstName, String lastName, String address, String CNP, Date birthDate, String phoneNumber) {
+    public Person(Long idPerson, String firstName, String lastName, String address, String CNP, Date birthDate, Integer phoneNumber) {
         this.idPerson = idPerson;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -69,11 +71,11 @@ public class Person {
         this.birthDate = birthDate;
     }
 
-    public String getPhoneNumber() {
+    public Integer getPhoneNumber() {
         return phoneNumber;
     }
 
-    public void setPhoneNumber(String phoneNumber) {
+    public void setPhoneNumber(Integer phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
 
