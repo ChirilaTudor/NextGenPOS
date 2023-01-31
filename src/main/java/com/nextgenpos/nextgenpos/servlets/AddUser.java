@@ -13,9 +13,12 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
+import java.sql.Date;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Arrays;
 
-@ServletSecurity(value = @HttpConstraint(rolesAllowed = {"WRITE_USERS"}))
+//@ServletSecurity(value = @HttpConstraint(rolesAllowed = {"WRITE_USERS"}))
 @WebServlet(name = "AddUser", value = "/AddUser")
 public class AddUser extends HttpServlet {
     @Inject
@@ -23,22 +26,33 @@ public class AddUser extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.setAttribute("userGroups", new String[] {"WRITE_PRODUCTS", "READ_USERS", "WRITE_USERS","WRITE_PERSONS"});
+        //request.setAttribute("userGroups", new String[] {"WRITE_PRODUCTS", "READ_USERS", "WRITE_USERS","WRITE_PERSONS"});
         request.getRequestDispatcher("/WEB-INF/pages/addUser.jsp").forward(request, response);
     }
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
         String username = request.getParameter("username");
         String password = request.getParameter("password");
-        Long personId = Long.parseLong(request.getParameter("person_id"));
-        String typeEmployee = request.getParameter("typeEmployee");
-        Boolean isActive = Boolean.parseBoolean(request.getParameter("isActive"));
-        String[] userGroups = request.getParameterValues("user_groups");
-        if (userGroups == null) {
-            userGroups = new String[0];
+        String typeEmployee = request.getParameter("type_employee");
+        String cnp = request.getParameter("cnp");
+        String address = request.getParameter("address");
+        String date = request.getParameter("birth_date");
+
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+
+        Date birthDate = null;
+        try {
+            birthDate = (Date) dateFormat.parse(date);
+        } catch (ParseException e) {
+            throw new RuntimeException(e);
         }
-        usersBean.createUser(username, password, personId, typeEmployee, isActive,Arrays.asList(userGroups));
-        response.sendRedirect(request.getContextPath() + "/Users");
+        String firstName = request.getParameter("first_name");
+        String lastName = request.getParameter("last_name");
+        String phoneNumber = request.getParameter("phone_number");
+
+
+        usersBean.createUser(username, password, typeEmployee, cnp, address, birthDate, firstName, lastName, phoneNumber);
+        response.sendRedirect(request.getContextPath() + "/AddUser");
     }
 }
 
