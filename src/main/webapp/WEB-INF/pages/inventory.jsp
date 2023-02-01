@@ -36,13 +36,13 @@
                             <h6>Stoc: ${product.quantity} bucati</h6>
                             <div>
 
-                                <form method="POST" action="${pageContext.request.contextPath}/UpdateStock">
+                                <form method="POST"  class="row" action="${pageContext.request.contextPath}/UpdateStock">
                                     <input type="number" id="product_quantity" name="product_quantity" value="${product.quantity}" class="form-control"/>
-                                    <input class="btn btn-primary text-center mt-3 fw-light" type="submit" value="Modify stock"/>
+                                    <input class="btn text-white bg-dark text-center mt-3 fw-light" type="submit" value="Modify stock"/>
                                     <input type="hidden" id="product_id" name="product_id" value="${product.idProduct}" />
                                 </form>
-                                    <div class="text-center d-flex justify-content-between">
-                                        <a class="btn btn-primary text-center mt-3 fw-light"
+                                    <div class="text-center d-flex justify-content-between row">
+                                        <a class="btn text-white bg-dark text-center mt-3 fw-light"
                                             href="${pageContext.request.contextPath}/AddProductPhoto?id=${product.idProduct}"
                                             role="button">Add photo</a>
                                     </div>

@@ -18,7 +18,7 @@
       <tbody>
       <c:forEach var="category" items="${categories}">
         <tr>
-          <td class="text-center"><a class=" btn btn-link text-dark fs-2" style="text-decoration: none">${category.categoryName}</a></td>
+          <td class="text-center"><a href="${pageContext.request.contextPath}/Category?idCategory=${category.idCategory}" class=" btn btn-link text-dark fs-2" style="text-decoration: none">${category.categoryName}</a></td>
         </tr>
       </c:forEach>
       </tbody>
