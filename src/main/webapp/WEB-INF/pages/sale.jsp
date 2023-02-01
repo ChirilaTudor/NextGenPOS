@@ -10,7 +10,7 @@
             <form method="POST" action="${pageContext.request.contextPath}/AddShoppingCartProduct">
                     <div class="input-group form-floating">
                         <input type="text" id="product_id" name="product_id" class="form-control textarea-resizing" placeholder="Product Code" aria-label="With textarea" required autofocus />
-                        <label class="inline-block ms-2 fs-4" for="product_id">Product Code</label>
+                        <label   class="fs-6" for="product_id">Product Code</label>
                         <button class="btn btn-lg p-auto btn-block text-white bg-dark" type="submit">Add</button>
                     </div>
             </form>
