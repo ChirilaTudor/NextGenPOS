@@ -67,13 +67,13 @@ public class UsersBean {
         return userDto;
     }
 
-    public boolean createUser(String username, String password, String cnp, String address, Date birthDate, String firstName, String lastName, String phoneNumber, Long adminId, Collection<String> groups) {
+    public UserDto createUser(String username, String password, String cnp, String address, Date birthDate, String firstName, String lastName, String phoneNumber, Long adminId, Collection<String> groups) {
         LOG.info("createUser");
 
         Boolean isUsername = usernameExist(username);
 
         if(isUsername == true){
-            return false;
+            return null;
         }
 
         Person person = new Person();
@@ -97,12 +97,11 @@ public class UsersBean {
 
         User admin = entityManager.find(User.class, adminId);
         UserDto userDto = copyUserToDTO(user);
-        UserDto adminDto = copyUserToDTO(admin);
-        notificationsBean.createNotification(userDto,adminDto);
+
         assignGroupsToUser(username, groups);
 
 
-        return true;
+        return userDto;
     }
 
     private void assignGroupsToUser(String username, Collection<String> groups) {
