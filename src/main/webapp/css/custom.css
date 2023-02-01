@@ -95,7 +95,7 @@ body{
 }
 .wrapper {
     display: grid;
-    grid-template-columns: repeat(4 , 1fr);
+    grid-template-columns: repeat(4 , 25%);
     gap: 5px;
 }
 
@@ -255,4 +255,8 @@ body{
 .grid > div {
     background-color: white;
     padding: 10px;
+}
+
+#products{
+    margin-left: 0;
 }

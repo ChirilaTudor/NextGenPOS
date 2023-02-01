@@ -7,15 +7,18 @@
     <h3 id="product_name">Product list</h3>
   </div>
 
-  <div class="input-group d-flex justify-content-end mt-2">
-    <div class="searchbar bg-dark">
-      <input class="search_input" type="text" name="" placeholder="Search...">
-      <a href="#" class="search_icon"><i class="fas fa-search"></i></a>
+  <form id="form1" method="GET" action="${pageContext.request.contextPath}/SearchBar">
+    <div class="input-group d-flex justify-content-end mt-2">
+      <div class="searchbar mt-3 bg-dark">
+        <input type="text" id="text_search" name="text_search" class="search_input" placeholder="Search..." />
+        <a href="javascript:;" onclick="document.getElementById('form1').submit();" class="search_icon"><i class="fas fa-search"></i></a>
+        <input type="hidden" id="productList" name="productList" value="search" />
+      </div>
     </div>
-  </div>
+  </form>
 
 <div class="row row-cols-3 g-2 mt-3" id="products">
-  <c:forEach var="product" items="${products_list}">
+  <c:forEach var="product" items="${products}">
   <div class="<d-flex align-items-center col" style="width: 20rem;" >
     <div class="card p-4">
       <div class="d-flex justify-content-between align-items-center ">

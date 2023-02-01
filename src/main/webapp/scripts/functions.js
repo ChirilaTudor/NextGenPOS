@@ -4,7 +4,7 @@ function openNav() {
 }
 function closeNav() {
     document.getElementById("myNav").style.width = "0%";
-    document.getElementById("products").style.marginLeft = "5rem";
+    document.getElementById("products").style.marginLeft = "0rem";
 }
 
 function search(){

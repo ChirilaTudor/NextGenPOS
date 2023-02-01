@@ -19,7 +19,7 @@ public class Inventory extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         List<ProductDto> inventory = productsBean.findAllProducts();
-        request.setAttribute("inventory", inventory);
+        request.setAttribute("products", inventory);
         request.getRequestDispatcher("/WEB-INF/pages/inventory.jsp").forward(request,response);
     }
 
