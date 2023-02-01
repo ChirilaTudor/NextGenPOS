@@ -16,7 +16,6 @@
     <div class="row <%--row-cols-3--%> g-2 mt-3 wrapper" id="products">
         <c:forEach var="inventory" items="${inventory}">
             <div class="<d-flex align-items-center col" style="width: 20rem;" >
-                <form  class="form-signin" method="POST" action="">
                     <div class="card p-4">
                         <div class="d-flex justify-content-between align-items-center ">
                             <div class="mt-3">
@@ -26,23 +25,26 @@
                                 </div>
                             </div>
                             <div class="image">
-                                <img src="https://i.imgur.com/MGorDUi.png" width="70">
+                                <img src="${pageContext.request.contextPath}/ProductPhotos?id=${inventory.idProduct}" width="70"/>
                             </div>
                         </div>
                         <div class="pt-1">
                             <h6>Stoc: ${inventory.quantity} bucati</h6>
                             <div>
-                                <input type="number" id="stock"  class="form-control"/>
-                                <div class="text-center d-flex justify-content-between">
-                                    <a type="submit" class="btn btn-primary text-center mt-3 fw-light">Modifica Stoc</a>
-                                    <a  class="btn btn-primary text-center mt-3 fw-light" href="${pageContext.request.contextPath}/AddProductPhoto">Adauga Imagine</a>
-                                </div>
-
+                                <form method="POST" action="${pageContext.request.contextPath}/UpdateStock">
+                                    <input type="number" id="product_quantity" name="product_quantity" value="${inventory.quantity}" class="form-control"/>
+                                    <input class="btn btn-primary text-center mt-3 fw-light" type="submit" value="Modify stock"/>
+                                    <input type="hidden" id="product_id" name="product_id" value="${inventory.idProduct}" />
+                                </form>
+                                    <div class="text-center d-flex justify-content-between">
+                                        <a class="btn btn-primary text-center mt-3 fw-light"
+                                            href="${pageContext.request.contextPath}/AddProductPhoto?id=${inventory.idProduct}"
+                                            role="button">Add photo</a>
+                                    </div>
                             </div>
 
                         </div>
                     </div>
-                </form>
             </div>
         </c:forEach>
     </div>

@@ -1,7 +1,9 @@
 package com.nextgenpos.nextgenpos.servlets;
 
 import com.nextgenpos.nextgenpos.common.ProductDto;
+import com.nextgenpos.nextgenpos.ejb.CategoryBean;
 import com.nextgenpos.nextgenpos.ejb.ProductsBean;
+import com.nextgenpos.nextgenpos.entities.Category;
 import jakarta.inject.Inject;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -17,6 +19,10 @@ import java.util.List;
 public class Products extends HttpServlet {
     @Inject
     ProductsBean productsBean;
+
+    @Inject
+    CategoryBean categoryBean;
+
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         List<ProductDto> products = productsBean.findAllProducts();

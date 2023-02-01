@@ -14,24 +14,24 @@
     </div>
   </div>
 
-<div class="row g-2 mt-3 wrapper" id="products">
-  <c:forEach var="inventory" items="${products_list}">
+<div class="row row-cols-3 g-2 mt-3" id="products">
+  <c:forEach var="product" items="${products_list}">
   <div class="<d-flex align-items-center col" style="width: 20rem;" >
     <div class="card p-4">
       <div class="d-flex justify-content-between align-items-center ">
         <div class="mt-3">
-          <p class="fs-5 fw-bold">Nume: ${inventory.productName}</p>
+          <p class="fs-5 fw-bold">Nume: ${product.productName}</p>
 
           <div class="mt-1">
-            <h6>Stoc: ${inventory.quantity} bucati</h6>
+            <h6>Stoc: ${product.quantity} bucati</h6>
           </div>
         </div>
         <div class="image">
-          <img src="https://i.imgur.com/MGorDUi.png" width="70">
+          <img src="${pageContext.request.contextPath}/ProductPhotos?id=${product.idProduct}" width="70"/>
         </div>
       </div>
       <div class="pt-1">
-        <p>Furnizor: ${inventory.provider}</p>
+        <p>Furnizor: ${product.provider}</p>
       </div>
       </div>
   </div>

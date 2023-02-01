@@ -20,9 +20,9 @@
                                             Photo is required.
                                         </div>
                                     </div>
-                            <input type="hidden" name="product_id" value="${product.idProduct}"/>
-                            <hr class="mb-4">
-                            <a class="btn btn-primary btn-lg btn-block" type="submit" href="${pageContext.request.contextPath}/Inventory">Save</a>
+                                    <input type="hidden" name="product_id" value="${product.idProduct}"/>
+                                    <hr class="mb-4">
+                                    <button class="btn btn-primary btn-lg btn-block" type="submit">Save</button>
                                 </form>
                             </div>
                         </div>

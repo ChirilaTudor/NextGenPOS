@@ -27,7 +27,7 @@ public class AddProductPhoto extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        Long productId = Long.parseLong(request.getParameter("idProduct"));
+        Long productId = Long.parseLong(request.getParameter("product_id"));
 
         Part filePart = request.getPart("file");
         String fileName = filePart.getSubmittedFileName();
@@ -37,7 +37,7 @@ public class AddProductPhoto extends HttpServlet {
         filePart.getInputStream().read(fileContent);
 
         productsBean.addPhotoToProduct(productId, fileName, fileType, fileContent);
-        response.sendRedirect(request.getContextPath() + "/AddProductPhoto");
+        response.sendRedirect(request.getContextPath() + "/EditableProducts");
     }
 }
 

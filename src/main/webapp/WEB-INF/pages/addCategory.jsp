@@ -20,7 +20,7 @@
                 <form  class="form-signin" method="POST" action="${pageContext.request.contextPath}/AddCategory">
                   <div class="form-outline form-white mb-4">
                     <label for="category_name" class="sr-only">Category name</label>
-                    <input type="text" id="category_name" class="form-control form-control-lg cashier-item-box" placeholder="Category name" required/>
+                    <input type="text" id="category_name" name="category_name" class="form-control form-control-lg cashier-item-box" placeholder="Category name" required/>
                   </div>
 
 

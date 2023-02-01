@@ -25,7 +25,6 @@ public class EditShoppingCartQuantity extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         Long productId =  Long.parseLong(request.getParameter("product_id"));
 
-
         if (request.getParameter("up") != null) {
             shoppingCartBean.editProductQuantityInShoppingCart(productId, "up");
 

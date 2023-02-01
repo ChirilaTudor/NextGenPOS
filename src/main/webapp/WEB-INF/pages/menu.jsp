@@ -60,6 +60,7 @@
                     <a href="#" id="admin2">Security</a>
                 </c:when>
             </c:choose>--%>
+                <a href="${pageContext.request.contextPath}/Categories" >Select Category</a>
                 <a href="${pageContext.request.contextPath}/ProductList" >Product list</a>
                 <a href="${pageContext.request.contextPath}/Inventory" id="inventory">Inventory</a>
                 <a href="${pageContext.request.contextPath}/Users" id="inventory">Users</a>

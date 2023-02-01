@@ -31,7 +31,7 @@ public class ProductsBean {
             TypedQuery<Product> typedQuery = entityManager.createQuery("SELECT p FROM Product p", Product.class);
             List<Product> products = typedQuery.getResultList();
             return copyProductsToDto(products);
-        } catch (Exception ex){
+        } catch (Exception ex) {
             throw new EJBException(ex);
         }
     }
@@ -111,7 +111,7 @@ public class ProductsBean {
     public void deleteProductsByIds(List<Long> productsIds) {
         LOG.info("deleteProductsByIds");
 
-        for(Long productId : productsIds){
+        for (Long productId : productsIds) {
             Product product = entityManager.find(Product.class, productId);
             entityManager.remove(product);
         }
@@ -155,5 +155,16 @@ public class ProductsBean {
         }
 
         return copyProductsToDto(products);
+    }
+
+    public void updateProductQuantity(Long productId, Integer quantity) {
+        LOG.info("updateProductQuantity");
+
+        try {
+            Product product = entityManager.find(Product.class, productId);
+            product.setQuantity(quantity);
+        } catch (Exception ex) {
+            throw new EJBException(ex);
+        }
     }
 }

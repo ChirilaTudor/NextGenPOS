@@ -21,15 +21,15 @@
 
             <div class="form-outline mb-4">
               <label class="form-label" for="product_name">Product name</label>
-              <input type="text" id="product_name" class="form-control form-control-lg"/>
+              <input type="text" id="product_name" name="product_name" class="form-control form-control-lg"/>
               <div class="invalid-feedback">
                 Product name is required.
               </div>
             </div>
 
             <div class="form-outline mb-4">
-              <label class="form-label" for="product_name">Category</label>
-              <select class="form-select form-control-lg" id="owner_id" name="owner_id" required="">
+              <label class="form-label" for="category_id">Category</label>
+              <select class="form-select form-control-lg" id="category_id" name="category_id" required="">
                 <option value="">Choose...</option>
                 <c:forEach var="category" items="${categories}" varStatus="status">
                   <option value="${category.idCategory}">${category.categoryName}</option>
@@ -39,7 +39,7 @@
 
             <div class="form-outline mb-4">
               <label class="form-label" for="product_quantity">Quantity</label>
-              <input type="number" id="product_quantity" class="form-control form-control-lg"/>
+              <input type="number" id="product_quantity" name="product_quantity" class="form-control form-control-lg"/>
               <div class="invalid-feedback">
                 Quantity is required.
               </div>
@@ -47,7 +47,7 @@
 
             <div class="form-outline mb-4">
               <label class="form-label" for="product_price">Price</label>
-              <input type="number" id="product_price" class="form-control form-control-lg"/>
+              <input type="number" id="product_price" name="product_price" class="form-control form-control-lg"/>
               <div class="invalid-feedback">
                 Price is required.
               </div>
@@ -55,7 +55,7 @@
 
             <div class="form-outline mb-4">
               <label class="form-label" for="product_provider">Provider</label>
-              <input type="text" id="product_provider" class="form-control form-control-lg"/>
+              <input type="text" id="product_provider" name="product_provider" class="form-control form-control-lg"/>
               <div class="invalid-feedback">
                 Provider is required.
               </div>
@@ -63,7 +63,7 @@
 
             <div class="form-outline form-white mb-4">
               <label for="product_description" class="d-flex p-2">Product description</label>
-              <textarea class="form-control" id="product_description" rows="3" required></textarea>
+              <textarea class="form-control" id="product_description" name="product_description" rows="3" required></textarea>
               <div class="invalid-feedback">
                 Product description is required.
               </div>

@@ -49,7 +49,7 @@
                 </div>
               </div>
               <div class="image">
-                <img src="https://i.imgur.com/MGorDUi.png" width="80">
+                <img src="${pageContext.request.contextPath}/ProductPhotos?id=${product.idProduct}" width="80"/>
               </div>
             </div>
             <div>
