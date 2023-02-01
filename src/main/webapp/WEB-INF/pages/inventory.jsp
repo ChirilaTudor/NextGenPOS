@@ -23,9 +23,10 @@
                         <div class="d-flex justify-content-between align-items-center ">
                             <div class="mt-3">
 
-                                <h5 class="overtext">Nume: ${product.productName}</h5>
+                                <h5 class="overtext">Name: ${product.productName}</h5>
                                 <div class="mt-1">
-                                    <p>Furnizor: ${product.provider}</p>
+                                    <p>Provider: ${product.provider}</p>
+                                    <p>ID: ${product.idProduct}</p>
                                 </div>
                             </div>
                             <div class="image">
@@ -33,7 +34,7 @@
                             </div>
                         </div>
                         <div class="pt-1">
-                            <h6>Stoc: ${product.quantity} bucati</h6>
+                            <h6>Stock: ${product.quantity} units</h6>
                             <div>
 
                                 <form method="POST"  class="row" action="${pageContext.request.contextPath}/UpdateStock">

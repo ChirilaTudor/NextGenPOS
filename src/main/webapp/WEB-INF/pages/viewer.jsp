@@ -30,9 +30,9 @@
           <div class="card p-3">
             <div class="d-flex justify-content-between align-items-center ">
               <div class="mt-3">
-                <p class="< fs-5 fw-bold overtext">Nume: ${product.productName}</p>
+                <p class="< fs-5 fw-bold overtext">Name: ${product.productName}</p>
                 <div class="mt-1">
-                  <h6>Pret: ${product.price} lei</h6>
+                  <h6>Price: ${product.price} lei</h6>
 
                 </div>
               </div>
@@ -41,7 +41,7 @@
               </div>
             </div>
             <div>
-              <p>Furnizor: ${product.provider}</p>
+              <p>Provider: ${product.provider}</p>
             </div>
             <a href="${pageContext.request.contextPath}/SingleProduct?idProduct=${product.idProduct}"  class="stretched-link"></a>
           </div>

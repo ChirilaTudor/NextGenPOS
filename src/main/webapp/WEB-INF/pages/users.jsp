@@ -29,6 +29,11 @@
       <td>${user.getPerson().getAddress()}</td>
       <td>${user.getPerson().getBirthDate()}</td>
       <td>${user.getPerson().getPhoneNumber()}</td>
+
+      <c:if test="${pageContext.request.isUserInRole('ADMIN')}">
+          <td><a class="btn text-white bg-dark"  href="${pageContext.request.contextPath}/EditPerson?id=${user.idUser}">Edit User</a></td>
+      </c:if>
+
       <c:choose>
           <c:when test="${user.getActive()}" >
               <td><a class="btn btn-danger"  href="${pageContext.request.contextPath}/DisableUser?id=${user.idUser}">Disable</a></td>
@@ -37,6 +42,7 @@
               <td><a class="btn btn-success"  href="${pageContext.request.contextPath}/EnableUser?id=${user.idUser}">Enable</a></td>
           </c:otherwise>
       </c:choose>
+
 
   </tr>
   </c:forEach>
