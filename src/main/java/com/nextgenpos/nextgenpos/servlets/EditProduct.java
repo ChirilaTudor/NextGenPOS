@@ -12,7 +12,6 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
-import java.util.List;
 
 @ServletSecurity(value = @HttpConstraint(rolesAllowed = {"GENERAL_DIRECTOR"}))
 @WebServlet(name = "EditProduct", value = "/EditProduct")
@@ -37,9 +36,9 @@ public class EditProduct extends HttpServlet {
         String description = request.getParameter("product_description");
         String provider = request.getParameter("product_provider");
 
-        productsBean.updateProduct(productId, productName,quantity, price, description, provider);
+        productsBean.updateProduct(productId, productName, quantity, price, description, provider);
 
-        response.sendRedirect(request.getContextPath() + "/Products");
+        response.sendRedirect(request.getContextPath() + "/EditableProducts");
     }
 
 }
