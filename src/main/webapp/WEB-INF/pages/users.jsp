@@ -3,7 +3,7 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <t:pageTemplate pageTitle="Users">
-<table class="table table-striped mt-4" onload="isActive()">
+<table class="table table-striped mt-4">
   <thead>
   <tr>
       <th scope="col">Username</th>
@@ -29,10 +29,6 @@
       <td>${user.getPerson().getAddress()}</td>
       <td>${user.getPerson().getBirthDate()}</td>
       <td>${user.getPerson().getPhoneNumber()}</td>
-
-      <c:if test="${pageContext.request.isUserInRole('ADMIN')}">
-          <td><a class="btn text-white bg-dark"  href="${pageContext.request.contextPath}/EditPerson?id=${user.idUser}">Edit User</a></td>
-      </c:if>
 
       <c:choose>
           <c:when test="${user.getActive()}" >

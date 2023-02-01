@@ -44,13 +44,13 @@
                         <td><img src="${pageContext.request.contextPath}/ProductPhotos?id=${product.idProduct}"
                                  width="48"/></td>
 
-                                <td><a class="btn text-white bg-dark"
+                                <td><a class="btn text-white bg-dark d-flex justify-content-center"
                                        href="${pageContext.request.contextPath}/AddProductPhoto?id=${product.idProduct}"
                                        role="button">Update
                                     photo</a></td>
 
 
-                        <td><a class="btn text-white bg-dark"
+                        <td><a class="btn text-white bg-dark d-flex justify-content-center"
                                href="${pageContext.request.contextPath}/EditProduct?id=${product.idProduct}">Edit
                             Product</a></td>
                     </tr>
