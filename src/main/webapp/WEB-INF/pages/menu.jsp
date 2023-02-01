@@ -2,7 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <header class="w-auto">
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark ">
     <div class="container-fluid">
                 <div onclick="openNav()">
                     <a class="navbar-brand margin"><i class="fas fa-stream"></i></a>
@@ -10,7 +10,7 @@
 
             <a class="navbar-brand margin" href="${pageContext.request.contextPath}">NextGenPos</a>
 
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <div class="collapse navbar-collapse" id="navbarSupportedContent" >
 
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             </ul>

@@ -50,7 +50,7 @@
             </div>
 
             <div class="text-center text-lg-start mt-4 pt-2">
-              <button type="submit" class="btn btn-outline-primary btn-lg"
+              <button type="submit" class="btn text-white bg-dark btn-lg"
                       style="padding-left: 2.5rem; padding-right: 2.5rem;">Submit
               </button>
               <p class="small fw-bold mt-2 pt-1 mb-0">

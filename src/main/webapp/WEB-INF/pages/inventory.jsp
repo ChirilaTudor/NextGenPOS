@@ -19,9 +19,10 @@
                     <div class="card p-4">
                         <div class="d-flex justify-content-between align-items-center ">
                             <div class="mt-3">
-                                <h5>Nume: ${inventory.productName}</h5>
+                                <h5 class="overtext">Nume: ${inventory.productName}</h5>
                                 <div class="mt-1">
                                     <p>Furnizor: ${inventory.provider}</p>
+                                    <p>Id: ${inventory.idProduct}</p>
                                 </div>
                             </div>
                             <div class="image">
@@ -31,13 +32,13 @@
                         <div class="pt-1">
                             <h6>Stoc: ${inventory.quantity} bucati</h6>
                             <div>
-                                <form method="POST" action="${pageContext.request.contextPath}/UpdateStock">
+                                <form method="POST" class="row" action="${pageContext.request.contextPath}/UpdateStock">
                                     <input type="number" id="product_quantity" name="product_quantity" value="${inventory.quantity}" class="form-control"/>
-                                    <input class="btn btn-primary text-center mt-3 fw-light" type="submit" value="Modify stock"/>
+                                    <input class="btn  text-center text-white bg-dark mt-3 fw-light" type="submit" value="Modify stock"/>
                                     <input type="hidden" id="product_id" name="product_id" value="${inventory.idProduct}" />
                                 </form>
-                                    <div class="text-center d-flex justify-content-between">
-                                        <a class="btn btn-primary text-center mt-3 fw-light"
+                                    <div class="text-center d-flex justify-content-between row">
+                                        <a class="btn  text-center text-white bg-dark mt-3 fw-light"
                                             href="${pageContext.request.contextPath}/AddProductPhoto?id=${inventory.idProduct}"
                                             role="button">Add photo</a>
                                     </div>

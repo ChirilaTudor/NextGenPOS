@@ -31,10 +31,10 @@
       <td>${user.getPerson().getPhoneNumber()}</td>
       <c:choose>
           <c:when test="${user.getActive()}" >
-              <td><a class="btn btn-secondary"  href="${pageContext.request.contextPath}/DisableUser?id=${user.idUser}">Disable</a></td>
+              <td><a class="btn btn-danger"  href="${pageContext.request.contextPath}/DisableUser?id=${user.idUser}">Disable</a></td>
           </c:when>
           <c:otherwise>
-              <td><a class="btn btn-secondary"  href="${pageContext.request.contextPath}/EnableUser?id=${user.idUser}">Enable</a></td>
+              <td><a class="btn btn-success"  href="${pageContext.request.contextPath}/EnableUser?id=${user.idUser}">Enable</a></td>
           </c:otherwise>
       </c:choose>
 

@@ -25,7 +25,7 @@
                   </div>
 
                   <div class="d-none" id="done">
-                    <a class="btn btn-outline-primary btn-lg px-5 mt-4" type="submit"  href="${pageContext.request.contextPath}/Sale">Done</a>
+                    <a class="btn text-white bg-dark btn-lg px-5 mt-4" type="submit"  href="${pageContext.request.contextPath}/Sale">Done</a>
                   </div>
 
               </div>

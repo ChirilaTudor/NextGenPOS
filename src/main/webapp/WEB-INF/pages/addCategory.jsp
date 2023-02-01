@@ -21,7 +21,7 @@
                     <input type="text" id="category_name" name="category_name" class="form-control form-control-lg cashier-item-box" placeholder="Category name" required/>
                   </div>
 
-                  <button class="btn btn-outline-primary btn-lg px-5 mt-4" type="submit">Submit</button>
+                  <button class="btn text-white bg-dark btn-lg px-5 mt-4" type="submit">Submit</button>
                 </form>
 
               </div>

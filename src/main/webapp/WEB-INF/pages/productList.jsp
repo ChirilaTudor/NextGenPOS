@@ -20,7 +20,7 @@
     <div class="card p-4">
       <div class="d-flex justify-content-between align-items-center ">
         <div class="mt-3">
-          <p class="fs-5 fw-bold">Nume: ${product.productName}</p>
+          <p class="fs-5 fw-bold overtext">Nume: ${product.productName}</p>
 
           <div class="mt-1">
             <h6>Stoc: ${product.quantity} bucati</h6>
@@ -31,6 +31,7 @@
         </div>
       </div>
       <div class="pt-1">
+        <p>Id: ${product.idProduct}</p>
         <p>Furnizor: ${product.provider}</p>
       </div>
       </div>

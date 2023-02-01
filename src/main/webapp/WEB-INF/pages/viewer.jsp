@@ -19,7 +19,7 @@
           <div class="card p-3">
             <div class="d-flex justify-content-between align-items-center ">
               <div class="mt-3">
-                <p class="< fs-5 fw-bold">Nume: ${product.productName}</p>
+                <p class="< fs-5 fw-bold overtext">Nume: ${product.productName}</p>
                 <div class="mt-1">
                   <h6>Pret: ${product.price} lei</h6>
 

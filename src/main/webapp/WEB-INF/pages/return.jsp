@@ -25,7 +25,7 @@
                                         <label for="quantity" class="sr-only ">Quantity</label>
                                         <input type="text" id="quantity" class="form-control form-control-lg cashier-item-box" placeholder="Quantity" required/>
                                     </div>
-                                    <button class="btn btn-outline-primary btn-lg px-5 mt-4" type="submit">Submit</button>
+                                    <button class="btn  btn-lg px-5 mt-4 text-white bg-dark" type="submit">Submit</button>
 
                                 </form>
 
