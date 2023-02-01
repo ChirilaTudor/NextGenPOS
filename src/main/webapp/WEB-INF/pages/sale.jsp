@@ -23,24 +23,32 @@
                             <c:forEach var="product" items="${shoppingCart}">
                                     <div class="row border rounded cashier-item-box bg-white fs-5 mb-2 pt-2">
                                         <div class="row">
-                                            <div class="col">
+                                            <div class="col-1">
                                                     ${product.idProduct}
                                             </div>
-                                            <div class="col">
-                                                    ${product.productName}
+                                            <div class="col-5">
+                                                <p class="overme">${product.productName}</p>
                                             </div>
-                                            <div class="col">
+                                            <div class="col-3">
                                                 <form method="POST" action="${pageContext.request.contextPath}/EditShoppingCartQuantity">
-                                                    <input type="submit" name="down" class="btn btn-outline-secondary me-3" value="-">
-                                                        ${product.quantity}
-                                                    <input type="submit" name="up"  class="btn btn-outline-secondary ms-3" value="+">
-                                                    <input type="hidden" name="product_id" value="${product.idProduct}" />
+                                                    <div class="row">
+                                                        <div class="col-3">
+                                                            <input type="submit" name="down" class="btn btn-outline-secondary me-2" value="-">
+                                                        </div>
+                                                        <div class="col-3">
+                                                                ${product.quantity}
+                                                        </div>
+                                                        <div class="col-3">
+                                                            <input type="submit" name="up"  class="btn btn-outline-secondary ms-2" value="+">
+                                                        </div>
+                                                            <input type="hidden" name="product_id" value="${product.idProduct}" />
+                                                    </div>
                                                 </form>
                                             </div>
-                                            <div class="col">
+                                            <div class="col-2">
                                                     ${product.price} lei
                                             </div>
-                                            <div class="col">
+                                            <div class="col-1">
                                                 <form method="POST" action="${pageContext.request.contextPath}/RemoveShoppingCartProduct">
                                                     <input type="submit" name="up" class="btn btn-outline-danger" value="X">
                                                     <input type="hidden" name="product_id" value="${product.idProduct}" />
@@ -70,9 +78,6 @@
 
 
         <div class="col m-auto ms-3">
-            <form method="POST" action="${pageContext.request.contextPath}/ShoppingCart">
-                <button class="btn btn-lg btn-outline-primary btn-block" type="submit">Make Sale</button>
-            </form>
 
             <div>
                 <a class="btn btn-lg btn-outline-primary btn-block mt-4" href="${pageContext.request.contextPath}/Cash">CASH</a>
@@ -82,65 +87,5 @@
             </div>
         </div>
     </div>
-
-<%--    <div class="container-lg mx-auto row">--%>
-<%--    <div class="col-10 mt-4">--%>
-<%--        <div class="row">--%>
-<%--        <div class="row">--%>
-<%--            <div class="input-group form-floating">--%>
-<%--                <textarea class="form-control textarea-resizing bg-dark text-white" placeholder="The item that you want to add to the list" id="floatingTextarea" aria-label="With textarea"></textarea>--%>
-<%--                <label class="inline-block ms-3 fs-4 text-white" for="floatingTextarea">Item name</label>--%>
-<%--                <a class="btn btn-outline-primary btn-lg p-auto bg-dark">Add</a>--%>
-<%--            </div>--%>
-<%--        </div>--%>
-<%--        <div class="ps-3 mt-3">--%>
-<%--            <div class="row border rounded cashier-container-box bg-dark text-white ps-4">--%>
-
-<%--                <div class="g-3 scrollable">--%>
-<%--                <div class="row border rounded cashier-item-box fs-5 pt-2">--%>
-<%--                    <div class="col-6">--%>
-<%--                        ${name}--%>
-<%--                    </div>--%>
-<%--                    <div class="col-1">--%>
-<%--                        <i class="fa fa-minus fa-xs btn btn-outline-secondary"></i>--%>
-<%--                    </div>--%>
-<%--                    <div class="col-1 ps-4">--%>
-<%--                        ${nr}--%>
-<%--                    </div>--%>
-<%--                    <div class="col-1">--%>
-<%--                        <i class="fa fa-plus fa-xs btn btn-outline-secondary"></i>--%>
-<%--                    </div>--%>
-<%--                    <div class="col-2">--%>
-<%--                        Price: ${price} lei--%>
-<%--                    </div>--%>
-<%--                    <div class="col-1">--%>
-<%--                        <a class="btn btn-outline-danger">X</a>--%>
-<%--                    </div>--%>
-<%--                </div>--%>
-<%--                </div>--%>
-
-<%--            </div>--%>
-<%--            <div class="end-align mb-3">--%>
-<%--                <h3 class="ps-3">--%>
-<%--                    Total:--%>
-<%--                </h3>--%>
-<%--            </div>--%>
-<%--        </div>--%>
-<%--        </div>--%>
-<%--    </div>--%>
-
-<%--    <div class="col h-100%" id="container-button">--%>
-<%--        <div class="end-align">--%>
-<%--            <div>--%>
-<%--                <a class="btn btn-outline-primary btn-lg bg-dark">CASH</a>--%>
-<%--            </div>--%>
-<%--            <div>--%>
-<%--                <a class="btn btn-outline-primary btn-lg mt-4 bg-dark">CARD</a>--%>
-<%--            </div>--%>
-<%--        </div>--%>
-
-<%--    </div>--%>
-<%--    </div>--%>
-<%--    --%>
 </t:pageTemplate>
 

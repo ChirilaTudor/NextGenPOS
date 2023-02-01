@@ -160,24 +160,21 @@ body{
 /*SALE*/
 .cashier-container-box{
     width: 100%;
-    height: 55vh;
+    height: 40vh;
 }
 
 .cashier-item-box{
     width: 98%;
-    height: 10%;
+    height: 20%;
     margin-left: 0px;
 }
 
-.big-photo{
-    width: 1500px;
-    margin-left: 200px;
+.overme{
+    width: 100%;
+    overflow:hidden;
+    white-space:nowrap;
+    text-overflow: ellipsis;
 }
-
-.end-align{
-    align-self: flex-end;
-}
-
 
 /*CATEGORY*/
 .w-10 {
@@ -194,10 +191,6 @@ body{
     overflow: auto;
     overflow-x: hidden;
     height: 100%;
-}
-
-.bg-gray-100{
-    background-color: rgb(243 244 246);
 }
 
 .gradient-custom-user {
