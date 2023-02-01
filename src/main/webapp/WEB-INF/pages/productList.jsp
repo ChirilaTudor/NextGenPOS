@@ -4,7 +4,7 @@
 
 <t:pageTemplate pageTitle="Product List">
   <div class="d-flex justify-content-center my-3">
-    <h3 id="product_name">Product list</h3>
+    <h1 id="product_name">Product list</h1>
   </div>
 
   <form id="form1" method="GET" action="${pageContext.request.contextPath}/SearchBar">

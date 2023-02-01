@@ -7,10 +7,10 @@
 
     <c:choose>
       <c:when test="${category.categoryName != null}">
-        <h3 id="product_name">${category.categoryName}</h3>
+        <h1 id="product_name">${category.categoryName}</h1>
       </c:when>
       <c:otherwise>
-        <h3 id="product_name">All product</h3>
+        <h1 id="product_name">All product</h1>
       </c:otherwise>
     </c:choose>
 
@@ -26,7 +26,7 @@
   </form>
     <div class="row g-2 mt-3 wrapper" id="products">
       <c:forEach var="product" items="${products}">
-        <div class="<d-flex align-items-center col " style=" width: 20rem;" >
+        <div class="<d-flex align-items-center col overtext " style=" width: 20rem;" >
           <div class="card p-3">
             <div class="d-flex justify-content-between align-items-center ">
               <div class="mt-3">

@@ -4,7 +4,7 @@
 
 <t:pageTemplate pageTitle="Inventory">
     <div class="d-flex justify-content-center my-3">
-        <h3 id="product_name">Inventory</h3>
+        <h1 id="product_name">Inventory</h1>
     </div>
 
     <form id="form1" method="GET" action="${pageContext.request.contextPath}/SearchBar">
@@ -23,7 +23,7 @@
                         <div class="d-flex justify-content-between align-items-center ">
                             <div class="mt-3">
 
-                                <h5>Nume: ${product.productName}</h5>
+                                <h5 class="overtext">Nume: ${product.productName}</h5>
                                 <div class="mt-1">
                                     <p>Furnizor: ${product.provider}</p>
                                 </div>

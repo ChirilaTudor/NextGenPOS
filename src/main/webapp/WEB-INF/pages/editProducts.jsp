@@ -37,16 +37,19 @@
 
                         <td><input type="checkbox" name="product_ids" class="checkbox_class" onclick="validate()" value="${product.idProduct}"/></td>
                         <td>${product.productName}</td>
-                        <td>${product.quantity}</td>
-                        <td>${product.price}</td>
+                        <td>${product.quantity} buc</td>
+                        <td>${product.price} lei</td>
                         <td>${product.provider}</td>
                         <td class="text-break">${product.description}</td>
                         <td><img src="${pageContext.request.contextPath}/ProductPhotos?id=${product.idProduct}"
                                  width="48"/></td>
-                        <td><a class="btn text-white bg-dark"
-                               href="${pageContext.request.contextPath}/AddProductPhoto?id=${product.idProduct}"
-                               role="button">Add
-                            photo</a></td>
+
+                                <td><a class="btn text-white bg-dark"
+                                       href="${pageContext.request.contextPath}/AddProductPhoto?id=${product.idProduct}"
+                                       role="button">Update
+                                    photo</a></td>
+
+
                         <td><a class="btn text-white bg-dark"
                                href="${pageContext.request.contextPath}/EditProduct?id=${product.idProduct}">Edit
                             Product</a></td>

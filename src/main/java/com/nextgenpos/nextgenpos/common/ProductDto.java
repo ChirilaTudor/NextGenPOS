@@ -1,5 +1,8 @@
 package com.nextgenpos.nextgenpos.common;
 
+import com.nextgenpos.nextgenpos.entities.Product;
+import com.nextgenpos.nextgenpos.entities.ProductPhoto;
+
 public class ProductDto {
     private Long idProduct;
     private String productName;
