@@ -4,13 +4,17 @@
 
 
 <t:pageTemplate pageTitle="EditableProducts">
-    <h1 class="bd-title">Products</h1>
+    <div class="d-flex justify-content-center my-3">
+        <h1 id="product_name ">Edit Products`</h1>
+    </div>
+
     <form method="POST" action="${pageContext.request.contextPath}/EditableProducts">
-        <div class="d-flex justify-content-end mx-3">
-            <button class="btn btn-danger d-none" type="submit" id="deleteSubmit">Delete Products</button>
-        </div>
 
         <div class="container text-center">
+            <div class="d-flex justify-content-end mx-5">
+                <button class="btn btn-danger d-none" type="submit" id="deleteSubmit">Delete Products</button>
+            </div>
+
             <table class="table table-striped">
                 <thead>
                 <tr>
