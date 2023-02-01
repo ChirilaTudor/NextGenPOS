@@ -16,7 +16,7 @@
                 <p class="lead fw-normal mb-1 fs-1">Please put the card onto the POS</p>
 
                   <div class="form-outline form-white mb-4 mt-4">
-                    <h3>Total:</h3>
+                    <h3>Total: ${total} lei</h3>
                   </div>
 
                   <div class="popup" id="submit" onclick="myFunction1()">
@@ -25,7 +25,9 @@
                   </div>
 
                   <div class="d-none" id="done">
-                    <a class="btn text-white bg-dark btn-lg px-5 mt-4" type="submit"  href="${pageContext.request.contextPath}/Sale">Done</a>
+                    <form method="POST" action="${pageContext.request.contextPath}/Sale">
+                      <button class="btn btn-outline-primary btn-lg px-5 mt-4 mb-3">Done</button>
+                    </form>
                   </div>
 
               </div>

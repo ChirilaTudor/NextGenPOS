@@ -2,6 +2,7 @@ package com.nextgenpos.nextgenpos.entities;
 
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
 import java.util.Collection;
 
 @Entity
@@ -26,7 +27,7 @@ public class Product {
     }
 
     public Product() {
-
+        this.itemSales = new ArrayList<>();
     }
 
     @Id
@@ -105,4 +106,9 @@ public class Product {
     public void setCategory(Category category) {
         this.category = category;
     }
+
+    public void addItemSale(ItemSale itemSale) {
+        this.getItemSales().add(itemSale);
+    }
+
 }

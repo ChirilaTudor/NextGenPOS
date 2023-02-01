@@ -1,6 +1,7 @@
 package com.nextgenpos.nextgenpos.servlets;
 
 import com.nextgenpos.nextgenpos.common.ShoppingCartProductDto;
+import com.nextgenpos.nextgenpos.ejb.ShoppingBean;
 import com.nextgenpos.nextgenpos.ejb.ShoppingCartBean;
 import jakarta.inject.Inject;
 import jakarta.servlet.*;
@@ -14,7 +15,7 @@ import java.util.List;
 public class EditShoppingCartQuantity extends HttpServlet {
 
     @Inject
-    ShoppingCartBean shoppingCartBean;
+    ShoppingBean shoppingBean;
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -26,10 +27,10 @@ public class EditShoppingCartQuantity extends HttpServlet {
         Long productId =  Long.parseLong(request.getParameter("product_id"));
 
         if (request.getParameter("up") != null) {
-            shoppingCartBean.editProductQuantityInShoppingCart(productId, "up");
+            shoppingBean.editProductQuantityInShoppingCart(productId, "up");
 
         } else if (request.getParameter("down") != null) {
-            shoppingCartBean.editProductQuantityInShoppingCart(productId, "down");
+            shoppingBean.editProductQuantityInShoppingCart(productId, "down");
         }
 
         response.sendRedirect(request.getContextPath() + "/ShoppingCart");

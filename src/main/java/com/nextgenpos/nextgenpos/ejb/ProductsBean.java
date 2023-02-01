@@ -97,6 +97,10 @@ public class ProductsBean {
 
         try {
             Product product = entityManager.find(Product.class, productId);
+
+            if(product == null)
+                return null;
+
             return new ProductDto(product.getIdProduct(),
                     product.getProductName(),
                     product.getQuantity(),

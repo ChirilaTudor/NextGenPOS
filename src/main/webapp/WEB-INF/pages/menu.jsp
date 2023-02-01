@@ -41,7 +41,7 @@
                 <a href="${pageContext.request.contextPath}/Notification">Notification</a>
                 <a href="${pageContext.request.contextPath}/StockReport">Report</a>
                 <a href="${pageContext.request.contextPath}/AddUser">Add User</a>
-                <a class="nav-link " href="${pageContext.request.contextPath}/Sale">Sale</a>
+                <a class="nav-link " href="${pageContext.request.contextPath}/ShoppingCart">Sale</a>
                 <a class="nav-link " href="${pageContext.request.contextPath}/Return">Return</a>
                 <a class="nav-link " href="${pageContext.request.contextPath}/AddCategory">Add Category</a>
                 <a class="nav-link " href="${pageContext.request.contextPath}/AddProduct">Add Product</a>

@@ -1,5 +1,9 @@
 package com.nextgenpos.nextgenpos.servlets;
 
+import com.nextgenpos.nextgenpos.ejb.SalesBean;
+import com.nextgenpos.nextgenpos.ejb.ShoppingCartBean;
+import com.nextgenpos.nextgenpos.ejb.UsersBean;
+import jakarta.inject.Inject;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -10,21 +14,28 @@ import java.io.IOException;
 @WebServlet(name = "Sale", value = "/Sale")
 public class Sale extends HttpServlet {
 
+    @Inject
+    ShoppingCartBean shoppingCartBean;
+
+    @Inject
+    SalesBean salesBean;
+
+    @Inject
+    UsersBean usersBean;
+
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        String name="car";
-        request.setAttribute("name", name);
-        int nr= 4;
-        request.setAttribute("nr", nr);
-        double price=200.0;
-        request.setAttribute("price", price);
-        request.getRequestDispatcher("/WEB-INF/pages/sale.jsp").forward(request, response);
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String username = request.getUserPrincipal().getName();
+        Long userId = usersBean.getIdByUsername(username);
 
+        salesBean.createSale(userId);
+        shoppingCartBean.removeAllProductsFromShoppingCart();
+        response.sendRedirect(request.getContextPath() + "/ShoppingCart");
     }
 
 }

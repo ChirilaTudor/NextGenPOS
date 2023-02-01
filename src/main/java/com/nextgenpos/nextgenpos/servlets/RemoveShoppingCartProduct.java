@@ -1,5 +1,6 @@
 package com.nextgenpos.nextgenpos.servlets;
 
+import com.nextgenpos.nextgenpos.ejb.ShoppingBean;
 import com.nextgenpos.nextgenpos.ejb.ShoppingCartBean;
 import jakarta.inject.Inject;
 import jakarta.servlet.*;
@@ -11,7 +12,7 @@ import java.io.IOException;
 @WebServlet(name = "RemoveShoppingCartProduct", value = "/RemoveShoppingCartProduct")
 public class RemoveShoppingCartProduct extends HttpServlet {
     @Inject
-    ShoppingCartBean shoppingCartBean;
+    ShoppingBean shoppingBean;
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -21,7 +22,7 @@ public class RemoveShoppingCartProduct extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         Long productId =  Long.parseLong(request.getParameter("product_id"));
-        shoppingCartBean.removeProductFromShoppingCart(productId);
+        shoppingBean.removeProductFromShoppingCart(productId);
 
         response.sendRedirect(request.getContextPath() + "/ShoppingCart");
     }

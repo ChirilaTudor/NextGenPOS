@@ -17,11 +17,6 @@ public class ShoppingCart extends HttpServlet {
     @Inject
     ShoppingCartBean shoppingCartBean;
 
-    @Inject
-    SalesBean salesBean;
-
-    @Inject
-    UsersBean usersBean;
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -41,11 +36,6 @@ public class ShoppingCart extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String username = request.getUserPrincipal().getName();
-        Long userId = usersBean.getIdByUsername(username);
 
-        salesBean.createSale(userId);
-        shoppingCartBean.removeAllProductsFromShoppingCart();
-        response.sendRedirect(request.getContextPath() + "/ShoppingCart");
     }
 }

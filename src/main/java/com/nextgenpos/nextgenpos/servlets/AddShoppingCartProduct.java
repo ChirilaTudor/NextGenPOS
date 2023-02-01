@@ -1,9 +1,8 @@
 package com.nextgenpos.nextgenpos.servlets;
 
 import com.nextgenpos.nextgenpos.common.ProductDto;
-import com.nextgenpos.nextgenpos.common.ShoppingCartProductDto;
 import com.nextgenpos.nextgenpos.ejb.ProductsBean;
-import com.nextgenpos.nextgenpos.ejb.ShoppingCartBean;
+import com.nextgenpos.nextgenpos.ejb.ShoppingBean;
 import jakarta.inject.Inject;
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;
@@ -15,7 +14,10 @@ import java.io.IOException;
 public class AddShoppingCartProduct extends HttpServlet {
 
     @Inject
-    ShoppingCartBean shoppingCartBean;
+    ShoppingBean shoppingBean;
+
+    @Inject
+    ProductsBean productsBean;
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -25,7 +27,13 @@ public class AddShoppingCartProduct extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         Long productId = Long.parseLong(request.getParameter("product_id"));
-        shoppingCartBean.addProductIntoShoppingCart(productId);
+
+        ProductDto product = productsBean.findById(productId);
+
+        if(product != null){
+            shoppingBean.addProductIntoShoppingCart(productId);
+        }
+
         response.sendRedirect(request.getContextPath() + "/ShoppingCart");
     }
 }

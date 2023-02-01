@@ -50,7 +50,12 @@ public class SalesBean {
                     itemSale.setSale(sale);
                     itemSale.setQuantity(productDto.getQuantity());
                     itemSale.setPricePerUnit(productDto.getPrice());
+
                     Product product = entityManager.find(Product.class, productDto.getIdProduct());
+                    product.setQuantity(product.getQuantity() - productDto.getQuantity());
+                    product.addItemSale(itemSale);
+                    entityManager.persist(product);
+
                     itemSale.setProduct(product);
                     entityManager.persist(itemSale);
                     sale.addItemSale(itemSale);

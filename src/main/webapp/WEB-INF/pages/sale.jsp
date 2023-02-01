@@ -42,7 +42,7 @@
                                                             <input type="submit" name="up"  class="btn btn-outline-secondary ms-2" value="+">
                                                         </div>
                                                             <input type="hidden" name="product_id" value="${product.idProduct}" />
-                                                    </div>
+                                                        </div>
                                                 </form>
                                             </div>
                                             <div class="col-2">
@@ -77,10 +77,10 @@
                             </div>
                         </div>
                         <div class="col-1 d-flex justify-content-end pb-2">
-                            <a class="btn btn-lg btn-block mt-4 h-50 text-white bg-dark" href="${pageContext.request.contextPath}/Cash">CASH</a>
+                            <a class="btn btn-lg btn-block mt-4 h-50 text-white bg-dark" href="${pageContext.request.contextPath}/Cash?total=${totalPrice}">CASH</a>
                         </div>
                         <div class="col-2 d-flex justify-content-center pb-2">
-                            <a class="btn btn-lg btn-block mt-4 h-50 text-white bg-dark" href="${pageContext.request.contextPath}/Card">CARD</a>
+                            <a class="btn btn-lg btn-block mt-4 h-50 text-white bg-dark" href="${pageContext.request.contextPath}/Card?total=${totalPrice}">CARD</a>
                         </div>
                     </div>
                 </div>
