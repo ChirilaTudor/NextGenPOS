@@ -13,7 +13,7 @@
             <a href="#" class="search_icon"><i class="fas fa-search"></i></a>
         </div>
     </div>
-    <div class="row <%--row-cols-3--%> g-2 mt-3 wrapper" id="products">
+    <div class="row g-2 mt-3 wrapper" id="products">
         <c:forEach var="inventory" items="${inventory}">
             <div class="<d-flex align-items-center col" style="width: 20rem;" >
                     <div class="card p-4">

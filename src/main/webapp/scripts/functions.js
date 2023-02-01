@@ -15,29 +15,6 @@ function search(){
         alert(inputValue);
     });
 }
-function changeName() {
-    var name = document.getElementById('product_name');
-
-    var vw1 = document.getElementById('viewer1');
-    var vw2 = document.getElementById("viewer2");
-    var vw3 = document.getElementById("viewer3");
-    var vw4 = document.getElementById("viewer4");
-
-    switch (name) {
-        case vw1:
-            name.textContent = "Drinks";
-            break;
-        case vw2:
-            name.textContent = "Fruits";
-            break;
-        case vw3:
-            name.textContent = "Meat";
-            break;
-        case vw4:
-            name.textContent = "Bakery";
-            break;
-    }
-}
 
 function validate() {
     const checkBoxes = document.getElementsByClassName("checkbox_class")
@@ -65,22 +42,14 @@ function paymentChange() {
 }
 
 
-function myFunction() {
-    const popup = document.getElementById("myPopup");
-    const submit = document.getElementById("submit");
-    const done = document.getElementById("done");
-
-        popup.classList.toggle("show")
-        submit.classList.add("d-none");
-        done.classList.remove("d-none");
-
-}
-
 function myFunction1() {
     const submit = document.getElementById("submit");
     const done = document.getElementById("done");
+    const myPopup = document.getElementById("myPopup");
+
 
     if (confirm("Transaction complete!")) {
+        myPopup.classList.remove("d-none");
         submit.classList.add("d-none");
         done.classList.remove("d-none");
     }

@@ -75,7 +75,7 @@
     overflow-y: hidden;
     overflow-x: hidden;
 }
-/*products*/
+/*PRODUCTS*/
 #products {
     padding: 16px;
     margin-left: 5rem;
@@ -103,9 +103,7 @@ body{
 .textarea-resizing {
     resize: none;
 }
-.bg-grey-100{
-    background-color: rgb(243,244,246);
-}
+
 .w-80{
     width: 90%;
     overflow-y: hidden ;
@@ -174,11 +172,6 @@ body{
     margin-left: 200px;
 }
 
-.end-align{
-    align-self: flex-end;
-}
-
-
 /*CATEGORY*/
 .w-10 {
     width: 10%;
@@ -194,34 +187,6 @@ body{
     overflow: auto;
     overflow-x: hidden;
     height: 100%;
-}
-
-.bg-gray-100{
-    background-color: rgb(243 244 246);
-}
-
-.gradient-custom-user {
-
-    width: 100%;
-    height: 100%;
-    background: rgb(5, 119, 74);
-    background: -moz-linear-gradient(90deg, rgba(5, 119, 74, 1) 0%, rgba(58, 227, 152, 1) 50%, rgba(5, 119, 74, 1) 100%);
-    background: -webkit-linear-gradient(90deg, rgba(5, 119, 74, 1) 0%, rgba(58, 227, 152, 1) 50%, rgba(5, 119, 74, 1) 100%);
-    background: linear-gradient(90deg, rgba(5, 119, 74, 1) 0%, rgba(58, 227, 152, 1) 50%, rgba(5, 119, 74, 1) 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#05774a", endColorstr="#05774a", GradientType=1);
-
-}
-
-.gradient-custom-product {
-
-    width: 100%;
-    height: 100%;
-    background: rgb(191, 17, 108);
-    background: -moz-linear-gradient(90deg, rgba(191, 17, 108, 1) 0%, rgba(246, 115, 186, 1) 50%, rgba(191, 17, 108, 1) 100%);
-    background: -webkit-linear-gradient(90deg, rgba(191, 17, 108, 1) 0%, rgba(246, 115, 186, 1) 50%, rgba(191, 17, 108, 1) 100%);
-    background: linear-gradient(90deg, rgba(191, 17, 108, 1) 0%, rgba(246, 115, 186, 1) 50%, rgba(191, 17, 108, 1) 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#bf116c", endColorstr="#bf116c", GradientType=1);
-
 }
 
 .divider:after,
@@ -266,9 +231,6 @@ body{
     background: linear-gradient(to right, rgba(161, 196, 253, 1), rgba(194, 233, 251, 1))
 }
 
-.bg-indigo {
-    background-color: #4835d4;
-}
 @media (min-width: 992px) {
     .card-registration-2 .bg-indigo {
         border-top-right-radius: 15px;

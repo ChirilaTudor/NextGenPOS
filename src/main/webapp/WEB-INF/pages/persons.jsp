@@ -8,16 +8,11 @@
   <form method="POST" action="${pageContext.request.contextPath}/Persons">
     <c:if test="${pageContext.request.isUserInRole('WRITE_USERS')}">
       <a href="${pageContext.request.contextPath}/AddPerson" class="to btn btn-primary btn-lg">Add Person</a>
-<%--      <button class="btn btn-secondary" type="submit">Invoice</button>--%>
     </c:if>
+
     <div class="container text-center">
       <c:forEach var="person" items="${persons}">
         <div class="row">
-<%--          <c:if test="${pageContext.request.isUserInRole('WRITE_USERS')}">--%>
-<%--            <div class="col">--%>
-<%--              <input type="checkbox" name="person_ids" value="${person.idPerson}"/>--%>
-<%--            </div>--%>
-<%--          </c:if>--%>
           <div class="col">
               ${person.firstName}
               ${person.lastName}
