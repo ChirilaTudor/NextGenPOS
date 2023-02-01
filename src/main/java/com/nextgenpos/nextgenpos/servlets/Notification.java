@@ -10,6 +10,7 @@ import jakarta.servlet.annotation.*;
 import java.io.IOException;
 import java.util.List;
 
+@ServletSecurity(value = @HttpConstraint(rolesAllowed = {"GENERAL_DIRECTOR"}))
 @WebServlet(name = "Notification", value = "/Notification")
 public class Notification extends HttpServlet {
     @Inject

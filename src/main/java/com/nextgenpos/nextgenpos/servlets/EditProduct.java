@@ -14,6 +14,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
+@ServletSecurity(value = @HttpConstraint(rolesAllowed = {"GENERAL_DIRECTOR"}))
 @WebServlet(name = "EditProduct", value = "/EditProduct")
 public class EditProduct extends HttpServlet {
 

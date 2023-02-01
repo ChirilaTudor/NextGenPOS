@@ -14,6 +14,7 @@ import java.io.IOException;
 import java.util.List;
 import java.util.logging.Logger;
 
+@ServletSecurity(value = @HttpConstraint(rolesAllowed = {"GENERAL_DIRECTOR"}))
 @WebServlet(name = "Users", value = "/Users")
 public class Users extends HttpServlet {
 

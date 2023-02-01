@@ -11,6 +11,7 @@ import jakarta.servlet.annotation.*;
 import java.io.IOException;
 import java.util.List;
 
+@ServletSecurity(value = @HttpConstraint(rolesAllowed = {"CASHIER"}))
 @WebServlet(name = "EditShoppingCartQuantity", value = "/EditShoppingCartQuantity")
 public class EditShoppingCartQuantity extends HttpServlet {
 

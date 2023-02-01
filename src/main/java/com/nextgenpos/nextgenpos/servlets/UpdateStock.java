@@ -8,6 +8,7 @@ import jakarta.servlet.annotation.*;
 
 import java.io.IOException;
 
+@ServletSecurity(value = @HttpConstraint(rolesAllowed = {"GENERAL_DIRECTOR"}))
 @WebServlet(name = "UpdateStock", value = "/UpdateStock")
 public class UpdateStock extends HttpServlet {
 

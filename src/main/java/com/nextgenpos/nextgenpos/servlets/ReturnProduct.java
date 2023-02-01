@@ -8,6 +8,7 @@ import jakarta.servlet.annotation.*;
 
 import java.io.IOException;
 
+@ServletSecurity(value = @HttpConstraint(rolesAllowed = {"CASHIER"}))
 @WebServlet(name = "ReturnProduct", value = "/ReturnProduct")
 public class ReturnProduct extends HttpServlet {
 
@@ -16,7 +17,7 @@ public class ReturnProduct extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.getRequestDispatcher("/WEB-INF/pages/returnProduct.jsp").forward(request,response);
+        request.getRequestDispatcher("/WEB-INF/pages/return.jsp").forward(request,response);
     }
 
     @Override

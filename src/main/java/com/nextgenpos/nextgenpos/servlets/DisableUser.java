@@ -8,6 +8,7 @@ import jakarta.servlet.annotation.*;
 
 import java.io.IOException;
 
+@ServletSecurity(value = @HttpConstraint(rolesAllowed = {"ADMIN"}))
 @WebServlet(name = "DisableUser", value = "/DisableUser")
 public class DisableUser extends HttpServlet {
     @Inject

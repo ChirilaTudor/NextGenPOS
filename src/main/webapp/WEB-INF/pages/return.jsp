@@ -15,15 +15,15 @@
                                 <p class="lead fw-normal mb-1 fs-1">Item return</p>
                                 <p class="mb-5">Please enter the ID of the item sale and the quantity</p>
 
-                                <form  class="form-signin" method="POST" action="${pageContext.request.contextPath}/Return">
+                                <form  class="form-signin" method="POST" action="${pageContext.request.contextPath}/ReturnProduct">
                                     <div class="form-outline form-white mb-4">
                                         <label for="itemSale_id" class="sr-only">ID of item sale</label>
-                                        <input type="text" id="itemSale_id" class="form-control form-control-lg cashier-item-box" placeholder="ID of item sale" required/>
+                                        <input type="text" id="itemSale_id" name="itemSale_id" class="form-control form-control-lg cashier-item-box" placeholder="ID of item sale" required/>
                                     </div>
 
                                     <div class="form-outline form-white mb-4">
                                         <label for="quantity" class="sr-only ">Quantity</label>
-                                        <input type="text" id="quantity" class="form-control form-control-lg cashier-item-box" placeholder="Quantity" required/>
+                                        <input type="text" id="quantity" name="quantity" class="form-control form-control-lg cashier-item-box" placeholder="Quantity" required/>
                                     </div>
                                     <button class="btn  btn-lg px-5 mt-4 text-white bg-dark" type="submit">Submit</button>
 
