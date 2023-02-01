@@ -36,7 +36,7 @@ public class ProductsBean {
         }
     }
 
-    private List<ProductDto> copyProductsToDto(List<Product> products) {
+    public List<ProductDto> copyProductsToDto(List<Product> products) {
         LOG.info("copyProductsToDto");
 
         List<ProductDto> productDto;

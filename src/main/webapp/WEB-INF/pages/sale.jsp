@@ -23,24 +23,32 @@
                             <c:forEach var="product" items="${shoppingCart}">
                                     <div class="row border rounded cashier-item-box bg-white fs-5 mb-2 pt-2">
                                         <div class="row">
-                                            <div class="col">
+                                            <div class="col-1">
                                                     ${product.idProduct}
                                             </div>
-                                            <div class="col">
-                                                    ${product.productName}
+                                            <div class="col-5">
+                                                <p class="overme">${product.productName}</p>
                                             </div>
-                                            <div class="col">
+                                            <div class="col-3">
                                                 <form method="POST" action="${pageContext.request.contextPath}/EditShoppingCartQuantity">
-                                                    <input type="submit" name="down" class="btn btn-outline-secondary me-3" value="-">
-                                                        ${product.quantity}
-                                                    <input type="submit" name="up"  class="btn btn-outline-secondary ms-3" value="+">
-                                                    <input type="hidden" name="product_id" value="${product.idProduct}" />
+                                                    <div class="row">
+                                                        <div class="col-3">
+                                                            <input type="submit" name="down" class="btn btn-outline-secondary me-2" value="-">
+                                                        </div>
+                                                        <div class="col-3">
+                                                                ${product.quantity}
+                                                        </div>
+                                                        <div class="col-3">
+                                                            <input type="submit" name="up"  class="btn btn-outline-secondary ms-2" value="+">
+                                                        </div>
+                                                            <input type="hidden" name="product_id" value="${product.idProduct}" />
+                                                    </div>
                                                 </form>
                                             </div>
-                                            <div class="col">
+                                            <div class="col-2">
                                                     ${product.price} lei
                                             </div>
-                                            <div class="col">
+                                            <div class="col-1">
                                                 <form method="POST" action="${pageContext.request.contextPath}/RemoveShoppingCartProduct">
                                                     <input type="submit" name="up" class="btn btn-outline-danger" value="X">
                                                     <input type="hidden" name="product_id" value="${product.idProduct}" />

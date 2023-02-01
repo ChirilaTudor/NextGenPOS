@@ -165,18 +165,20 @@ body{
 /*SALE*/
 .cashier-container-box{
     width: 100%;
-    height: 55vh;
+    height: 40vh;
 }
 
 .cashier-item-box{
     width: 98%;
-    height: 10%;
+    height: 20%;
     margin-left: 0px;
 }
 
-.big-photo{
-    width: 1500px;
-    margin-left: 200px;
+.overme{
+    width: 100%;
+    overflow:hidden;
+    white-space:nowrap;
+    text-overflow: ellipsis;
 }
 
 /*CATEGORY*/
@@ -264,4 +266,8 @@ body{
 .grid > div {
     background-color: white;
     padding: 10px;
+}
+
+#products{
+    margin-left: 0;
 }
