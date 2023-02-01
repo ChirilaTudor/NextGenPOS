@@ -6,7 +6,7 @@
 
     <div class="container-lg mx-auto row">
         <h1 class="text-center mb-3 mt-3">Sale</h1>
-        <div class="col-10 mt-4">
+        <div class="col-12 mt-4">
             <form method="POST" action="${pageContext.request.contextPath}/AddShoppingCartProduct">
                     <div class="input-group form-floating">
                         <input type="text" id="product_id" name="product_id" class="form-control textarea-resizing" placeholder="Product Code" aria-label="With textarea" required autofocus />
@@ -61,16 +61,28 @@
 
                     </div>
                 </div>
-                <div class="end-align mb-2 ps-3 fs-3 my-5 ">
-                    <label>Total Price:</label>
-                    <c:choose>
-                        <c:when test="${totalPrice != null}">
-                            ${totalPrice} lei
-                        </c:when>
-                        <c:otherwise>
-                            0 lei
-                        </c:otherwise>
-                    </c:choose>
+                <div class="end-align">
+                    <div class="row">
+                        <div class="col-9 mb-2 ps-4 fs-3 my-5">
+                            <div class="pb-3">
+                            <label>Total Price:</label>
+                            <c:choose>
+                                <c:when test="${totalPrice != null}">
+                                    ${totalPrice} lei
+                                </c:when>
+                                <c:otherwise>
+                                    0 lei
+                                </c:otherwise>
+                            </c:choose>
+                            </div>
+                        </div>
+                        <div class="col-1 d-flex justify-content-end pb-2">
+                            <a class="btn btn-lg btn-block mt-4 h-50 text-white bg-dark" href="${pageContext.request.contextPath}/Cash">CASH</a>
+                        </div>
+                        <div class="col-2 d-flex justify-content-center pb-2">
+                            <a class="btn btn-lg btn-block mt-4 h-50 text-white bg-dark" href="${pageContext.request.contextPath}/Card">CARD</a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -79,12 +91,7 @@
 
         <div class="col m-auto ms-3">
 
-            <div>
-                <a class="btn  btn-lg btn-block mt-4 text-white bg-dark" href="${pageContext.request.contextPath}/Cash">CASH</a>
-            </div>
-            <div>
-                <a class="btn btn-lg btn-block mt-4 text-white bg-dark" href="${pageContext.request.contextPath}/Card">CARD</a>
-            </div>
+
         </div>
     </div>
 

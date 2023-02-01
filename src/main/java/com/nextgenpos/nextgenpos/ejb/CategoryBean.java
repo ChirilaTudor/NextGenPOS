@@ -1,8 +1,10 @@
 package com.nextgenpos.nextgenpos.ejb;
 
 import com.nextgenpos.nextgenpos.common.CategoryDto;
+import com.nextgenpos.nextgenpos.common.ProductDto;
 import com.nextgenpos.nextgenpos.common.UserDto;
 import com.nextgenpos.nextgenpos.entities.Category;
+import com.nextgenpos.nextgenpos.entities.Product;
 import com.nextgenpos.nextgenpos.entities.User;
 import jakarta.ejb.EJBException;
 import jakarta.ejb.Stateless;
@@ -48,6 +50,18 @@ public class CategoryBean {
                 .stream()
                 .map(x -> new CategoryDto(x.getIdCategory(), x.getName())).collect(Collectors.toList());
         return categoryDtos;
+    }
+
+    public CategoryDto findById(Long categoryId) {
+        LOG.info("findCategoryById");
+
+        try {
+            Category category = entityManager.find(Category.class, categoryId);
+            return new CategoryDto( category.getIdCategory(),
+                                    category.getName());
+        } catch (Exception ex) {
+            throw new EJBException(ex);
+        }
     }
 
 }
