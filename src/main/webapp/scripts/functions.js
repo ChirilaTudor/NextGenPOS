@@ -64,6 +64,18 @@ function paymentChange() {
     document.getElementById('complete').classList.add("d-none")
 }
 
+
+function myFunction() {
+    const popup = document.getElementById("myPopup");
+    const submit = document.getElementById("submit");
+    const done = document.getElementById("done");
+
+        popup.classList.toggle("show")
+        submit.classList.add("d-none");
+        done.classList.remove("d-none");
+
+}
+
 function myFunction1() {
     const submit = document.getElementById("submit");
     const done = document.getElementById("done");

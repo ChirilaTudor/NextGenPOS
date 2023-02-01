@@ -28,7 +28,7 @@
 
                 <div id="payment_change" class="d-none">
                   <p class="fs-3">Payment change: ${change}</p>
-                  <a class="btn btn-outline-primary btn-lg px-5 mt-4 mb-3" href="${pageContext.request.contextPath}/ProductList">Return to page</a>
+                  <a class="btn btn-outline-primary btn-lg px-5 mt-4 mb-3" href="${pageContext.request.contextPath}/Sale">Return to page</a>
                 </div>
 
               </div>

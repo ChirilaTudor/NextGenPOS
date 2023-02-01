@@ -160,12 +160,12 @@ body{
 /*SALE*/
 .cashier-container-box{
     width: 100%;
-    height: 100%;
+    height: 55vh;
 }
 
 .cashier-item-box{
     width: 98%;
-    height: 100%;
+    height: 10%;
     margin-left: 0px;
 }
 
@@ -178,15 +178,10 @@ body{
     align-self: flex-end;
 }
 
-#container-button{
-    display: flex;
-}
+
 /*CATEGORY*/
-.w-10{
+.w-10 {
     width: 10%;
-}
-.stretched-link{
-/*    text-decoration: none;*/
 }
 
 /*Clear empty div space*/
@@ -197,7 +192,8 @@ body{
 /*Scrollable*/
 .scrollable{
     overflow: auto;
-    height: 75%;
+    overflow-x: hidden;
+    height: 100%;
 }
 
 .bg-gray-100{
