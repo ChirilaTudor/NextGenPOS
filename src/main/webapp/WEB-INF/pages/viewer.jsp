@@ -4,7 +4,15 @@
 
 <t:pageTemplate pageTitle="NextGenPOS">
   <div class="d-flex justify-content-center my-3">
-    <h3 id="product_name">All product</h3>
+
+    <c:choose>
+      <c:when test="${category.categoryName != null}">
+        <h3 id="product_name">${category.categoryName}</h3>
+      </c:when>
+      <c:otherwise>
+        <h3 id="product_name">All product</h3>
+      </c:otherwise>
+    </c:choose>
 
   </div>
   <form id="form1" method="GET" action="${pageContext.request.contextPath}/SearchBar">
