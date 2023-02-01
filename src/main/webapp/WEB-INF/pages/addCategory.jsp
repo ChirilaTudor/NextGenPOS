@@ -4,8 +4,6 @@
 
 <t:pageTemplate pageTitle="AddCategory">
 
-
-
   <div class=" min-vw-100 min-vh-100 container-fluid login-overflow ">
     <div class="container-fluid py-5 ">
       <div class="row d-flex justify-content-center align-items-center">
@@ -23,13 +21,10 @@
                     <input type="text" id="category_name" name="category_name" class="form-control form-control-lg cashier-item-box" placeholder="Category name" required/>
                   </div>
 
-
                   <button class="btn btn-outline-primary btn-lg px-5 mt-4" type="submit">Submit</button>
-
                 </form>
 
               </div>
-
             </div>
           </div>
         </div>
@@ -37,8 +32,3 @@
     </div>
   </div>
 </t:pageTemplate>
-
-<%--link poza cashout--%>
-<%--https://static.vecteezy.com/system/resources/previews/002/448/571/non_2x/online-grocery-shopping-concept-free-vector.jpg--%>
-
-

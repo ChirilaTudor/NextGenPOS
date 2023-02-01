@@ -5,37 +5,17 @@
 <t:pageTemplate pageTitle="NextGenPOS">
   <div class="d-flex justify-content-center my-3">
     <h3 id="product_name">All product</h3>
-    <%--<c:set var = "viewer1"  value = "#viewer1"/>
-    <c:set var = "viewer2"  value = "#viewer2"/>
-    <c:set var = "viewer3"  value = "#viewer3"/>
-    <c:set var = "viewer4"  value = "#viewer4"/>
-
-    <c:choose>
-      <c:when test="${pageContext.request.getAttribute('#viewer1')}">
-        <h3>Drinks</h3>
-      </c:when>
-      <c:when test="${pageContext.request.getAttribute('#viewer2')}">
-        <h3>Fruits & Vegetables</h3>
-      </c:when>
-      <c:when test="${pageContext.request.getAttribute('#viewer3')}">
-        <h3>Meat</h3>
-      </c:when>
-      <c:when test="${pageContext.request.getAttribute('#viewer4')}">
-        <h3>Bakery</h3>
-      </c:when>
-      <c:otherwise>
-        <h3>All products</h3>
-      </c:otherwise>
-    </c:choose>--%>
-
 
   </div>
+  <form id="form1" method="GET" action="${pageContext.request.contextPath}/SearchBar">
   <div class="input-group d-flex justify-content-end mt-2">
       <div class="searchbar mt-3 bg-dark">
-        <input class="search_input" type="text" name="" placeholder="Search...">
-        <a href="#" class="search_icon"><i class="fas fa-search"></i></a>
+          <input type="text" id="text_search" name="text_search" class="search_input" placeholder="Search..." />
+          <a href="javascript:;" onclick="document.getElementById('form1').submit();" class="search_icon"><i class="fas fa-search"></i></a>
+          <input type="hidden" id="viewer" name="viewer" value="search" />
       </div>
   </div>
+  </form>
     <div class="row g-2 mt-3 wrapper" id="products">
       <c:forEach var="product" items="${products}">
         <div class="<d-flex align-items-center col " style=" width: 20rem;" >

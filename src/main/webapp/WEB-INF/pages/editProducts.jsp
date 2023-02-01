@@ -5,7 +5,7 @@
 
 <t:pageTemplate pageTitle="EditableProducts">
     <div class="d-flex justify-content-center my-3">
-        <h1 id="product_name ">Edit Products`</h1>
+        <h1 id="product_name ">Edit Products</h1>
     </div>
 
     <form method="POST" action="${pageContext.request.contextPath}/EditableProducts">
@@ -54,45 +54,7 @@
                 </c:forEach>
                 </tbody>
             </table>
-                <%--                <div class="row">--%>
-                <%--                            <div class="col">--%>
-                <%--                                <input type="checkbox" name="product_ids" value="${product.idProduct}"/>--%>
-                <%--                            </div>--%>
-                <%--                            <div class="col-sm">--%>
-                <%--                                    ${product.productName}--%>
-                <%--                            </div>--%>
-                <%--                            <div class="col-sm">--%>
-                <%--                                    ${product.quantity}--%>
-                <%--                            </div>--%>
-                <%--                            <div class="col-sm">--%>
-                <%--                                    ${product.price}--%>
-                <%--                            </div>--%>
-                <%--                            <div class="col-sm">--%>
-                <%--                                    ${product.provider}--%>
-                <%--                            </div>--%>
-                <%--                            <div class="col-sm">--%>
-                <%--                                    ${product.description}--%>
-                <%--                            </div>--%>
-                <%--                            <div class="col">--%>
-                <%--                                <img src="${pageContext.request.contextPath}/ProductPhotos?id=${product.idProduct}"--%>
-                <%--                                     width="48"/>--%>
-                <%--                            </div>--%>
-                <%--                                &lt;%&ndash;          <c:if test="${pageContext.request.isUserInRole('WRITE_PRODUCTS')}">&ndash;%&gt;--%>
-                <%--                            <div class="col">--%>
-                <%--                                <a class="btn btn-secondary"--%>
-                <%--                                   href="${pageContext.request.contextPath}/AddProductPhoto?id=${product.idProduct}"--%>
-                <%--                                   role="button">Add--%>
-                <%--                                    photo</a>--%>
-                <%--                            </div>--%>
-                <%--                            <div class="col">--%>
-                <%--                                <a class="btn btn-secondary"--%>
-                <%--                                   href="${pageContext.request.contextPath}/EditProduct?id=${product.idProduct}">Edit--%>
-                <%--                                    Product</a>--%>
-                <%--                            </div>--%>
-                <%--                        </div>--%>
-                <%--                    </div>--%>
-                <%--                        &lt;%&ndash;          </c:if>&ndash;%&gt;--%>
-                <%--                </div>--%>
+
         </div>
     </form>
 </t:pageTemplate>
