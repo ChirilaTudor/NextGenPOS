@@ -25,20 +25,20 @@ public class NotificationsBean {
     @PersistenceContext
     EntityManager entityManager;
 
-    public void createNotification(UserDto user, Long adminId){
+    public void createNotification(UserDto user){
         try{
             LOG.info("createNotification");
-            Notification notification = new Notification();
+
             Date today = new Date();
-            String notificationText = "A new user("+user.getPerson().getFirstName() +" "+ user.getPerson().getLastName() + ") with the username: "+  user.getUsername() + "  has been added into the database. In order to enable it's access, please click this link:";
-            String notificationLink="/EnableUser=" + user.getIdUser().toString();
-            User adminUser = entityManager.find(User.class, adminId);
-            notification.setAdmin(adminUser);
-            notification.setDate(today);
+            String notificationText ="merge?";
+//            String add="A new user("+user.getPerson().getFirstName() +" "+ user.getPerson().getLastName() + ") with the username: "+  user.getUsername() + "  has been added into the database. In order to enable it's access, please click this link:";
+            String notificationLink="/EnableUser?id=1";
+            //+ user.getIdUser().toString();
+  /*          notification.setDate(today);
             notification.setContent(notificationText);
             notification.setLink(notificationLink);
-            notification.setRead(false);
-            adminUser.addNotification(notification);
+            notification.setRead(false);*/
+            Notification notification = new Notification(today,false,notificationText,notificationLink);
             entityManager.persist(notification);
             entityManager.flush();
         }   catch (Exception ex) {
@@ -51,7 +51,7 @@ public class NotificationsBean {
             LOG.info("findALlNotifications");
             TypedQuery<Notification> typedQuery = entityManager.createQuery("SELECT n from Notification n",Notification.class);
             List<Notification> notifications = typedQuery.getResultList();
-            return  notifications.stream().map(n->new NotificationDto(n.getId(),n.getDate(),n.getRead(),n.getContent(),n.getLink(),n.getAdmin())).collect(Collectors.toList());
+            return  notifications.stream().map(n->new NotificationDto(n.getId(),n.getDate(),n.getRead(),n.getContent(),n.getLink()) ).collect(Collectors.toList());
         }   catch (Exception ex) {
             throw new EJBException(ex);
         }

@@ -6,9 +6,8 @@
     <persistence-unit name="default" transaction-type="JTA">
         <jta-data-source>jdbc/NextGenPOSResource</jta-data-source>
         <class>com.nextgenpos.nextgenpos.entities.Notification</class>
-
         <properties>
-            <property name="jakarta.persistence.schema-generation.database.action" value="create-or-extend-tables" />
+            <property name="jakarta.persistence.schema-generation.database.action" value="MySQL" />
         </properties>
     </persistence-unit>
 </persistence>

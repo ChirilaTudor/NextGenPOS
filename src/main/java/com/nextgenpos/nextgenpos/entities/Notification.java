@@ -6,8 +6,8 @@ import java.util.Date;
 
 @Entity
 public class  Notification {
-    @GeneratedValue
     @Id
+    @GeneratedValue
     private Long id;
 
     public Long getId() {
@@ -62,14 +62,13 @@ public class  Notification {
         this.link = link;
     }
 
-    @ManyToOne
-    private User admin;
-
-    public User getAdmin() {
-        return admin;
+    public Notification(Date date, Boolean read, String content, String link) {
+        this.date = date;
+        this.read = read;
+        this.content = content;
+        this.link = link;
     }
 
-    public void setAdmin(User admin) {
-        this.admin = admin;
+    public Notification() {
     }
 }

@@ -11,7 +11,6 @@ public class User {
     private Person person;
     private Collection<Sale> sales;
     private Boolean isActive;
-    private Collection<Notification> notifications;
 
 
 
@@ -80,18 +79,6 @@ public class User {
     
     public void setPerson(Person person) {
         this.person = person;
-    }
-    @OneToMany(mappedBy = "admin")
-    public Collection<Notification> getNotifications() {
-        return notifications;
-    }
-
-    public void setNotifications(Collection<Notification> notifications) {
-        this.notifications = notifications;
-    }
-
-    public void addNotification(Notification notification) {
-        this.notifications.add(notification);
     }
 
 }

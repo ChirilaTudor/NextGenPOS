@@ -10,15 +10,13 @@ public class NotificationDto {
     private Boolean read;
     private String content;
     private String link;
-    private User admin;
 
-    public NotificationDto(Long idNotification, Date date, Boolean read, String content, String link, User admin) {
+    public NotificationDto(Long idNotification, Date date, Boolean read, String content, String link) {
         this.idNotification = idNotification;
         this.date = date;
         this.read = read;
         this.content = content;
         this.link = link;
-        this.admin = admin;
     }
 
     public Long getIdNotification() {
@@ -41,7 +39,4 @@ public class NotificationDto {
         return link;
     }
 
-    public User getAdmin() {
-        return admin;
-    }
 }

@@ -56,7 +56,7 @@ public class AddUser extends HttpServlet {
         }
 
         UserDto userDto= usersBean.createUser(username, password, cnp, address, birthDate, firstName, lastName, phoneNumber, adminId, Arrays.asList(userGroup));
-        notificationsBean.createNotification(userDto,adminId);
+        //notificationsBean.createNotification(userDto);
         response.sendRedirect(request.getContextPath() + "/Users");
     }
 }
