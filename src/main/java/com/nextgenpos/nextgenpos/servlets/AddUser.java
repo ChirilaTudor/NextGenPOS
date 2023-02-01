@@ -5,6 +5,8 @@ import com.nextgenpos.nextgenpos.ejb.NotificationsBean;
 import com.nextgenpos.nextgenpos.ejb.UsersBean;
 import jakarta.inject.Inject;
 import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.HttpConstraint;
+import jakarta.servlet.annotation.ServletSecurity;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
@@ -16,11 +18,12 @@ import java.text.SimpleDateFormat;
 import java.util.Arrays;
 import java.util.Date;
 
-
+@ServletSecurity(value = @HttpConstraint(rolesAllowed = {"ADMIN"}))
 @WebServlet(name = "AddUser", value = "/AddUser")
 public class AddUser extends HttpServlet {
     @Inject
     UsersBean usersBean;
+
     @Inject
     NotificationsBean notificationsBean;
     @Override
@@ -57,7 +60,7 @@ public class AddUser extends HttpServlet {
 
         UserDto userDto= usersBean.createUser(username, password, cnp, address, birthDate, firstName, lastName, phoneNumber, adminId, Arrays.asList(userGroup));
         //notificationsBean.createNotification(userDto);
-        response.sendRedirect(request.getContextPath() + "/Users");
+        response.sendRedirect(request.getContextPath() + "/AddUser");
     }
 }
 

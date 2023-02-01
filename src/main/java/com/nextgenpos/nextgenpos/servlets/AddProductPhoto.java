@@ -9,6 +9,7 @@ import jakarta.servlet.annotation.*;
 
 import java.io.IOException;
 
+@ServletSecurity(value = @HttpConstraint(rolesAllowed = {"GENERAL_DIRECTOR"}))
 @MultipartConfig
 @WebServlet(name = "AddProductPhoto", value = "/AddProductPhoto")
 public class AddProductPhoto extends HttpServlet {

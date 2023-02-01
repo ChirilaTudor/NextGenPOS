@@ -10,7 +10,7 @@ import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-
+@ServletSecurity(value = @HttpConstraint(rolesAllowed = {"GENERAL_DIRECTOR"}))
 @WebServlet(name = "CreateSalesReport", value = "/CreateSalesReport")
 public class CreateSalesReport extends HttpServlet {
     @Inject

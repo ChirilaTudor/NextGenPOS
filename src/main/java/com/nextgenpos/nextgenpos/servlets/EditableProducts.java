@@ -4,6 +4,8 @@ import com.nextgenpos.nextgenpos.common.ProductDto;
 import com.nextgenpos.nextgenpos.ejb.ProductsBean;
 import jakarta.inject.Inject;
 import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.HttpConstraint;
+import jakarta.servlet.annotation.ServletSecurity;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
@@ -13,6 +15,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+@ServletSecurity(value = @HttpConstraint(rolesAllowed = {"GENERAL_DIRECTOR"}))
 @WebServlet(name = "EditableProducts", value = "/EditableProducts")
 public class EditableProducts extends HttpServlet{
     @Inject
