@@ -24,6 +24,7 @@ public class Cash extends HttpServlet {
             Double change;
 
             change = moneyGiven - total;
+            change = Math.floor(change * 100) / 100;
 
             if(moneyGiven < total)
             {

@@ -10,49 +10,43 @@
       <div class="row d-flex justify-content-center align-items-center h-100">
 
         <div class="col-md-8 col-lg-6 col-xl-4 ">
-          <form class="needs-validation" novalidate method="POST"
-                action="${pageContext.request.contextPath}/EditPerson">
+          <form class="needs-validation" novalidate method="POST" action="${pageContext.request.contextPath}/EditPerson">
             <div class="d-flex flex-row align-items-center justify-content-center justify-content-lg-start">
               <p class="lead fw-normal mb-5 fs-1">Edit current user</p>
             </div>
 
             <div class="form-outline mb-4">
-              <label class="form-label" for="person_id">User ID</label>
-              <input type="text" id="person_id" value="${person.idPerson}" class="form-control form-control-lg"/>
-            </div>
-
-            <div class="form-outline mb-4">
               <label class="form-label" for="first_name">First name</label>
-              <input type="text" id="first_name" value="${person.firstName}" class="form-control form-control-lg"/>
+              <input type="text" id="first_name" value="${person.firstName}" name="first_name" class="form-control form-control-lg"/>
             </div>
 
             <div class="form-outline mb-4">
               <label class="form-label" for="last_name">Last name</label>
-              <input type="number" id="last_name" value="${person.lastName}" class="form-control form-control-lg"/>
+              <input type="text" id="last_name" value="${person.lastName}" name="last_name" class="form-control form-control-lg"/>
             </div>
 
             <div class="form-outline mb-4">
               <label class="form-label" for="address">Address</label>
-              <input type="number" id="address" value="${person.address}" class="form-control form-control-lg"/>
+              <input type="text" id="address" value="${person.address}" name="address" class="form-control form-control-lg"/>
             </div>
 
             <div class="form-outline mb-4">
               <label class="form-label" for="cnp">CNP</label>
-              <input type="text" id="cnp" value="${person.CNP}" class="form-control form-control-lg"/>
+              <input type="text" id="cnp" value="${person.CNP}" name="cnp" class="form-control form-control-lg"/>
               <div class="invalid-feedback">
                 Provider is required.
               </div>
             </div>
 
-            <div class="form-outline form-white mb-4">
-              <label for="birth_date" class="d-flex p-2">Birth date</label>
-              <textarea class="form-control" id="birth_date" value="${person.birthDate}" rows="3" required></textarea>
+            <div class="form-outline mb-4">
+              <label class="form-label" for="phone_number">Phone Number</label>
+              <input type="text" id="phone_number" value="${person.phoneNumber}" name="phone_number" class="form-control form-control-lg"/>
+              <div class="invalid-feedback">
+                Phone Number is required.
+              </div>
             </div>
 
-            <div class="form-outline form-white mb-4">
-              <label for="phone_number" class="d-flex p-2">Phone number</label>
-              <textarea class="form-control" id="phone_number" value="${person.phoneNumber}" rows="3" required></textarea>
-            </div>
+            <input type="hidden" id="person_id" value="${person.idPerson}" name="person_id" class="form-control form-control-lg"/>
 
 
             <div class="text-center text-lg-start mt-4 pt-2">

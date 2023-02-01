@@ -68,7 +68,7 @@
                             <label>Total Price:</label>
                             <c:choose>
                                 <c:when test="${totalPrice != null}">
-                                    ${totalPrice} lei
+                                 ${totalPrice} lei
                                 </c:when>
                                 <c:otherwise>
                                     0 lei

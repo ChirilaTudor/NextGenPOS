@@ -1,6 +1,6 @@
 package com.nextgenpos.nextgenpos.common;
 
-import java.sql.Date;
+import java.util.Date;
 
 public class PersonDto {
     private Long idPerson;
@@ -9,9 +9,9 @@ public class PersonDto {
     private String address;
     private String CNP;
     private Date birthDate;
-    private Integer phoneNumber;
+    private String phoneNumber;
 
-    public PersonDto(Long idPerson, String firstName, String lastName, String address, String CNP, Date birthDate, Integer phoneNumber) {
+    public PersonDto(Long idPerson, String firstName, String lastName, String address, String CNP, Date birthDate, String phoneNumber) {
         this.idPerson = idPerson;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -45,7 +45,7 @@ public class PersonDto {
         return birthDate;
     }
 
-    public Integer getPhoneNumber() {
+    public String getPhoneNumber() {
         return phoneNumber;
     }
 }

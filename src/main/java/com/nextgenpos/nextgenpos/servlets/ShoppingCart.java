@@ -30,6 +30,8 @@ public class ShoppingCart extends HttpServlet {
             for(ShoppingCartProductDto product : shoppingCart){
                 totalPrice += product.getPrice();
             }
+
+            totalPrice = Math.floor(totalPrice * 100) / 100;
             request.setAttribute("totalPrice", totalPrice);
         }
         request.getRequestDispatcher("/WEB-INF/pages/sale.jsp").forward(request,response);

@@ -1,7 +1,10 @@
 package com.nextgenpos.nextgenpos.ejb;
 
+import com.nextgenpos.nextgenpos.common.PersonDto;
+import com.nextgenpos.nextgenpos.common.ProductDto;
 import com.nextgenpos.nextgenpos.common.UserDto;
 import com.nextgenpos.nextgenpos.entities.Person;
+import com.nextgenpos.nextgenpos.entities.Product;
 import com.nextgenpos.nextgenpos.entities.User;
 import com.nextgenpos.nextgenpos.entities.UserGroup;
 import jakarta.ejb.EJBException;
@@ -170,6 +173,80 @@ public class UsersBean {
 
     private UserDto copyUserToDTO(User user){
         return new UserDto(user.getIdUser(),user.getUsername(),user.getPassword(),user.getPerson(),user.isActive());
+    }
+
+    public UserDto findById(Long userId) {
+        LOG.info("findUsersById");
+
+        try {
+            User user = entityManager.find(User.class, userId);
+
+            if(user == null)
+                return null;
+
+            return new UserDto(user.getIdUser(),
+                    user.getUsername(),
+                    user.getPassword(),
+                    user.getPerson(),
+                    user.isActive());
+        } catch (Exception ex) {
+            throw new EJBException(ex);
+        }
+    }
+
+    public PersonDto findPersonById(Long personId) {
+        LOG.info("findPersonById");
+
+        try {
+            Person person = entityManager.find(Person.class, personId);
+
+            if(person == null)
+                return null;
+
+            return new PersonDto(person.getIdPerson(),
+                    person.getFirstName(),
+                    person.getLastName(),
+                    person.getAddress(),
+                    person.getCNP(),
+                    person.getBirthDate(),
+                    person.getPhoneNumber());
+
+        } catch (Exception ex) {
+            throw new EJBException(ex);
+        }
+    }
+
+    public Long findPersonIdByUserId(Long userId){
+        try {
+            List<Long> personIds = entityManager
+                    .createQuery("SELECT u.person.idPerson FROM User u WHERE u.idUser = :id", Long.class)
+                    .setParameter("id", userId)
+                    .getResultList();
+
+            if (personIds.isEmpty()) {
+                return null;
+            }
+
+            Long personId = personIds.get(0);
+            return personId;
+
+        } catch (Exception ex) {
+            throw new EJBException(ex);
+        }
+    }
+
+    public void updateUsers(Long personId, String first_name, String last_name, String address, String cnp, String phone_number) {
+        LOG.info("updateUsers");
+
+        Person person = entityManager.find(Person.class, personId);
+        person.setFirstName(first_name);
+        person.setLastName(last_name);
+        person.setAddress(address);
+        person.setCNP(cnp);
+        person.setPhoneNumber(phone_number);
+
+        entityManager.persist(person);
+
     }
 
 }

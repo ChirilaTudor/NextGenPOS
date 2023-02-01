@@ -10,7 +10,7 @@
     </div>
           <div class="row mx-5 my-5 ">
               <div class="col image mx-5 my-5 d-flex justify-content-center">
-                  <img src="${pageContext.request.contextPath}/ProductPhotos?id=${single_product.idProduct}" width="300" height="300"/>
+                  <img src="${pageContext.request.contextPath}/ProductPhotos?id=${single_product.idProduct}" width="300" height="500"/>
               </div>
 
             <div class="col col-1 " style="width:0">

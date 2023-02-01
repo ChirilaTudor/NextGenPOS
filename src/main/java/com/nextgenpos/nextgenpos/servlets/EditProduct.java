@@ -30,7 +30,7 @@ public class EditProduct extends HttpServlet {
         request.getRequestDispatcher("/WEB-INF/pages/editProduct.jsp").forward(request, response);
     }
     protected void doPost (HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        Long productId = Long.parseLong(request.getParameter("product_id"));
+        Long productId = Long.parseLong(request.getParameter("person_id"));
         String productName = request.getParameter("product_name");
         Integer quantity = Integer.parseInt(request.getParameter("product_quantity"));
         Double price = Double.parseDouble(request.getParameter("product_price"));

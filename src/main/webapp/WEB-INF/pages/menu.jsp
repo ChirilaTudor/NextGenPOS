@@ -52,7 +52,7 @@
             </c:if>
             <c:if test="${pageContext.request.isUserInRole('ADMIN')}">
                 <a href="${pageContext.request.contextPath}/AddUser">Add User</a>
-                <a href="${pageContext.request.contextPath}/ManageUsers">Manage User</a>
+                <a href="${pageContext.request.contextPath}/ManageUsers">Manage Users</a>
             </c:if>
         </div>
 </div>

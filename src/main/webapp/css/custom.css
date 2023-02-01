@@ -94,6 +94,7 @@ body{
     white-space:nowrap;
     text-overflow:ellipsis;
 }
+
 /*INVENTORY*/
 .stock{
     display: flex;

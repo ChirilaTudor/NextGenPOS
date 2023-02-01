@@ -10,7 +10,7 @@
         <h1 id="product_name">${category.categoryName}</h1>
       </c:when>
       <c:otherwise>
-        <h1 id="product_name">All product</h1>
+        <h1 id="product_name">All products</h1>
       </c:otherwise>
     </c:choose>
 
