@@ -1,5 +1,7 @@
 package com.nextgenpos.nextgenpos.servlets;
 
+import com.nextgenpos.nextgenpos.common.UserDto;
+import com.nextgenpos.nextgenpos.ejb.NotificationsBean;
 import com.nextgenpos.nextgenpos.ejb.UsersBean;
 import jakarta.inject.Inject;
 import jakarta.servlet.ServletException;
@@ -19,7 +21,8 @@ import java.util.Date;
 public class AddUser extends HttpServlet {
     @Inject
     UsersBean usersBean;
-
+    @Inject
+    NotificationsBean notificationsBean;
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setAttribute("userGroups", new String[]{"CASHIER", "GENERAL_DIRECTOR","ADMIN"});
@@ -52,8 +55,9 @@ public class AddUser extends HttpServlet {
             userGroup = new String[0];
         }
 
-        usersBean.createUser(username, password, cnp, address, birthDate, firstName, lastName, phoneNumber, adminId, Arrays.asList(userGroup));
-        response.sendRedirect(request.getContextPath() + "/AddUser");
+        UserDto userDto= usersBean.createUser(username, password, cnp, address, birthDate, firstName, lastName, phoneNumber, adminId, Arrays.asList(userGroup));
+        notificationsBean.createNotification(userDto,adminId);
+        response.sendRedirect(request.getContextPath() + "/Users");
     }
 }
 

@@ -145,7 +145,7 @@ public class ProductsBean {
         return new ProductPhotoDto(photo.getId(), photo.getFilename(), photo.getFileType(), photo.getFileContent());
     }
 
-    public List<ProductDto> findProductsByCategory(Integer categoryId) {
+    public List<ProductDto> findProductsByCategory(Long categoryId) {
         List<Product> products = entityManager
                 .createQuery("SELECT p FROM Product p where p.category.idCategory = :id", Product.class)
                 .setParameter("id", categoryId)

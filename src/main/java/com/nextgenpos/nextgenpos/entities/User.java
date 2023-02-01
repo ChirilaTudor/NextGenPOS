@@ -1,5 +1,4 @@
 package com.nextgenpos.nextgenpos.entities;
-
 import jakarta.persistence.*;
 
 import java.util.Collection;

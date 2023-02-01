@@ -25,22 +25,22 @@ public class NotificationsBean {
     @PersistenceContext
     EntityManager entityManager;
 
-    public void createNotification(UserDto user, UserDto admin){
+    public void createNotification(UserDto user, Long adminId){
         try{
             LOG.info("createNotification");
             Notification notification = new Notification();
             Date today = new Date();
             String notificationText = "A new user("+user.getPerson().getFirstName() +" "+ user.getPerson().getLastName() + ") with the username: "+  user.getUsername() + "  has been added into the database. In order to enable it's access, please click this link:";
             String notificationLink="/EnableUser=" + user.getIdUser().toString();
-            User adminUser = entityManager.find(User.class, admin.getIdUser());
+            User adminUser = entityManager.find(User.class, adminId);
             notification.setAdmin(adminUser);
             notification.setDate(today);
             notification.setContent(notificationText);
             notification.setLink(notificationLink);
             notification.setRead(false);
-
-            entityManager.persist(notification);
             adminUser.addNotification(notification);
+            entityManager.persist(notification);
+            entityManager.flush();
         }   catch (Exception ex) {
             throw new EJBException(ex);
         }
@@ -51,7 +51,7 @@ public class NotificationsBean {
             LOG.info("findALlNotifications");
             TypedQuery<Notification> typedQuery = entityManager.createQuery("SELECT n from Notification n",Notification.class);
             List<Notification> notifications = typedQuery.getResultList();
-            return  notifications.stream().map(n->new NotificationDto(n.getIdNotification(),n.getDate(),n.getRead(),n.getContent(),n.getLink(),n.getAdmin())).collect(Collectors.toList());
+            return  notifications.stream().map(n->new NotificationDto(n.getId(),n.getDate(),n.getRead(),n.getContent(),n.getLink(),n.getAdmin())).collect(Collectors.toList());
         }   catch (Exception ex) {
             throw new EJBException(ex);
         }

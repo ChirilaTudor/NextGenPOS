@@ -1,30 +1,25 @@
 package com.nextgenpos.nextgenpos.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.*;
 
 import java.util.Date;
 
 @Entity
-public class Notification {
-    private Long idNotification;
-    private Date date;
-    private Boolean Read;
-    private String Content;
-    private String Link;
-    private User admin;
-
-    @Id
+public class  Notification {
     @GeneratedValue
-    public Long getIdNotification() {
-        return idNotification;
+    @Id
+    private Long id;
+
+    public Long getId() {
+        return id;
     }
 
-    public void setIdNotification(Long idNotification) {
-        this.idNotification = idNotification;
+    public void setId(Long id) {
+        this.id = id;
     }
+
+    @Basic
+    private Date date;
 
     public Date getDate() {
         return date;
@@ -34,35 +29,47 @@ public class Notification {
         this.date = date;
     }
 
+    @Basic
+    private Boolean read;
+
     public Boolean getRead() {
-        return Read;
+        return read;
     }
 
     public void setRead(Boolean read) {
-        Read = read;
+        this.read = read;
     }
 
+    @Basic
+    private String content;
+
     public String getContent() {
-        return Content;
+        return content;
     }
 
     public void setContent(String content) {
-        Content = content;
+        this.content = content;
     }
 
+    @Basic
+    private String link;
+
     public String getLink() {
-        return Link;
+        return link;
     }
 
     public void setLink(String link) {
-        Link = link;
+        this.link = link;
     }
-    @ManyToOne()
+
+    @ManyToOne
+    private User admin;
+
     public User getAdmin() {
         return admin;
     }
 
-    public void setAdmin(User user) {
-        this.admin = user;
+    public void setAdmin(User admin) {
+        this.admin = admin;
     }
 }
