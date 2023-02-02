@@ -1,7 +1,7 @@
 package com.nextgenpos.nextgenpos.servlets;
 
 import com.nextgenpos.nextgenpos.common.UserDto;
-import com.nextgenpos.nextgenpos.ejb.NotificationsBean;
+import com.nextgenpos.nextgenpos.ejb.NotifyBean;
 import com.nextgenpos.nextgenpos.ejb.UsersBean;
 import jakarta.inject.Inject;
 import jakarta.servlet.ServletException;
@@ -25,7 +25,7 @@ public class AddUser extends HttpServlet {
     UsersBean usersBean;
 
     @Inject
-    NotificationsBean notificationsBean;
+    NotifyBean notifyBean;
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setAttribute("userGroups", new String[]{"CASHIER", "GENERAL_DIRECTOR","ADMIN"});
@@ -33,8 +33,6 @@ public class AddUser extends HttpServlet {
     }
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
-        String adminName = request.getUserPrincipal().getName();
-        Long adminId = usersBean.getIdByUsername(adminName);
 
         String username = request.getParameter("username");
         String password = request.getParameter("password");
@@ -58,8 +56,8 @@ public class AddUser extends HttpServlet {
             userGroup = new String[0];
         }
 
-        UserDto userDto= usersBean.createUser(username, password, cnp, address, birthDate, firstName, lastName, phoneNumber, adminId, Arrays.asList(userGroup));
-        //notificationsBean.createNotification(userDto);
+        UserDto userDto= usersBean.createUser(username, password, cnp, address, birthDate, firstName, lastName, phoneNumber, Arrays.asList(userGroup));
+        notifyBean.createNotify(userDto);
         response.sendRedirect(request.getContextPath() + "/AddUser");
     }
 }

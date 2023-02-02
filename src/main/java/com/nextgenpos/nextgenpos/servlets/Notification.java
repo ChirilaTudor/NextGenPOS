@@ -1,7 +1,7 @@
 package com.nextgenpos.nextgenpos.servlets;
 
-import com.nextgenpos.nextgenpos.common.NotificationDto;
-import com.nextgenpos.nextgenpos.ejb.NotificationsBean;
+import com.nextgenpos.nextgenpos.common.NotifyDto;
+import com.nextgenpos.nextgenpos.ejb.NotifyBean;
 import jakarta.inject.Inject;
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;
@@ -14,11 +14,11 @@ import java.util.List;
 @WebServlet(name = "Notification", value = "/Notification")
 public class Notification extends HttpServlet {
     @Inject
-    NotificationsBean notificationsBean;
+    NotifyBean notifyBean;
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        List<NotificationDto> notificationDtoList = notificationsBean.findALlNotifications();
-        request.setAttribute("notifications",notificationDtoList);
+        List<NotifyDto> notifies = notifyBean.getAllNotifies();
+        request.setAttribute("notifications",notifies);
         request.getRequestDispatcher("/WEB-INF/pages/notifications.jsp").forward(request, response);
     }
 

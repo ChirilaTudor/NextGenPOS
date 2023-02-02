@@ -4,14 +4,14 @@
 
 <t:pageTemplate pageTitle="Notifications">
 
-  <div class="container">
+  <div class="container my-5">
 
     <c:forEach var="notificaiton" items="${notifications}" varStatus="loop">
     <div class="accordion " id="accordionFlushExample">
       <div class="accordion-item mb-2 ">
         <h2 class="accordion-header  " id="flush-heading${loop.index.toString()} ">
           <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse${loop.index.toString()}" aria-expanded="false" aria-controls="flush-collapse${loop.index.toString()}">
-              ${loop.index.toString()}: New notification from ${notificaiton.admin.username.toString()} in ${notificaiton.date.toString()}
+              ${loop.index.toString()}: ${notificaiton.getTitle()}
           </button>
         </h2>
         <div id="flush-collapse${loop.index.toString()}" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
@@ -19,7 +19,7 @@
             <div class="row">
               <div class="col mb-5">
                   ${notificaiton.content}
-                  ${notificaiton.link}
+                <a class="btn bg-secondary mx-2 text-white" href="${pageContext.request.contextPath}${notificaiton.relativePath}">ENABLE HERE</a>
               </div>
             </div>
           </div>

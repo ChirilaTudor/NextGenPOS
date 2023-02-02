@@ -22,8 +22,6 @@ import java.util.stream.Collectors;
 
 @Stateless
 public class UsersBean {
-    @Inject
-    NotificationsBean notificationsBean;
 
     @Inject
     PasswordBean passwordBean;
@@ -70,7 +68,7 @@ public class UsersBean {
         return userDto;
     }
 
-    public UserDto createUser(String username, String password, String cnp, String address, Date birthDate, String firstName, String lastName, String phoneNumber, Long adminId, Collection<String> groups) {
+    public UserDto createUser(String username, String password, String cnp, String address, Date birthDate, String firstName, String lastName, String phoneNumber, Collection<String> groups) {
         LOG.info("createUser");
 
         Boolean isUsername = usernameExist(username);
@@ -98,7 +96,6 @@ public class UsersBean {
         person.setUser(user);
         entityManager.persist(person);
 
-        User admin = entityManager.find(User.class, adminId);
         UserDto userDto = copyUserToDTO(user);
 
         assignGroupsToUser(username, groups);
